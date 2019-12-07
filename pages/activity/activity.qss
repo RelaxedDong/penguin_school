@@ -1,0 +1,55 @@
+.page-container{
+    margin: 0 20rpx;
+}
+/*抽屉*/
+.scroll_box{
+    margin: 0;
+}
+.tag-list{
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.order-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 25rpx;
+    padding: 10rpx;
+    height: 50rpx;
+    color: #16D0FF;
+}
+.count-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50rpx;
+}
+.filter-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10rpx;
+    font-size: 25rpx;
+}
+.search-icon{
+    box-sizing: border-box;
+    font-size: 35rpx;
+    border-radius: 50%;
+    color: #16D0FF;
+    display: table-cell;
+}
+.tag-list view{
+    margin: 10rpx 5rpx;
+    font-size: 25rpx;
+    color: gray;
+    width: 100%;
+}
+.user-tags{
+    margin-left: 30rpx;
+    text-align: right;
+    margin-top: 5rpx;
+    z-index: 99;
+}
+

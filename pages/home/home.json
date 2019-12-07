@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "企鹅论坛",
+  "usingComponents": {
+    "header": "../../components/header/header",
+    "navbar": "../../components/navbar/navbar"
+  },
+  "navigationStyle": "custom"
+}
+
+

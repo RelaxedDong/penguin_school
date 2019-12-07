@@ -1,0 +1,103 @@
+/**index.wxss**/
+.swiper-box{
+    width: 100%;
+    height: 350rpx;
+}
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+    margin-bottom: 2rpx;
+}
+.swiper-box .wx-swiper-dot{
+    width:40rpx;
+    display: inline-flex;
+    height: 12rpx;
+    margin-left: 20rpx;
+    justify-content:space-between;
+}
+.swiper-box .wx-swiper-dot::before{
+    content: '';
+    flex-grow: 1;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10rpx
+}
+.swiper-box .wx-swiper-dot-active::before{
+    background:#00BFFF;
+}
+.swiper-box image {
+    height: 100%;
+    width: 100%;
+}
+.layout_horizontal .title {
+    margin:10rpx;
+    height:60rpx;
+    border-radius:15rpx;
+    font-size:25rpx;
+    border: 1px solid #f1f2f6;
+}
+.active{
+    background: #16D0FF;
+    color: white;
+}
+.goods-miaoshu{
+    position: absolute;
+    bottom: 0;
+}
+.layout_horizontal {
+    display: flex;
+    /*row 横向  column 列表  */
+    flex-direction: row;
+}
+
+.layout_horizontal view{
+    text-align: center;
+}
+
+.img{
+    /* margin: 20px; */
+    height: 70rpx;
+    width: 70rpx;
+}
+
+.layout_horizontal view text {
+    font-size: 24rpx;
+}
+
+.layout_horizontal .title {
+    margin: 10rpx;
+    height: 60rpx;
+}
+
+.layout_horizontal view text {
+    font-size: 24rpx;
+}
+
+.layout_horizontal .classifition{
+    margin-top: 10rpx;
+}
+
+.layout_horizontal  .class-div{
+    margin: 1rpx;
+    height: 100rpx
+}
+.layout_horizontal  .class-div image{
+    margin: 0 auto;
+}
+.img-9-box{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.img-box-second{
+    margin-top: 10rpx;
+    display: flex;
+    width: 100%;
+    flex-wrap:wrap;
+    flex-direction: row;
+    padding-bottom: 20rpx;
+}
+.img-box-second image{
+    height: 180rpx;
+    width: 210rpx;
+    margin-top: 20rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+}

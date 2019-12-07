@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "header": "../../components/header/header",
+    "navbar": "../../components/navbar/navbar",
+    "imgcol": "../../components/img-group/img-group"
+  },
+    "navigationStyle": "custom"
+}
+
+
+ 

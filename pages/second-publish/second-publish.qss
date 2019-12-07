@@ -1,0 +1,73 @@
+.top-card{
+    background-color: white;
+    width: 100%;
+    border-radius: 20rpx;
+}
+.areas{
+    font-size: 30rpx;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx;
+    min-height: 300rpx;
+}
+.top-card .title{
+    height: 70rpx;
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+.img-box{
+    margin-top: 20rpx;
+    width: 244rpx;
+    height: 180rpx;
+    margin-right: 23rpx;
+    display: inline-block;
+    position: relative;
+}
+.buttom-card{
+    margin-top: 50rpx;
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 20rpx;
+    display: flex;
+    /*row 横向  column 列表  */
+    flex-direction: column;
+}
+.buttom-card .span{
+    position: relative;
+    font-size: 25rpx;
+    margin-top:40rpx;
+    flex: 1;
+}
+.switch-price{
+    margin-right: 20rpx;
+}
+.buttom-card image{
+    position: relative;
+    right: 50rpx;
+    float: right;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.buttom{
+    margin-top: 20rpx;
+    width: 100%;
+}
+.buttom button{
+    margin: 15rpx;
+    background: #16D0FF;
+    color: white;
+}
+.img{
+    margin: 10rpx;
+    width:140rpx;
+    height: 140rpx;
+}
+page{
+    background: #e1eee7;
+}

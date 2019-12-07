@@ -1,0 +1,38 @@
+.clear{clear: both;overflow: hidden;}
+.banner{height:400rpx;}
+.slide-image {width:100%;height:100%;}
+.price{
+    color:#FF6666;
+    font-size: 40rpx;
+}
+.raw_price{
+    text-decoration:line-through;
+}
+.add-cart-btn{background:linear-gradient(to right,#FF7A34, #EE32FF);color: #fff;
+    border-radius: 50rpx;width: 400rpx}
+.item{
+    padding:10rpx 0;
+    margin-top: 20rpx;
+}
+.good-desc{
+    padding: 30rpx 0;
+    font-size: 25rpx;
+}
+.footer-bottom{
+    padding-bottom: 150rpx;
+}
+.myface{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+.cu-button{
+    border-radius: 0rpx;
+    padding:0rpx;
+    margin:0rpx;
+    line-height: 1;
+    display: flex;
+    font-size: 35rpx;
+    flex-direction: column;
+    color: #9B9B9B;
+}

@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/activity/activity",
+    "pages/photo/photo",
+    "pages/preview/preview",
+    "pages/school/school",
+    "pages/photo-publish/publish",
+    "pages/my/my",
+    "pages/second/second",
+    "pages/second-detail/second-detail",
+    "pages/auth/auth",
+    "pages/mycollect/mycollect",
+    "pages/category/category",
+    "pages/second-publish/second-publish",
+    "pages/publish/publish",
+    "pages/book/book",
+    "pages/food/food",
+    "pages/travel/travel",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#16D0FF",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "企鹅校园"
+  },
+  "tabBar": {
+    "custom": "true",
+    "backgroundColor": "#ffffff",
+    "color": "#ffffff",
+    "selectedColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页"
+    },{
+      "pagePath": "pages/activity/activity",
+      "text": "活动"
+    }, {
+      "pagePath": "pages/photo/photo",
+      "text": "校园美景"
+    }, {
+      "pagePath": "pages/second/second",
+      "text": "跳骚市场"
+    }, {
+      "pagePath": "pages/food/food",
+      "text": "周边店铺/美食"
+    }]
+  },
+  "usingComponents": {
+  },
+  "groupIdList":["428434143"]
+}

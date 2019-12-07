@@ -1,0 +1,83 @@
+.top-con{
+  /* height: 60%; */
+  width: 100%;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  padding: 50rpx;
+}
+text{
+  display: block;
+}
+.title-2, .title-1{
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: #1a2a3a;
+}
+.title-1{
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+
+.title-2{
+  font-size: 1.1em;
+}
+.comon-text{
+  color: #777;
+  margin-bottom: 0.3em;
+  font-size: 35rpx;
+  margin-top: 15rpx;
+}
+.line{
+  width: 20%;
+  height: 10rpx;
+  background-color:#d52349;
+  margin: 1.4em 0;
+}
+.con{
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20rpx;
+}
+text, .text{
+  color: #3f3f3f;
+  font-size: 0.8em;
+}
+.item-con{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2em auto;
+}
+.item-con .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+}
+.item-con .item text{
+  color: #9B9B9B;
+
+}
+.item image{
+  width: 136rpx;
+  height: 136rpx;
+  margin-bottom: 10rpx;
+}
+.tip{
+  position: absolute;
+  bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tip text{
+  color: #777;
+  font-size: 0.66em;
+}
+

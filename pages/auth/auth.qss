@@ -1,0 +1,16 @@
+.auth-contaner{
+    margin:50rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.image-rotate{
+    text-align: center;
+}
+.image-rotate image{
+    z-index: 2;
+    height: 240rpx;
+    width: 240rpx;
+    animation: headRotate 6s linear infinite;
+    padding: 20rpx;
+    border-radius: 50%;
+}

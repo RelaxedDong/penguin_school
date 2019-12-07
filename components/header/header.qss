@@ -1,0 +1,70 @@
+/*tabpane*/
+.tabpanel-list{
+    display: flex;
+    flex-direction: row;
+    font-size: 25rpx;
+    border-bottom: 1px solid #f1f2f6;
+    padding:20rpx 10rpx;
+    top:100px
+}
+.scroll_box{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20rpx;
+    /*background: #fff;*/
+    white-space: nowrap;
+}
+.where-filter{
+    box-sizing: border-box;
+}
+.list-style text{
+    font-size: 45rpx;
+    border-radius: 50%;
+    padding: 10rpx;
+    background: linear-gradient(33deg, #6cacff, #8debff);
+    color: white;
+}
+.tab-item{
+    padding: 5rpx 15rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    align-self: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}.margin-top-50{
+     margin-top: 50rpx;
+ }
+.active-text{
+    color: #16D0FF;
+    background: #F5FFFA;
+    border-radius: 20rpx;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+.auto-left{
+    margin:0 auto;
+}
+.margin-right-10{
+    margin-right: 10rpx;
+}
+.margin-left-10{
+    margin-left: 10rpx;
+}
+.top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+.update_time{
+    font-size: 25rpx;
+}
+.address{
+    font-size: 25rpx;
+}
+@import "../../main-qss/icon.qss";

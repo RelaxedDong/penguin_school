@@ -1,0 +1,189 @@
+.template{
+    width: 100%;
+    overflow-x: hidden;
+}
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(1);
+    }
+
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: relative;
+    height: 30rpx;
+    width: 100%;
+    background: linear-gradient(33deg, #6cacff, #8debff);
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+}
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+    height: 24px;
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+    height: 19px;
+}
+
+.bgBottom {
+    z-index: 5;
+    height: 14px;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 2160px;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.wave image {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.waveTop {
+    background-size: 540px 25px;
+}
+
+.waveAnimation .waveTop {
+    animation: move_wave 30s linear infinite;
+}
+
+.waveMiddle {
+    background-size: 1080px 20px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 24s linear infinite;
+}
+
+.waveBottom {
+    background-size: 540px 15px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 12s linear infinite;
+}
+.header{
+    width: 100%;
+    height: 300rpx;
+    background: linear-gradient(33deg, #6cacff, #8debff);
+    display: flex;
+    align-items:center;
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30rpx;
+}
+.weather{
+    padding: 20rpx;
+    font-size: 23rpx;
+    color: #9B9B9B;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.usernickName{
+    margin-top: 20rpx;
+    color: #2F3231;
+    font-size: 30rpx;
+}
+.center-avatar{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+.outer-img image{
+    position: absolute;
+    width:200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    left:10rpx;
+    top:100rpx;
+    overflow: hidden;
+}
+.home_grids {
+    display: flex;
+    justify-content: space-between;
+    font-size: 23rpx;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    color: #9B9B9B;
+    text-align: center;
+    border-bottom: 1px solid #f1f2f6;
+}
+.home_grid {
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+.home_grid image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.choose-items{
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    color: #2F3231;
+}
+.choose-item{
+    padding: 10rpx 0;
+    border-bottom: 1px solid #f1f2f6;
+}
+.button-hover{
+    opacity: 0;
+}
+.item-button{
+    width: 100%;
+    border-radius: 0rpx;
+    padding:0rpx;
+    margin:0rpx;
+    display: flex;
+    flex-direction: row;
+    color: #9B9B9B;
+    align-items:center;
+    justify-content: space-between;
+}
+.right-arr{
+    display: flex;
+    color: #9B9B9B;
+    font-size: 25rpx;
+    align-items:center;
+}
+.nickname-box{
+    flex-direction: column;
+    display: flex;
+    color: white;
+    font-size: 30rpx;
+    align-self: center;
+    margin: 30rpx 0 0 50rpx;
+}
+.icon-style{
+    font-size: 32rpx;
+    margin-right: 30rpx;
+}

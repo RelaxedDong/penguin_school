@@ -1,0 +1,129 @@
+/* pages/preview/preview.wxss */
+/**index.wxss**/
+.swiper-box{
+  width: 100%;
+  height: 350rpx;
+}
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: 2rpx;
+}
+.swiper-box image {
+  height: 100%;
+  width: 100%;
+}
+page{
+  background-color:#000;
+}
+.bar{
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 999;
+}
+.bar text{
+  font-size: 50rpx;
+  color: white;
+}
+.font-size-50{
+  font-size: 50rpx;
+}
+.show-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.show-img .show{
+  width: 100%;
+}
+
+.fix{
+  width: 100%;
+  height: 20%;
+  position: fixed;
+  bottom: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+}
+
+.interact{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.interact .witget{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.interact .witget view{
+  margin: 0.3em 0.5em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.interact .witget text{
+  font-size: 0.8em;
+}
+.totop{
+  margin: 0.5em 1.3em;
+}
+.totop text{
+  font-size: 40rpx;
+}
+
+.info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-info text{
+  display: block;
+}
+
+.title{
+  font-size: 40rpx;
+  padding: 10rpx 0;
+}
+.name{
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+.user-info image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-right: 0.5em;
+}
+.text-info{
+  width: 60%;
+}
+
+.img-info{
+  background-color: #000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #fff;
+  font-size: 0.8em;
+  left: 0;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.img-info view{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.5em;
+}

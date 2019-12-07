@@ -1,0 +1,392 @@
+.page-container{
+  margin: 20rpx;
+}
+.bg-white{
+  background: white;
+}
+.text-black{
+  color: #2F3231;
+}
+.text-yellow{
+  color: #FFD100;
+}
+.text-red{
+  color: #FF5267;
+}
+.bg-f4{
+  background: #F5FFFA;
+}
+.text-grey{
+  color: #9B9B9B;
+}
+.text-blue{
+  color: #16D0FF;
+}
+.border-main{
+  border-bottom: 1px solid #f1f2f6;
+}
+.input-box{
+  padding: 20rpx 0;
+}
+.input-item{
+  margin-top: 10rpx;
+}
+.input-item input,.input-item textarea{
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+}
+textarea{
+  width: 100%;
+  min-height: 300rpx;
+}
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+.ellipsis-nowrap{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.shadow{
+  box-shadow: 0 4rpx 20rpx 0 rgba(212,217,223,.5);
+}
+.main-blue-bg{
+  color: white;
+  background: #16D0FF;
+}
+.space-between{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+.flex1{
+  display: flex;
+  flex: 1;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex_start{
+  justify-content: start;
+}
+.cell-center{
+  align-self: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.auto-left{
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+.auto-left view{
+  margin-right: 10rpx;
+}
+.activity-foot{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 27rpx;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.column-center{
+  align-items: center;
+  justify-content: start;
+}
+.text-size-18{
+  align-items: center;
+  font-size: 18rpx;
+}
+.text-size-20{
+  font-size: 20rpx;
+}.text-size-23{
+   font-size: 23rpx;
+ }
+.text-size-25{
+  font-size: 25rpx;
+}
+.text-size-27{
+  font-size: 27rpx;
+}
+.text-size-30{
+  font-size: 30rpx;
+}
+.text-bold{
+  font-weight: bold;
+}
+.border-radius{
+  border-radius: 50%;
+}
+.padding-20{
+  padding: 20rpx;
+}
+.padding-10{
+  padding: 10rpx;
+}
+.margin-10{
+  margin:10rpx
+}
+.margin-top-10{
+  margin-top: 10rpx;
+}
+.margin-20{
+  margin: 20rpx;
+}
+.margin-top-20{
+  margin-top: 20rpx;
+}
+.margin-top-50{
+  margin-top: 50rpx;
+}
+.margin-right-5{
+  margin-right: 5rpx;
+}
+.margin-right-10{
+  margin-right: 10rpx;
+}
+.margin-bottom-10{
+  margin-bottom: 10rpx;
+}
+.margin-left-5{
+  margin-left: 5rpx;
+}
+.margin-left-10{
+  margin-left: 10rpx;
+}
+.footer{
+  width: 100%;
+  box-sizing: border-box;
+  padding:20rpx;
+  border-top: 1px solid #f1f2f6;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: white;
+}
+.padding-top-bottom-10{
+  padding: 10rpx 0;
+}
+.padding-bottom-10{
+  padding-bottom: 10rpx;
+}
+.padding-top-bottom-20{
+  padding: 20rpx 0;
+}
+.margin-left-20{
+  margin-left: 20rpx;
+}
+.border-box{
+  box-sizing: border-box;
+}
+.location{
+  font-size: 23rpx;
+  color: #9B9B9B;
+}
+.location .cuIcon-locationfill{
+  font-size: 35rpx;
+  color: #16D0FF;
+}
+.imgurl{
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+}
+.share{
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.avatar image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+/**搜索 **/
+.search-box{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #FBFAFA;
+  border-radius: 100rpx;
+  box-sizing: border-box;
+  width: 80%;
+}
+.border-radius-100{
+  border-radius: 100rpx;
+}
+.search-box input,.search-box text{
+  overflow: initial;
+  font-size: 30rpx;
+  align-self: center;
+  display: table-cell;
+}
+.search-box input{
+  width: 100%;
+  margin-left: 35rpx;
+}
+/**搜索 **/
+
+/** empty **/
+.empty{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 150rpx 0;
+}
+.empty image{
+  align-self: center;
+  width: 150rpx;
+  height: 150rpx;
+}
+.empty text{
+  margin-top: 20rpx;
+  font-size: 25rpx;
+}
+
+.scroll_box{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20rpx;
+  /*background: #fff;*/
+  white-space: nowrap;
+}
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  margin: auto;
+  overflow:hidden;
+  display: block;
+  border-radius: 10rpx;
+}
+.small-avatar{
+  width: 60rpx;
+  height: 60rpx;
+  overflow:hidden;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid #f1f2f6;
+}
+.img-box{
+  margin-top: 10rpx;
+  width: 244rpx;
+  height: 180rpx;
+  margin-right: 23rpx;
+  display: inline-block;
+}
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  background: #FFD100;
+  color: white;
+}
+.img-box image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+/*/text=area*/
+.areas{
+  height:152rpx;
+  font-size: 30rpx;
+  padding-top: 30rpx;
+  margin: 0 auto;
+  position: relative;
+}
+.DeleteBtn{
+  position: absolute;
+  top: 0;
+  color: white;
+  right: 0;
+  padding: 5rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: black;
+  opacity:0.7;
+}
+.currentWordNumber{
+  font-size: 28rpx;
+  color: gray;
+  position: absolute;
+  bottom: -50rpx;
+  right: 10rpx;
+}
+
+.card-container{
+  padding:0 20rpx;
+  box-sizing:border-box;
+  display:flex;
+  background: white;
+  flex-direction: column;
+}
+.card-box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+
+
+/*头像盒子*/
+.activity-list{
+  margin:10rpx 0;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.activity-head image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.desc{
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+}
+.nickname {
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.info{
+  margin-left: 20rpx;
+  justify-content: space-between;
+}
+.main-bg-cor{
+  background: #8debff;
+  color: white;
+}
+.text-title{
+  font-size: 40rpx;
+}
+.publish-btn{
+  z-index: 100;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  background: linear-gradient(33deg, #6cacff, #8debff);
+  color: white;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+.publish-btn text{
+  font-size: 50rpx;
+  line-height: 100rpx;
+}
+/** detail footer **/
+@import "main-qss/icon.qss";

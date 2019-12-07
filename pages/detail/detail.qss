@@ -1,0 +1,115 @@
+.avatar{
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+    display: flex;
+    position: absolute;
+    top: 30%;
+    padding-bottom: 20rpx;
+    font-size: 24rpx;
+    flex-direction: column;
+    text-align: center;
+}
+.add-btn{
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    padding:13rpx;
+    margin:20rpx auto;
+    line-height: 1;
+    background: linear-gradient(33deg, #6cacff, #8debff);
+    color: white;
+    display: flex;
+    font-size: 30rpx;
+    flex-direction: row;
+    border: 0;
+}
+.img-flex{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+}
+.aui-tour-content{
+    position: relative;
+    width:100%;
+    height:250rpx;
+    background-color: #16D0FF;
+    border-radius:0 0 50% 50%;
+}
+.detail-title{
+    margin-top:40rpx;
+    font-size: 30rpx;
+    color: #333333;
+}
+.icon-row{
+    padding:30rpx 0;
+    font-size: 30rpx;
+}
+.icon-row view{
+    margin-right: 20rpx;
+    font-size: 27rpx;
+}
+.text-desc{
+    padding: 20rpx 0;
+    box-sizing: border-box;
+    font-size: 27rpx;
+    border-radius: 10rx;
+    color: #9B9B9B;
+}
+.talk{
+    text-align: right;
+    font-size: 25rpx;
+    padding: 10rpx;
+    color: white;
+    background: #16D0FF;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+.QQZone{
+    margin-left: 20rpx;
+    font-size: 25rpx;
+    padding: 10rpx;
+    color: white;
+    background: linear-gradient(33deg, #99e5a2, #d4fc78);
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+.input_null{
+    color: #C9C9C9;
+}
+.comment-desc{
+    margin-left: 20rpx;
+    padding-bottom: 20rpx;
+}
+.release{
+    display: flex;
+    align-items: flex-end; /*底部对齐*/
+    justify-content: space-between; /*两端对齐*/
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 18rpx 0 18rpx 30rpx;
+    background-color: #F7F8F7;
+    font-size: 28rpx;
+    z-index: 999;
+}
+.release .text{
+    width: 604rpx;
+    min-height: 34rpx;
+    max-height: 102rpx; /*最多显示三行*/
+    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+    border-style: solid;
+    border-color:  #ffffff;
+    line-height: 34rpx;
+    font-size: 28rpx;
+    background-color: #ffffff;
+    border-radius: 4rpx;
+}
+.release .submit{
+    width: 116rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: #16D0FF;
+}

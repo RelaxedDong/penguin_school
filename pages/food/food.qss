@@ -1,0 +1,85 @@
+
+.bg-mainbg{
+  background: #FFD100;
+}
+.active-text{
+  color: #13100E;
+  font-size: 35rpx;
+}
+
+.card-img{
+  height: 180rpx !important;
+  width: 220rpx !important;
+  border-bottom-left-radius: 12rpx !important;
+  border-top-left-radius: 12rpx !important;
+}
+.card-title{
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 20rpx;
+  font-size: 27rpx;
+}
+.user-info{
+  display: flex;
+  flex-direction: row;
+}
+.user-info image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.price{
+  margin-left: auto;
+  text-align: right;
+}
+
+/**入驻申请**/
+.join-food-group{
+  display: flex;
+  flex-direction: row;
+  margin:30rpx 0;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.join-now-info{
+  width: 100rpx;
+  font-size: 35rpx;
+  font-family: "FangSong";
+
+}
+.food-face{
+  width: 100rpx;
+  display: flex;
+  border-left: 3rpx solid #f1f2f6;
+  padding-left: 20rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+.food-face image{
+  width: 90%;
+  height: 90%;
+}
+.line-column{
+  height: 100rpx;
+}
+.join-now-btn{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.joined-list{
+  margin:10rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
