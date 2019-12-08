@@ -51,7 +51,7 @@
     </view>
     <view class="space-between border-main" data-activeKey="tag" bindtap="TabChoose"  qq:if="{{!is_img_upload}}">
         <view>
-            <text class="cuIcon-tag"></text><text class="margin-left-10">添加话题</text>
+            <text class="cuIcon-tag"></text><text class="margin-left-10">添加板块</text>
         </view>
         <view>
             <text class="{{activekey == 'tag'?'cuIcon-unfold':'cuIcon-right'}}"></text>

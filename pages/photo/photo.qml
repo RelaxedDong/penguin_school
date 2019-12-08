@@ -1,5 +1,3 @@
-<navbar title="校园美景"></navbar>
-<header activekey="photo"></header>
 <view bindtap="PublishClick" class="publish-btn">
     <text class="cuIcon-picfill"></text>
 </view>

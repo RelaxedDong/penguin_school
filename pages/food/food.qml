@@ -1,5 +1,3 @@
-<navbar title="美食/店铺"></navbar>
-<header activekey="food"></header>
 <view class="main-container">
   <view class="card-container">
       <view class="join-food-group shadow" bindtap="HandleClick">

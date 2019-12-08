@@ -36,7 +36,7 @@
                 </view>
             </view>
             <view class='span padding-top-bottom-20'>
-                <picker bindchange="bindPickerChange" range-key='name' range="{{categories}}">
+                <picker bindchange="bindPickerChange" range-key='name' range="{{schools}}">
                     选择分类<text class="margin-left-20">{{choose_value}}</text>
                 </picker>
             </view>

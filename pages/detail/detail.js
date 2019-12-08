@@ -160,6 +160,9 @@ Page({
         const activity_id = e.currentTarget.dataset.id;
         app.WxHttpRequestPOST('activity_favor',{activity_id:activity_id},this.FavorDone,app.InterError)
     },
+    share(){
+      this.onShareAppMessage()
+    },
     onShareAppMessage(res){
         app.ShowMenue()
     },

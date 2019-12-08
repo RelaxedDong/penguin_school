@@ -1,7 +1,7 @@
 <view class="aui-tour-content">
   <view class="avatar">
     <image class="img-flex" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
-      <button class="add-btn" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{activity.openid}}">+ 好友</button>
+      <button class="add-btn main-bg-cor" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{activity.openid}}">+ 好友</button>
   </view>
 </view>
 <view class="page-container">
@@ -21,6 +21,13 @@
     </scroll-view>
   </view>
   <view class="icon-row flex-row text-black ">
+    <view>
+      <button open-type="share" class="cell-center qq-zone-share">
+        <view  class="flex-row">
+          <image src="/imgs/source/qq-zone.png" class="icon-img"></image>
+        </view>
+      </button>
+    </view>
     <view qq:for="{{activity.tags}}">
       <text class="cuIcon-tag margin-right-10"></text>{{item.name}}
     </view>

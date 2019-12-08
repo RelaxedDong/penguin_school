@@ -1,6 +1,6 @@
 <view class="auth-contaner"  animation="{{slide_up1}}">
     <view class="image-rotate">
-        <image class="image-rotate" mode="aspectFit" animation="{{animation}}" src='/imgs/source/mina-logo.png'></image>
+        <image class="image-rotate" mode="aspectFit" animation="{{animation}}" src='{{school.logo}}'></image>
     </view>
     <view class="form-group">
         <view class="input-box">

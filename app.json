@@ -1,12 +1,12 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/message/message",
+    "pages/my/my",
     "pages/activity/activity",
     "pages/photo/photo",
     "pages/preview/preview",
-    "pages/school/school",
     "pages/photo-publish/publish",
-    "pages/my/my",
     "pages/second/second",
     "pages/second-detail/second-detail",
     "pages/auth/auth",
@@ -25,26 +25,29 @@
     "navigationBarTitleText": "企鹅校园"
   },
   "tabBar": {
-    "custom": "true",
-    "backgroundColor": "#ffffff",
-    "color": "#ffffff",
-    "selectedColor": "#ffffff",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页"
-    },{
-      "pagePath": "pages/activity/activity",
-      "text": "活动"
-    }, {
-      "pagePath": "pages/photo/photo",
-      "text": "校园美景"
-    }, {
-      "pagePath": "pages/second/second",
-      "text": "跳骚市场"
-    }, {
-      "pagePath": "pages/food/food",
-      "text": "周边店铺/美食"
-    }]
+    "selectedColor": "#16D0FF",
+    "color": "#bfbfbf",
+    "backgroundColor":"#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/imgs/source/icon/index.png",
+        "selectedIconPath": "/imgs/source/icon/index-active.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "/imgs/source/icon/message.png",
+        "selectedIconPath": "/imgs/source/icon/message-active.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/imgs/source/icon/my-center.png",
+        "selectedIconPath": "/imgs/source/icon/my-center-active.png",
+        "text": "我的"
+      }
+    ]
   },
   "usingComponents": {
   },

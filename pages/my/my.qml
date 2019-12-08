@@ -78,10 +78,4 @@
             </view>
         </button>
     </view>
-    <view class="auto-left weather" qq:if="{{temp}}">
-        <text class="margin-right-10">{{temp.name}}·{{temp.day_op}}</text>
-        <text class="margin-left-10">{{temp.tem}}</text>
-        <text style="font-size: 25rpx">°C</text>
-        <text class="update_time margin-left-20">更新时间：{{temp.last_update}}</text>
-    </view>
 </view>

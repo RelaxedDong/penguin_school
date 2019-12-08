@@ -71,9 +71,11 @@ Page({
   },
   onLoad: function () {
     let that = this;
+    console.log(app.globalData.school)
     app.WxHttpRequestGet('get_departments', {}, function (res) {
       that.setData({
-        departments:res.data.data
+        departments:res.data.data,
+        school:app.globalData.school
       })
     },app.InterError)
   },
@@ -90,7 +92,6 @@ Page({
       duration: 2000,
       timingFunction: 'ease',
     })
-    this.animation = animation
     var next = true;
     //连续动画关键步骤
     setInterval(function () {

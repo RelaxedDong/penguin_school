@@ -1,5 +1,3 @@
-<navbar title="周边旅游"></navbar>
-<header activekey="travel"></header>
 <view class="page-container" bindtap="HandleClick">
   <view class="sub-model">
     <view class="sub-title text-black">推荐活动</view>

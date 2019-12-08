@@ -1,10 +1,7 @@
 {
   "navigationBarTitleText": "店铺/周边美食",
   "usingComponents": {
-    "header": "../../components/header/header",
-    "navbar": "../../components/navbar/navbar"
-  },
-  "navigationStyle": "custom"
+  }
 }
 
 

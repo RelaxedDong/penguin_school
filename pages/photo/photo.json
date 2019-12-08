@@ -1,10 +1,7 @@
 {
   "navigationBarTitleText": "校园美景",
   "usingComponents": {
-    "header": "../../components/header/header",
-    "navbar": "../../components/navbar/navbar"
-  },
-  "navigationStyle": "custom"
+  }
 }
 
 

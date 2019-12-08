@@ -1,5 +1,5 @@
-<navbar title="校园动态"></navbar>
-<header activekey="activity"></header>
+<!--<navbar title="校园动态"></navbar>-->
+<!--<header activekey="activity"></header>-->
 <view class="page-container">
   <view class="scroll_box">
     <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
@@ -95,6 +95,6 @@
   </view>
   <view class="empty" qq:if="{{activities.length == 0}}">
     <image src="/imgs/source/loading.gif"></image>
-    <text class="text-grey">空空如也，快来发布吧～</text>
+    <text class="text-grey">此处什么都没有，快来发布吧～</text>
   </view>
 </view>

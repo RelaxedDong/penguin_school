@@ -1,5 +1,3 @@
-<navbar title="跳骚市场"></navbar>
-<header activekey="second"></header>
 <swiper class="swiper-box " circular="true" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <block wx:for="{{imgUrls}}" wx:for-index="index">
         <swiper-item>

@@ -78,6 +78,10 @@ textarea{
   display: table-cell;
   vertical-align: middle;
 }
+.weather-png{
+  width: 30rpx;
+  height: 30rpx;
+}
 .auto-left{
   display: flex;
   flex-direction: row;
@@ -199,6 +203,12 @@ textarea{
   background-repeat:no-repeat;
   background-size:100% 100%;
   -moz-background-size:100% 100%;
+}
+.right-arr{
+  display: flex;
+  color: #9B9B9B;
+  font-size: 25rpx;
+  align-items:center;
 }
 .share{
   margin-left: auto;

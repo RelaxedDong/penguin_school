@@ -1,10 +1,8 @@
 {
-  "navigationBarTitleText": "企鹅论坛",
+  "navigationBarTitleText": "企鹅校园",
   "usingComponents": {
-    "header": "../../components/header/header",
-    "navbar": "../../components/navbar/navbar"
-  },
-  "navigationStyle": "custom"
+    "swiper-slider": "../../components/swiper/swiper"
+  }
 }
 
 

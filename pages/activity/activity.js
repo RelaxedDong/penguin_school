@@ -71,8 +71,15 @@ Page({
             inputVal:''
         })
     },
-    onLoad: function () {
-        this.pageFilter(this.data.active_tag_id)
+    onLoad: function (options) {
+        if(options.active_id){
+            this.pageFilter(options.active_id)
+            this.setData({
+                active_tag_id:options.active_id
+            })
+        }else{
+            this.pageFilter(this.data.active_tag_id)
+        }
     },
     TagClick (e) {
         let id = e.currentTarget.dataset.id;
@@ -87,7 +94,8 @@ Page({
         let params = {active_tag_id:tag_id,key:key,order:this.data.order,order_key:this.data.order_key}
         app.WxHttpRequestGet('activity_list',params,function (res) {
             let data = res.data;
-            let tags = [{name:'全部',id:'all'}].concat(data.data.tags);
+            let tags_response = data.data.tags;
+            let tags = [{name:'全部',id:'all'}].concat(tags_response);
             if(data.code === 200){
                 that.setData({
                     activities:data.data.activities,
@@ -112,3 +120,7 @@ Page({
         }
     }
 })
+
+
+
+  

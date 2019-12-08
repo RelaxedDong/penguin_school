@@ -64,7 +64,7 @@
                 <text class="text-size-25 margin-top-10">查看：{{second.view_count}}</text>
         </view>
     <view>
-        <button class="add-cart-btn" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{second.openid}}">立即联系</button>
+        <button class="add-cart-btn" animation="{{animation}}" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{second.openid}}">立即联系</button>
     </view>
 </view>
 

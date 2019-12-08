@@ -26,6 +26,28 @@ Page({
   onShareAppMessage(res){
     app.ShowMenue()
   },
+  onShow: function(){
+    var animation = wx.createAnimation({
+      duration: 1050,
+      timingFunction: 'ease',
+    })
+    var next = true;
+    //连续动画关键步骤
+    setInterval(function () {
+      //2: 调用动画实例方法来描述动画
+      if (next) {
+        animation.rotate(3).step()
+        next = !next;
+      } else {
+        animation.rotate(-3).step()
+        next = !next;
+      }
+      //3: 将动画export导出，把动画数据传递组件animation的属性
+      this.setData({
+        animation: animation.export()
+      })
+    }.bind(this), 1050)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

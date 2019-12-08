@@ -62,8 +62,7 @@ Page({
      */
     onLoad: function (options) {
             this.setData({
-                admin_openid: app.globalData.admin_openid,
-                temp: app.globalData.temp,
+                admin_openid: app.globalData.admin_openid
             })
     },
     /**

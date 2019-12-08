@@ -10,18 +10,28 @@
     flex-direction: column;
     text-align: center;
 }
-.add-btn{
+.add-btn,qq-zone-share{
     box-sizing: border-box;
     border-radius: 30rpx;
     padding:13rpx;
     margin:20rpx auto;
     line-height: 1;
-    background: linear-gradient(33deg, #6cacff, #8debff);
-    color: white;
     display: flex;
     font-size: 30rpx;
     flex-direction: row;
     border: 0;
+}
+.qq-zone-share{
+    line-height: 1;
+    margin:0rpx;
+    font-size: 25rpx;
+    padding: 15rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+.icon-img{
+    width: 60rpx;
+    height: 60rpx;
 }
 .img-flex{
     display: flex;

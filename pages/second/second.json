@@ -1,9 +1,7 @@
 {
   "usingComponents": {
-    "header": "../../components/header/header",
-    "navbar": "../../components/navbar/navbar"
   },
-  "navigationStyle": "custom"
+  "navigationBarTitleText": "二手市场"
 }
 
 

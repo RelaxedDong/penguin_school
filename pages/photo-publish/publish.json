@@ -1,6 +1,7 @@
 {
   "usingComponents": {
   },
+  "navigationBarTitleText": "类型选择",
   "navigationBarBackgroundColor": "white",
   "navigationBarTextStyle": "#cccccc"
 }
