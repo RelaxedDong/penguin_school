@@ -53,7 +53,7 @@ Page({
   onLoad: function () {
     var that = this;
     app.qqshowloading('加载中，请稍后');
-    app.WxHttpRequestGet('get_all_photoes',{},function (res) {
+    app.WxHttpRequestGet('get_all_photoes',{school_id:app.globalData.school['id']},function (res) {
       let data = res.data;
       if(data.code === 200){
         that.setData({

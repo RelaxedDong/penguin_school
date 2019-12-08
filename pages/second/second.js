@@ -42,6 +42,7 @@ Page({
     }else{
       delete data['category_id']
     }
+    data['school_id'] = app.globalData.school['id'];
     app.qqshowloading('商品加载中，请稍后');
     app.WxHttpRequestGet('get_second_list',data,function (res) {
       let data = res.data;

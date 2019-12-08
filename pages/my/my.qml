@@ -5,7 +5,7 @@
                 <view class="center-avatar">
                     <open-data type="userAvatarUrl"></open-data>
                 </view>
-                <image src="/imgs/source/gw.png"></image>
+<!--                <image src="/imgs/source/gw.png"></image>-->
             </view>
             <view class="nickname-box">
                <open-data type="userNickName"></open-data>
@@ -44,21 +44,21 @@
         <!--            <text class="cuIcon-right margin-right-10"></text>-->
         <!--        </view>-->
         <!--    </view>-->
-        <button class="space-between choose-item" open-type="openGroupProfile" group-id="428434143">
-            <view>
-                <button class="item-button">
-                    <text class="cuIcon-group icon-style"></text>
-                    <text class="text-size-25">添加群聊</text>
-                </button>
-            </view>
-            <view class="right-arr">
-                <text class="cuIcon-right margin-right-10"></text>
-            </view>
-        </button>
+<!--        <button class="space-between choose-item" open-type="openGroupProfile" group-id="428434143">-->
+<!--            <view>-->
+<!--                <button class="item-button">-->
+<!--                    <text class="cuIcon-group icon-style"></text>-->
+<!--                    <text class="text-size-25">添加群聊</text>-->
+<!--                </button>-->
+<!--            </view>-->
+<!--            <view class="right-arr">-->
+<!--                <text class="cuIcon-right margin-right-10"></text>-->
+<!--            </view>-->
+<!--        </button>-->
         <button class="space-between choose-item" open-type="feedback">
             <view>
                 <button class="item-button">
-                    <text class="cuIcon-service icon-style"></text>
+                    <text class="cuIcon-servicefill icon-style"></text>
                     <text class="text-size-25">吐个槽</text>
                 </button>
             </view>
@@ -69,8 +69,19 @@
         <button class="space-between choose-item"  open-type="addFriend" open-id="{{admin_openid}}">
             <view>
                 <button class="item-button">
-                    <text class="cuIcon-message icon-style"></text>
+                    <text class="cuIcon-markfill icon-style"></text>
                     <text class="text-size-25">联系我们</text>
+                </button>
+            </view>
+            <view class="right-arr">
+                <text class="cuIcon-right margin-right-10"></text>
+            </view>
+        </button>
+        <button class="space-between choose-item"  open-type="addFriend" open-id="{{admin_openid}}">
+            <view>
+                <button class="item-button">
+                    <text class="cuIcon-group_fill icon-style"></text>
+                    <text class="text-size-25">校园加入</text>
                 </button>
             </view>
             <view class="right-arr">

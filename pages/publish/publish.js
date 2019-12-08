@@ -221,13 +221,18 @@ Page({
             delete params['anonymous']
         }
         var temprory = that.data.temporary_imgs;
+        params['school_id'] = that.data.school['id'];
+        if(!params['school_id']){
+            app.ShowQQmodal('发布错误', "请重新选择学校");
+            return false
+        }
         app.qqshowloading('发布中，请稍后');
         if (temprory) {
             params['imgs'] = temprory;
             app.WxHttpRequestPOST('activity_add', params, that.PublishDone, app.InterError)
         } else {
             if(img_list.length > 0){
-                app.uploadFile('school/',this.data.oss,img_list, function (urls) {
+                app.uploadFile('static/'+that.data.school['code']+'/activity/',this.data.oss,img_list, function (urls) {
                     that.setData({
                         temporary_imgs: urls
                     });
@@ -277,6 +282,7 @@ Page({
                         type:type,
                         is_img_upload:true,
                         oss: data.data.oss,
+                        school:app.globalData.school,
                         access_token: data.data.access_token,
                         title: '校园风景'
                     })
@@ -284,6 +290,7 @@ Page({
                     that.setData({
                         oss: data.data.oss,
                         type: type,
+                        school:app.globalData.school,
                         access_token: data.data.access_token,
                         title: "校园动态",
                         tags: data.data.tags

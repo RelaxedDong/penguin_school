@@ -87,9 +87,6 @@ textarea{
   flex-direction: row;
   margin-left: auto;
 }
-.auto-left view{
-  margin-right: 10rpx;
-}
 .activity-foot{
   margin-top: 20rpx;
   display: flex;
@@ -229,14 +226,14 @@ textarea{
   background-color: #FBFAFA;
   border-radius: 100rpx;
   box-sizing: border-box;
-  width: 80%;
+  width: 100%;
 }
 .border-radius-100{
   border-radius: 100rpx;
 }
 .search-box input,.search-box text{
   overflow: initial;
-  font-size: 30rpx;
+  font-size: 25rpx;
   align-self: center;
   display: table-cell;
 }

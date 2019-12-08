@@ -14,10 +14,10 @@
   <view class="order-bar">
     <view>
       <view bindtap="SearchBtnClick" class="search-icon" qq:if="{{!showSearch}}">
-        <text class="cuIcon-search"  ></text>
+        <text class="cuIcon-search"></text>
       </view>
       <view class="search-box" qq:if="{{showSearch}}">
-        <input type="text" value="{{inputVal}}"  bindinput='bindInput' bindconfirm="toSearch"/>
+        <input type="text" placeholder="{{school['name']}} 动态..." value="{{inputVal}}"  bindinput='bindInput' bindconfirm="toSearch"/>
         <text class="cuIcon-close" bindtap="SearchBtnClick"  style="margin-left: auto;margin-right:20rpx;padding: 10rpx;box-sizing: border-box"></text>
       </view>
     </view>

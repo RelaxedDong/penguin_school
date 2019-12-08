@@ -131,15 +131,15 @@
 .home_grids {
     display: flex;
     justify-content: space-between;
+    padding: 20rpx 0;
     font-size: 23rpx;
-    padding: 10rpx 20rpx;
+    margin: 0 20rpx;
     box-sizing: border-box;
     color: #9B9B9B;
     text-align: center;
     border-bottom: 1px solid #f1f2f6;
 }
 .home_grid {
-    padding: 20px 10px;
     box-sizing: border-box;
 }
 .home_grid image{
@@ -147,7 +147,7 @@
     height: 60rpx;
 }
 .choose-items{
-    margin-top: 20rpx;
+    margin: 20rpx;
     font-size: 30rpx;
     color: #2F3231;
 }
@@ -178,6 +178,6 @@
     margin: 30rpx 0 0 50rpx;
 }
 .icon-style{
-    font-size: 32rpx;
+    font-size: 35rpx;
     margin-right: 30rpx;
 }

@@ -21,6 +21,7 @@ Page({
       choose_value:item.name,
     });
     app.globalData.school = item;
+    app.ShowQQmodal('切换成功', item.name);
     this.GetSchoolHome(item.city)
   },
   HandleClick: function(e){

@@ -1,7 +1,7 @@
 <view class="page-container">
     <view class="page-title text-black">
         <view class="table_cell">
-            <button class="text-title text-black">{{title}}</button>
+            <button class="text-size-30 text-black">{{title}} ({{school.name}})</button>
         </view>
         <view class="">
             <form bindsubmit='submitBtn' report-submit>

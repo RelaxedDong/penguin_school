@@ -39,3 +39,7 @@
         </view>
     </view>
 </view>
+<view class="empty" qq:if="{{photoes.length == 0}}">
+    <image src="/imgs/source/loading.gif"></image>
+    <text class="text-grey">此处空空，快来发布吧</text>
+</view>

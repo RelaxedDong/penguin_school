@@ -34,22 +34,23 @@ Page({
     that.setData(json)
   },
   submitBtn () {
-    // if(!this.data.name || !this.data.studentId ||!this.data.department){
-    //   app.ShowToast('请输入完整信息');
-    //   return
-    // }
-    // if(!this.NameCheck(this.data.name)){
-    //   app.ShowToast('姓名错误');
-    //   return
-    // }
+    if(!this.data.name || !this.data.studentId ||!this.data.department){
+      app.ShowToast('请输入完整信息');
+      return
+    }
+    if(!this.NameCheck(this.data.name)){
+      app.ShowToast('姓名错误');
+      return
+    }
     // if(!this.IdCardCheck(this.data.studentId)){
     //   app.ShowToast('学号错误');
     //   return
     // }
     // console.log({name:this.data.name,studentId:this.data.studentId,department:this.data.department})
-    qq.redirectTo({
-      url:"/pages/activity/activity"
-    })
+    // qq.redirectTo({
+    //   url:"/pages/activity/activity"
+    // })
+    app.ShowToast('研发中，敬请期待～')
   },
   /**
    * @return {boolean}
@@ -71,11 +72,11 @@ Page({
   },
   onLoad: function () {
     let that = this;
-    console.log(app.globalData.school)
-    app.WxHttpRequestGet('get_departments', {}, function (res) {
+    let school =  app.globalData.school;
+    app.WxHttpRequestGet('get_departments', {school_id:school['id']}, function (res) {
       that.setData({
         departments:res.data.data,
-        school:app.globalData.school
+        school:school
       })
     },app.InterError)
   },

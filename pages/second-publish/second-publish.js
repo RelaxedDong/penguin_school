@@ -154,7 +154,12 @@ Page({
     if(!this.data.show_old_price){
       delete params['old_price']
     }
-    params['category_id'] = this.data.classId
+    params['category_id'] = this.data.classId;
+    params['school_id'] = that.data.school['id'];
+    if(!params['school_id']){
+      app.ShowQQmodal('发布错误', "请重新选择学校");
+      return false
+    }
     var temprory = that.data.temporary_imgs;
     if (temprory) {
       params['imgs'] = temprory;
@@ -162,7 +167,7 @@ Page({
     } else {
       var img_list = this.data.imglist;
       if(img_list.length > 0){
-        app.uploadFile('second/',this.data.oss,img_list, function (urls) {
+        app.uploadFile('static/'+that.data.school['code']+'/second/',this.data.oss,img_list, function (urls) {
           that.setData({
             temporary_imgs: urls
           });
@@ -203,6 +208,7 @@ Page({
       if (data.code === 200) {
         that.setData({
           oss: data.data.oss,
+          school:app.globalData.school,
           categories: data.data.tags
         })
       } else {

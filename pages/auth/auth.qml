@@ -5,6 +5,9 @@
     <view class="form-group">
         <view class="input-box">
             <view class="input-item border-main">
+                <input class="text-grey" type="text" disabled placeholder="{{school.name}}" />
+            </view>
+            <view class="input-item border-main">
                 <input class="text-grey" type="text" bindinput="nameInput" placeholder="姓名" />
             </view>
             <view class="input-item border-main">

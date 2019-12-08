@@ -91,7 +91,8 @@ Page({
     pageFilter(tag_id, key=""){
         app.qqshowloading('加载中，请稍后');
         let that = this;
-        let params = {active_tag_id:tag_id,key:key,order:this.data.order,order_key:this.data.order_key}
+        let params = {active_tag_id:tag_id,key:key,order:this.data.order,
+            order_key:this.data.order_key,school_id:app.globalData.school['id']}
         app.WxHttpRequestGet('activity_list',params,function (res) {
             let data = res.data;
             let tags_response = data.data.tags;
@@ -99,6 +100,7 @@ Page({
             if(data.code === 200){
                 that.setData({
                     activities:data.data.activities,
+                    school:app.globalData.school,
                     tags: tags
                 })
             }else{
@@ -123,4 +125,4 @@ Page({
 
 
 
-  
+

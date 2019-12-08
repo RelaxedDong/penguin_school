@@ -1,16 +1,18 @@
 .home-container{
-    padding: 20rpx 15rpx;
+    padding: 10rpx 15rpx;
     box-sizing: border-box;
 }
 .top{
     color: #9B9B9B;
-    padding: 0 10rpx;
+    padding: 0 10rpx 30rpx 0;
 }
 .weui-grids {
     position: relative;
     overflow: hidden;
 }
-
+.margin-top-5{
+    margin-top: 5rpx;
+}
 .weui-grids:before {
     content: " ";
     position: absolute;

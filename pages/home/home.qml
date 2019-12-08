@@ -13,8 +13,16 @@
             <view>
                 <image class="weather-png" src="/imgs/source/weather/{{temp.code}}@1x.png"></image>
             </view>
-            <text class="margin-left-10">{{temp.province}}{{temp.name}} · {{temp.day_op}}</text>
-            <text class="margin-left-10">{{temp.tem}} °C</text>
+            <view class="flex-column margin-left-10">
+                <view class="auto-left flex-row">
+                    <text>{{temp.province}}{{temp.name}} · {{temp.day_op}}</text>
+                    <text class="margin-left-10">{{temp.tem}}°C</text>
+                </view>
+                <view class="text-right text-size-20 margin-top-5">
+                    <text>{{temp.last_update}}</text>
+                    <text class="margin-left-10">更新</text>
+                </view>
+            </view>
         </view>
     </view>
     <swiper-slider swiper-data="{{banners}}" swiper-options="{{swiperOptions}}"></swiper-slider>
