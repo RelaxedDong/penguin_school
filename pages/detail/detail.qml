@@ -22,14 +22,14 @@
   </view>
   <view class="icon-row flex-row text-black ">
     <view>
+      <view qq:for="{{activity.tags}}">
+        <text class="cuIcon-tag margin-right-10"></text>{{item.name}}
+      </view>
       <button open-type="share" class="cell-center qq-zone-share">
         <view  class="flex-row">
           <image src="/imgs/source/qq-zone.png" class="icon-img"></image>
         </view>
       </button>
-    </view>
-    <view qq:for="{{activity.tags}}">
-      <text class="cuIcon-tag margin-right-10"></text>{{item.name}}
     </view>
   </view>
   <view class="space-between location padding-top-bottom-20">

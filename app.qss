@@ -241,6 +241,10 @@ textarea{
   width: 100%;
   margin-left: 35rpx;
 }
+.active{
+  background: #16D0FF;
+  color: white;
+}
 /**搜索 **/
 
 /** empty **/

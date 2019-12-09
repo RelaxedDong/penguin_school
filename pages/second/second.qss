@@ -33,10 +33,6 @@
     font-size:25rpx;
     border: 1px solid #f1f2f6;
 }
-.active{
-    background: #16D0FF;
-    color: white;
-}
 .goods-miaoshu{
     position: absolute;
     bottom: 0;

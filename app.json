@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/calender/calender",
+    "pages/weather/index",
     "pages/message/message",
     "pages/my/my",
     "pages/activity/activity",

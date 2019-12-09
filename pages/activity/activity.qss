@@ -6,16 +6,26 @@
     margin: 0;
 }
 .tag-list{
-    padding: 10rpx 20rpx;
+    padding: 20rpx;
     box-sizing: border-box;
     display: inline-block;
+}
+.active-text{
+    background: linear-gradient(20deg, #6cacff, #8debff);
+    border-radius: 10rpx;
+    padding: 5rpx 10rpx;
+    color: white;
+    box-sizing: border-box;
+}
+.icon-active{
+    color: #FFF826;
 }
 .order-bar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 25rpx;
-    padding: 10rpx;
+    padding: 20rpx 10rpx;
     height: 50rpx;
     color: #16D0FF;
 }
@@ -43,7 +53,6 @@
 .tag-list view{
     margin: 10rpx 5rpx;
     font-size: 25rpx;
-    color: gray;
     width: 100%;
 }
 .user-tags{

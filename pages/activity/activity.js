@@ -2,12 +2,17 @@
 const app = getApp()
 Page({
     data:{
-        showSearch: false,
         showModalStatus: false,
         order_bar: false,
         is_open: false,
         active_tag_id: 'all',
         inputVal: '',
+        order_map: [
+            {name: '时间',key:"create_time"},
+            {name: '查看',key:"view_count"},
+            {name: '评论',key:"comment_length"},
+            {name: '收藏',key:"favor_length"},
+        ],
         default_icon: 'cuIcon-triangledownfill',
         order: 'DESC',
         order_key: 'create_time'
@@ -62,14 +67,10 @@ Page({
         })
     },
     SearchBtnClick(){
-        if(this.data.showSearch){
-            //  关闭
-            this.pageFilter(this.data.active_tag_id, "")
-        }
         this.setData({
-            showSearch:!this.data.showSearch,
             inputVal:''
         })
+        this.pageFilter(this.data.active_tag_id)
     },
     onLoad: function (options) {
         if(options.active_id){

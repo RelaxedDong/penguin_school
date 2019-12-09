@@ -26,6 +26,12 @@ Page({
   },
   HandleClick: function(e){
     let url = e.currentTarget.dataset.url;
+    let school = JSON.stringify(app.globalData.school);
+    if(url.indexOf('?') > -1){
+      url = url + '&school='+school
+    }else{
+      url = url + '?school='+school
+    }
     try {
       qq.navigateTo({
         url: url,
@@ -79,6 +85,7 @@ Page({
         if(!app.globalData.school){
           app.globalData.school = data.data.schools[0];
         }
+        app.globalData.school['weather'] = data.data.weather
       }else{
         app.InterError()
       }
