@@ -1,7 +1,7 @@
 <view class="aui-tour-content">
   <view class="avatar">
     <image class="img-flex" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
-      <button class="add-btn main-bg-cor" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{activity.openid}}">+ 好友</button>
+    <button qq:if="{{activity.can_add_friend == '1'}}" class="add-btn main-bg-cor" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{activity.openid}}">+ 好友</button>
   </view>
 </view>
 <view class="page-container">

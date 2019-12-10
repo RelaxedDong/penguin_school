@@ -1,11 +1,10 @@
 .case-page{
   padding:20rpx;
-  background:#F0F0F0;
+  /*background:#f1f2f6;*/
 }
 .list-masonry{
   column-count: 2;
   column-gap: 20rpx;
-  min-height: 700rpx;
 }
 .publish-btn{
   background: linear-gradient(33deg, #d279ee, #f8c390);
@@ -22,7 +21,12 @@
   margin-bottom:20rpx;
   font-size: 25rpx;
   border-radius: 20rpx;
-  overflow: hidden;
+  /*overflow: hidden;*/
+}
+.activity-head{
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
 }
 .image {
   width: 100%;

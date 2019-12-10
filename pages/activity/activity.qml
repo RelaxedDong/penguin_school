@@ -14,7 +14,7 @@
   <view class="order-bar {{order_bar?'':'border-main'}}">
     <view>
       <view class="search-box">
-        <input type="text" placeholder="{{school['name']}} 搜索..." value="{{inputVal}}"
+        <input type="text" placeholder="搜索 标题/内容/分类..." value="{{inputVal}}"
                bindinput='bindInput' bindconfirm="toSearch"/>
         <text class="cuIcon-close padding-10" bindtap="SearchBtnClick"
               style="margin-left: auto;margin-right:20rpx;padding: 10rpx;box-sizing: border-box"></text>

@@ -4,6 +4,7 @@ Page({
     animation: {},
     departments: [],
     name: '',
+    is_auth: false,
     studentId:"",
     department: ""
   },
@@ -34,6 +35,11 @@ Page({
     that.setData(json)
   },
   submitBtn () {
+    let taht  = this;
+    if(!app.globalData.user_id){
+      app.ShowToast('请先完成授权绑定');
+      return
+    }
     if(!this.data.name || !this.data.studentId ||!this.data.department){
       app.ShowToast('请输入完整信息');
       return
@@ -42,16 +48,60 @@ Page({
       app.ShowToast('姓名错误');
       return
     }
-    // if(!this.IdCardCheck(this.data.studentId)){
-    //   app.ShowToast('学号错误');
-    //   return
-    // }
-    // console.log({name:this.data.name,studentId:this.data.studentId,department:this.data.department})
-    // qq.redirectTo({
-    //   url:"/pages/activity/activity"
-    // })
-    app.ShowToast('研发中，敬请期待～')
+    if(!this.IdCardCheck(this.data.studentId)){
+      app.ShowToast('学号错误');
+      return
+    }
+    let params = {
+      username:this.data.name,
+      school_id:this.data.school['id'],
+      department:this.data.department,
+      student_id:this.data.studentId,
+    };
+    app.WxHttpRequestPOST('school_auth', params, function (res) {
+      if(res.data.code === 200) {
+        app.globalData.school_id = taht.data.school['id'];
+        app.ShowQQmodal('恭喜','信息绑定完成');
+        setTimeout(function () {
+          qq.navigateBack({
+            delta: 1
+          })
+        }, 1500)
+
+      }else{
+        app.InterError()
+      }
+    }, app.InterError);
   },
+  login: function (e) {
+    if(e.detail.formId){
+      this.setData({
+        formId:e.detail.formId
+      });
+      return
+    }
+    var that = this;
+    var userinfo =  e.detail.userInfo;
+    if (!userinfo) {
+      app.ShowQQmodal('绑定失败，请重新点击','');
+      return
+    }
+    userinfo['formId'] = that.data.formId;
+    app.globalData.userInfo = userinfo;
+    app.WxHttpRequestPOST('user_info', userinfo, function (res) {
+      var data = res.data;
+      if(data.code === 200) {
+        app.globalData.user_id = data.data.user_id;
+        that.setData({
+          ['school.logo']:app.globalData.userInfo['avatarUrl'],
+          user_id:true
+      })
+      }else{
+        app.InterError()
+      }
+    }, app.InterError);
+  },
+
   /**
    * @return {boolean}
    */
@@ -63,21 +113,46 @@ Page({
    * @return {boolean}
    */
   IdCardCheck: function (IdCard) {
-    var myreg = /^1[3456789]\d{8}$/;
+    var myreg = new RegExp(this.data.auth_re);
     if (IdCard.length === 0) {
-      return false;
-    } else if (IdCard.length !== 10) {
       return false;
     } else return myreg.test(IdCard);
   },
   onLoad: function () {
     let that = this;
     let school =  app.globalData.school;
-    app.WxHttpRequestGet('get_departments', {school_id:school['id']}, function (res) {
-      that.setData({
-        departments:res.data.data,
-        school:school
-      })
+    let params = {school_id:school['id']};
+    let user_id = app.globalData.user_id
+    if(user_id){
+      params['user_id'] = user_id
+    }
+    app.WxHttpRequestGet('get_departments', params, function (res) {
+      let data = res.data;
+      if(data.code === 200){
+        let raw_info = data.data.user_info;
+        if(raw_info){
+          school['username'] = raw_info.username;
+          school['school_id'] = raw_info.student_id;
+          that.setData({
+            user_id:user_id,
+            department:raw_info.department,
+            is_auth:data.data.is_auth,
+            school:school,
+          })
+        }else{
+          school['username'] = "姓名";
+          school['school_id'] = "学号";
+          that.setData({
+            user_id:user_id,
+            departments:data.data.department,
+            auth_re:data.data.auth_re,
+            is_auth:data.data.is_auth,
+            school:school
+          })
+        }
+      }else {
+        app.InterError()
+      }
     },app.InterError)
   },
   bindPickerChange: function(e) {

@@ -35,6 +35,9 @@
   padding-bottom: 10rpx;
   font-size: 30rpx;
 }
+.button-hover{
+  opacity: 0;
+}
 textarea{
   width: 100%;
   min-height: 300rpx;
@@ -55,7 +58,7 @@ textarea{
 }
 .main-blue-bg{
   color: white;
-  background: #16D0FF;
+  background: linear-gradient(33deg, #6cacff, #8debff);
 }
 .space-between{
   justify-content: space-between;

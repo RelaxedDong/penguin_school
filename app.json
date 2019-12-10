@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/publish/publish",
+    "pages/auth/auth",
     "pages/calender/calender",
     "pages/weather/index",
     "pages/message/message",
@@ -11,11 +13,9 @@
     "pages/photo-publish/publish",
     "pages/second/second",
     "pages/second-detail/second-detail",
-    "pages/auth/auth",
     "pages/mycollect/mycollect",
     "pages/category/category",
     "pages/second-publish/second-publish",
-    "pages/publish/publish",
     "pages/book/book",
     "pages/food/food",
     "pages/travel/travel",

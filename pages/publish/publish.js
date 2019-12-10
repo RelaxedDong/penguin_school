@@ -11,6 +11,7 @@ Page({
     activekey: 'pic',
     last_active_key: 'pic',
     inputVal: 'pic',
+    can_add_friend: 1,
     imglist: [],
     min:5,//最少字数
     max: 500, //最多字数 (根据自己需求改变)
@@ -226,6 +227,7 @@ Page({
             app.ShowQQmodal('发布错误', "请重新选择学校");
             return false
         }
+        params['can_add_friend'] = that.data.can_add_friend;
         app.qqshowloading('发布中，请稍后');
         if (temprory) {
             params['imgs'] = temprory;
@@ -243,6 +245,18 @@ Page({
                 app.WxHttpRequestPOST('activity_add', params, that.PublishDone, app.InterError)
             }
         }
+    },
+    CanSeeMe (e) {
+      if(e.detail.value){
+          this.setData({
+              can_add_friend:1
+          });
+          app.AddFriendAuth(false)
+      }else{
+          this.setData({
+              can_add_friend:0
+          })
+      }
     },
     anonymousClick () {
       this.setData({

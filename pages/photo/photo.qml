@@ -3,7 +3,7 @@
 </view>
 <view class='case-page'>
     <view class='list-masonry'>
-        <view class='item-masonry' qq:for="{{photoes}}" qq:key>
+        <view class='item-masonry shadow' qq:for="{{photoes}}" qq:key>
             <view style="position: relative"  bindtap="HandleImgClick" data-id="{{item.id}}">
                 <image class="image" src='{{item.imgs[0]}}'
                        mode='widthFix'></image>
@@ -11,7 +11,7 @@
                     {{item.imgs.length}} 图
                 </view>
             </view>
-            <view class="padding-10 border-box">
+            <view class="border-box">
                 <view qq:if="{{item.address}}" class="text-size-25 margin-top-10 text-black column-center flex-row">
                     <text class="cuIcon-locationfill border-box"></text>
                     <text class="margin-left-5">{{item.address}}</text>
@@ -19,7 +19,7 @@
                 <view class="text-grey photo-desc">
                     {{item.content}}
                 </view>
-                <view class="activity-head flex-row margin-10 text-size-23 ">
+                <view class="activity-head flex-row text-size-23 ">
                     <image class='user-img' src='{{item.avatarUrl}}'></image>
                     <view class="flex-column margin-left-10">
                         <view class="text-black flex-row text-size-25">

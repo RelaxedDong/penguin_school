@@ -5,6 +5,18 @@
 }
 .image-rotate{
     text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.auth-button{
+    border-radius: 10rpx;
+    padding:5rpx;
+    margin:0rpx;
+    font-size: 25rpx;
+    color: white;
+    background: linear-gradient(33deg, #6cacff, #8debff);
+    align-items:center;
+    justify-content: space-between;
 }
 .image-rotate image{
     z-index: 2;

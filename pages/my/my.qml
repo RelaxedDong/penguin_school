@@ -5,7 +5,6 @@
                 <view class="center-avatar">
                     <open-data type="userAvatarUrl"></open-data>
                 </view>
-<!--                <image src="/imgs/source/gw.png"></image>-->
             </view>
             <view class="nickname-box">
                <open-data type="userNickName"></open-data>
@@ -55,7 +54,7 @@
 <!--                <text class="cuIcon-right margin-right-10"></text>-->
 <!--            </view>-->
 <!--        </button>-->
-        <button class="space-between choose-item" open-type="feedback">
+        <button class="space-between choose-item" open-type="feedback" hover-class="none">
             <view>
                 <button class="item-button">
                     <text class="cuIcon-servicefill icon-style"></text>
@@ -66,7 +65,7 @@
                 <text class="cuIcon-right margin-right-10"></text>
             </view>
         </button>
-        <button class="space-between choose-item"  open-type="addFriend" open-id="{{admin_openid}}">
+        <button class="space-between choose-item"  open-type="addFriend" hover-class="none" open-id="{{admin_openid}}">
             <view>
                 <button class="item-button">
                     <text class="cuIcon-markfill icon-style"></text>
@@ -77,9 +76,9 @@
                 <text class="cuIcon-right margin-right-10"></text>
             </view>
         </button>
-        <button class="space-between choose-item"  open-type="addFriend" open-id="{{admin_openid}}">
+        <button class="space-between choose-item"  open-type="addFriend" hover-class="none" open-id="{{admin_openid}}">
             <view>
-                <button class="item-button">
+                <button class="item-button" hover-class="none">
                     <text class="cuIcon-group_fill icon-style"></text>
                     <text class="text-size-25">校园加入</text>
                 </button>

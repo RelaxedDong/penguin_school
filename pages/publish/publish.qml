@@ -82,11 +82,15 @@
             ><text qq:if="{{item == active_address}}" class="cuIcon-locationfill text-size-30 text-yellow"></text>{{item}}</view>
         </view>
     </view>
-    <view class="space-between" bindtap="anonymousClick" qq:if="{{!is_img_upload}}">
+    <view class="space-between border-main" bindtap="anonymousClick" qq:if="{{!is_img_upload}}">
         <view>
             <text class=" {{anonymous?'cuIcon-radiobox':'cuIcon-round'}}"></text><text class="margin-left-10">匿名发布</text>
             <text class="margin-left-10">（一天一次）</text>
         </view>
+    </view>
+    <view class="space-between" qq:if="{{!is_img_upload}}">
+        <view>允许看见人加我好友</view>
+        <switch checked bindchange="CanSeeMe" />
     </view>
 </view>
 </view>

@@ -14,56 +14,30 @@ Page({
         ]
     },
     itemClick(e){
-        if(!app.globalData.user_id){
-            app.ShowQQmodal('请先登陆～', '');
-            return
-        }
         let url = e.currentTarget.dataset.url;
         let key = e.currentTarget.dataset.key;
-        if(key === 'sugesstion'){
-            app.ShowQQmodal('研发小哥哥努力研发中，敬请期待～', '');
-            return
+        if(url !== 'auth/auth') {
+            if(!app.globalData.user_id){
+                app.ShowQQmodal('请先完成校园认证', '');
+                return
+            }
+
+            if(key === 'sugesstion'){
+                app.ShowQQmodal('研发小哥哥努力研发中，敬请期待～', '');
+                return
+            }
         }
         qq.navigateTo({
             url:"/pages/"+url +'?key='+key
         })
     },
-    login: function (e) {
-        if(e.detail.formId){
-            this.setData({
-                formId:e.detail.formId
-            });
-            return
-        }
-        var that = this;
-        var userinfo =  e.detail.userInfo;
-        if (!userinfo) {
-            app.ShowToast('信息获取失败，请重新点击');
-            return
-        }
-        userinfo['formId'] = that.data.formId;
-        app.globalData.userInfo = userinfo;
-        app.WxHttpRequestPOST('user_info', userinfo, function (res) {
-            var data = res.data;
-            app.globalData.user_id = data.data.user_id;
-            if(data.code == 200) {
-                app.globalData.is_auth = true;
-                that.setData({
-                    is_auth: true
-                })
-                app.ShowToast('登陆成功')
-            }else{
-                app.ShowQQmodal('网络错误','绑定注册用户失败，请检查网络后再试~');
-            }
-        }, app.InterError);
-    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-            this.setData({
-                admin_openid: app.globalData.admin_openid
-            })
+        this.setData({
+            admin_openid: app.globalData.admin_openid
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

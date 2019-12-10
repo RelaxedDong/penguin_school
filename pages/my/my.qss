@@ -90,7 +90,7 @@
 .header{
     width: 100%;
     height: 300rpx;
-    background: linear-gradient(33deg, #6cacff, #8debff);
+    background: #16D0FF;
     display: flex;
     align-items:center;
     text-align: left;
@@ -116,22 +116,12 @@
     width: 150rpx;
     height: 150rpx;
     border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-}
-.outer-img image{
-    position: absolute;
-    width:200rpx;
-    height: 200rpx;
-    border-radius: 50%;
-    left:10rpx;
-    top:100rpx;
     overflow: hidden;
 }
 .home_grids {
     display: flex;
     justify-content: space-between;
-    padding: 20rpx 0;
+    padding: 20rpx 20rpx;
     font-size: 23rpx;
     margin: 0 20rpx;
     box-sizing: border-box;
@@ -150,13 +140,11 @@
     margin: 20rpx;
     font-size: 30rpx;
     color: #2F3231;
+    padding: 0 20rpx;
 }
 .choose-item{
     padding: 10rpx 0;
     border-bottom: 1px solid #f1f2f6;
-}
-.button-hover{
-    opacity: 0;
 }
 .item-button{
     width: 100%;
