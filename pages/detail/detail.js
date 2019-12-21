@@ -4,6 +4,8 @@ Page({
     data:{
         releaseFocus:false,
         favor:false,
+        reply_commentid:false,
+        releaseName:"发表新评论",
         commentValue:"",
         comments:[],
         favor_count:0,
@@ -51,9 +53,20 @@ Page({
             }
         })
     },
-    HandleSend (){
-        let is_auth = app.AUthCheck();
-        if (!is_auth){
+    MoreComment(e) {
+        let index = e.currentTarget.dataset.index;
+        let comment = this.data.comments[index];
+        let data = {
+            'comments':comment,
+            'activity_id':this.data.activity.id,
+            'super_id':comment.id
+        }
+        qq.navigateTo({
+          url: '/pages/detail/more-comment?data='+encodeURIComponent(JSON.stringify(data))
+      })
+    },
+    HandleSend (e){
+        if (!app.AUthCheck()){
             return
         }
         let that = this;
@@ -61,19 +74,41 @@ Page({
         if(!comment){
             app.ShowQQmodal('请输入评论', "");
         }
+        let params = {activity_id:this.data.activity.id,desc:comment,formId:e.detail.formId}
+        if(this.data.reply_commentid){
+            params['reply_commentid'] = this.data.reply_commentid;
+        }
         app.qqshowloading('发布中，请稍后');
-        app.WxHttpRequestPOST('activity_comment',{activity_id:this.data.activity.id,desc:comment},
+        app.WxHttpRequestPOST('activity_comment',params,
             function (res) {
             let data = res.data;
             if(data.code == 200){
                 let comments = that.data.comments;
-                comments.unshift({'content':that.data.commentValue,'avatarUrl':data.data.avatarUrl,
-                'nickname': data.data.nickname,'create_time': '刚刚发布','publisher_id':data.data.publisher_id,
-                'comment_id':data.data.comment_id});
-                that.setData({
-                    comments:comments,
-                    commentValue:""
-                });
+                if(that.data.reply_commentid){
+                    let raw_comment = comments[that.data.reply_index];
+                    let length = 1;
+                    if(raw_comment.len){
+                        length = raw_comment.len + length
+                    }
+                    let index = that.data.reply_index;
+                    let reply_key =  `comments[${index}].len`;
+                    let children_key =  `comments[${index}].children`;
+                    params['commentValue'] = "";
+                    let children = comments[index].children;
+                    if(!children) children = [];
+                    children.push(data.data);
+                    that.setData({
+                        [reply_key]: length,
+                        [children_key]: children,
+                        commentValue:""
+                    })
+                } else {
+                    comments.unshift(data.data);
+                    that.setData({
+                        comments:comments,
+                        commentValue:""
+                    });
+                }
                 app.ShowQQmodal('留言成功', '');
             }else{
                 app.ShowQQmodal('网络错误，请稍后再试', '');
@@ -82,31 +117,42 @@ Page({
             },app.InterError)
     },
     bindReply: function(e){
-        this.setData({
-            releaseFocus: true
-        })
+        let dataset = e.currentTarget.dataset;
+        let update_data = {
+            releaseFocus: true,
+            commentValue:""
+        };
+        if(dataset.commentid){
+            update_data['reply_commentid'] = dataset.commentid;
+            update_data['reply_index'] = dataset.index;
+            update_data['releaseName'] = "回复 "+dataset.nickname
+        }else {
+            update_data['reply_commentid'] = false;
+            update_data['reply_index'] = false;
+            update_data['releaseName'] = "发表新评论"
+        }
+        this.setData(update_data)
     },
     HandleGetDone (res){
         var data = res.data;
         if(data.code === 200){
-            const favor = data.data.favor_count;
-            var count = 0;
-            if(favor){
-                count = favor[0]['count(1)'];
-            }
             this.setData({
                 activity:data.data.activity,
                 comments:data.data.comments,
                 user_id:app.globalData.user_id,
-                favor_count:count,
+                favor_count:data.data.favor_count,
             })
         }else{
             app.ShowQQmodal(data.message, "");
         }
         qq.hideLoading();
     },
+    HandleTag(e){
+        app.globalData.tag_fresh_id = e.currentTarget.dataset.id;
+        qq.navigateBack()
+    },
     GetImageInfo(share_row, result_func){
-        let result = []
+        let result = [];
             for(var i =0;i<share_row.length;i++){
                 qq.getImageInfo({
                     src: share_row[i],
@@ -167,8 +213,18 @@ Page({
         app.ShowMenue()
     },
     onLoad: function (options) {
-        app.qqshowloading('加载中，请稍后');
+        app.qqshowloading('');
         const detail_id = options.detail_id;
         app.WxHttpRequestGet('activity_detail',{detail_id:detail_id},this.HandleGetDone,app.InterError)
+    },
+    onShow: function () {
+        if(app.globalData.re_render_detail){
+            app.globalData.re_render_detail = false;
+            this.setData({
+                releaseFocus: false,
+                commentValue:""
+            })
+            app.WxHttpRequestGet('activity_detail',{detail_id:this.data.activity.id},this.HandleGetDone,app.InterError)
+        }
     }
 })

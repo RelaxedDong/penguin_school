@@ -27,10 +27,12 @@ page{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 30rpx;
+}
+.tg{
+    padding: 5rpx;
 }
 .choose-item{
-    background: #8ADEAB;
-    color: white;
     padding: 5rpx 20rpx;
     display: flex;
     border-radius: 20rpx;
@@ -46,11 +48,11 @@ page{
     flex-wrap: wrap;
 }
 .items{
-    padding: 15rpx;
+    padding: 10rpx;
     box-sizing: border-box;
     border-radius: 20rpx;
     margin: 10rpx;
-    font-size: 25rpx;
+    font-size: 23rpx;
 }
 .img-box{
     margin-top: 20rpx;
@@ -61,11 +63,10 @@ page{
     position: relative;
 }
 .select-container{
-    padding: 20rpx;
+    padding: 0 10rpx;
     box-sizing: border-box;
 }
 .select-container view{
     padding: 10rpx;
-    font-size: 30rpx;
-    color: #333333;
+    font-size: 26rpx;
 }

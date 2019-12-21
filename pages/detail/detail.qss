@@ -47,79 +47,54 @@
 }
 .detail-title{
     margin-top:40rpx;
-    font-size: 30rpx;
+    font-size: 50rpx;
     color: #333333;
 }
-.icon-row{
-    padding:30rpx 0;
-    font-size: 30rpx;
-}
-.icon-row view{
-    margin-right: 20rpx;
-    font-size: 27rpx;
+.box-comment{
+    padding-bottom: 100rpx;
 }
 .text-desc{
-    padding: 20rpx 0;
+    padding-bottom: 20rpx;
     box-sizing: border-box;
     font-size: 27rpx;
     border-radius: 10rx;
     color: #9B9B9B;
 }
-.talk{
-    text-align: right;
-    font-size: 25rpx;
+.more-comment {
+    background-color: #FBFAFA;
+    font-size: 20rpx;
     padding: 10rpx;
-    color: white;
-    background: #16D0FF;
     box-sizing: border-box;
-    border-radius: 10rpx;
 }
-.QQZone{
-    margin-left: 20rpx;
-    font-size: 25rpx;
+.grid-9 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 相当于 1fr 1fr 1fr */
+    /*grid-template-rows: repeat(2, 1fr); !* fr单位可以将容器分为几等份 *!*/
+    grid-gap: 1%; /* grid-column-gap 和 grid-row-gap的简写 */
+    grid-auto-flow: row;
+}
+.grid-9> view{
+    color: #fff;
+    font-size: 50rpx;
+    line-height: 2;
+    text-align: center;
+}
+.img-box{
+    margin-top: 10rpx;
+    width: 100%;
+    height: 200rpx;
     padding: 10rpx;
-    color: white;
-    background: linear-gradient(33deg, #99e5a2, #d4fc78);
     box-sizing: border-box;
-    border-radius: 10rpx;
+    display: inline-block;
 }
 .input_null{
     color: #C9C9C9;
 }
+.green{
+    color: #1dee2c;
+}
 .comment-desc{
     margin-left: 20rpx;
+    margin-top: 20rpx;
     padding-bottom: 20rpx;
-}
-.release{
-    display: flex;
-    align-items: flex-end; /*底部对齐*/
-    justify-content: space-between; /*两端对齐*/
-    box-sizing: border-box;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 18rpx 0 18rpx 30rpx;
-    background-color: #F7F8F7;
-    font-size: 28rpx;
-    z-index: 999;
-}
-.release .text{
-    width: 604rpx;
-    min-height: 34rpx;
-    max-height: 102rpx; /*最多显示三行*/
-    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
-    border-style: solid;
-    border-color:  #ffffff;
-    line-height: 34rpx;
-    font-size: 28rpx;
-    background-color: #ffffff;
-    border-radius: 4rpx;
-}
-.release .submit{
-    width: 116rpx;
-    height: 64rpx;
-    line-height: 64rpx;
-    text-align: center;
-    color: #16D0FF;
 }

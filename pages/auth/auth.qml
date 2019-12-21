@@ -1,6 +1,6 @@
 <view class="auth-contaner"  animation="{{slide_up1}}">
     <view class="image-rotate">
-        <image class="image-rotate" mode="aspectFit" animation="{{animation}}"
+        <image class="image-rotate" mode="aspectFit"
                src='{{school.logo}}'></image>
     </view>
     <view class="form-group">
@@ -20,7 +20,7 @@
                 <input class="text-grey" type="text" bindinput="studentIdInput" placeholder="{{school.school_id}}" />
             </view>
             <view class="input-item border-main padding-top-bottom-10" qq:if="{{department}}">
-                <input class="text-grey" type="text" bindinput="studentIdInput" placeholder="{{department}}" />
+                <input class="text-grey" type="text" disabled="{{department}}" bindinput="studentIdInput" placeholder="{{department}}" />
             </view>
             <view class="input-item border-main" qq:else>
                 <picker bindchange="bindPickerChange" value="{{index}}"  range="{{departments}}">

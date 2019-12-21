@@ -8,9 +8,15 @@
       </view>
     </view>
     <view class="temperature">
-      <view>{{localTemperature}} ˚
-      </view>
-      <view class="margin-left-20">{{summary}}</view>
+        <text>{{localTemperature}} ˚
+        </text>
+        <text class="margin-left-20">{{summary}}</text>
+    </view>
+  </view>
+  <view class="subscribe">
+    <view class="text-size-30  space-between">
+      <text>接收每日天气推送</text>
+      <switch checked="{{is_subscribe}}" bindchange="SubScribe" />
     </view>
   </view>
   <!-- 小时播报 -->

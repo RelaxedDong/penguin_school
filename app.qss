@@ -25,6 +25,7 @@
 .border-main{
   border-bottom: 1px solid #f1f2f6;
 }
+
 .input-box{
   padding: 20rpx 0;
 }
@@ -53,6 +54,19 @@ textarea{
   text-overflow:ellipsis;
   white-space: nowrap;
 }
+.text-blue-active{
+  color: #16D0FF;
+  background: #FAFAFA;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  margin-left: 15rpx;
+}
+
+.commentbox {
+  padding: 20rpx 20rpx 100rpx 20rpx;
+}
 .shadow{
   box-shadow: 0 4rpx 20rpx 0 rgba(212,217,223,.5);
 }
@@ -60,6 +74,12 @@ textarea{
   color: white;
   background: linear-gradient(33deg, #6cacff, #8debff);
 }
+.owner-tag{
+  padding: 5rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+
 .space-between{
   justify-content: space-between;
   display: flex;
@@ -90,11 +110,14 @@ textarea{
   flex-direction: row;
   margin-left: auto;
 }
+.align-items {
+  align-items: center;
+}
 .activity-foot{
-  margin-top: 20rpx;
-  display: flex;
-  flex-direction: row;
+  margin-top: 10rpx;
   font-size: 27rpx;
+  box-sizing: border-box;
+  align-items: center;
 }
 .flex-column{
   display: flex;
@@ -128,8 +151,15 @@ textarea{
 .border-radius{
   border-radius: 50%;
 }
+.border-radius-10 {
+  border-radius: 10rpx;
+}
 .padding-20{
   padding: 20rpx;
+}
+.msg-desc{
+  padding: 20rpx;
+  margin-left: 65rpx;
 }
 .padding-10{
   padding: 10rpx;
@@ -154,6 +184,9 @@ textarea{
 }
 .margin-right-10{
   margin-right: 10rpx;
+}
+.margin-right-20{
+  margin-right: 20rpx;
 }
 .margin-bottom-10{
   margin-bottom: 10rpx;
@@ -192,11 +225,10 @@ textarea{
   box-sizing: border-box;
 }
 .location{
-  font-size: 23rpx;
+  font-size: 25rpx;
   color: #9B9B9B;
 }
 .location .cuIcon-locationfill{
-  font-size: 35rpx;
   color: #16D0FF;
 }
 .imgurl{
@@ -242,7 +274,7 @@ textarea{
 }
 .search-box input{
   width: 100%;
-  margin-left: 35rpx;
+  margin-left: 10rpx;
 }
 .active{
   background: #16D0FF;
@@ -296,6 +328,9 @@ textarea{
   height: 180rpx;
   margin-right: 23rpx;
   display: inline-block;
+}
+.icon-active{
+  color: #FFF826;
 }
 .face {
   position: absolute;
@@ -402,5 +437,47 @@ textarea{
   font-size: 50rpx;
   line-height: 100rpx;
 }
+.release{
+  display: flex;
+  align-items: flex-end; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 18rpx 15rpx;
+  background-color: #F7F8F7;
+  font-size: 28rpx;
+  z-index: 999;
+}
+.release .text{
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color:  #ffffff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #ffffff;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.release .submit{
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #16D0FF;
+  overflow: hidden;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.submit button{
+  border-radius: 0rpx;
+  padding:0rpx;
+  margin:0rpx;
+}
+/*底部回复*/
 /** detail footer **/
 @import "main-qss/icon.qss";

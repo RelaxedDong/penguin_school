@@ -3,15 +3,18 @@ const app = getApp()
 Page({
     data:{
         showModalStatus: false,
+        noMore: false,
         order_bar: false,
         is_open: false,
         active_tag_id: 'all',
+        height: 0,
+        page: 1,
         inputVal: '',
         order_map: [
-            {name: '时间',key:"create_time"},
-            {name: '查看',key:"view_count"},
-            {name: '评论',key:"comment_length"},
-            {name: '收藏',key:"favor_length"},
+            {name: '时间',key:"create_time",tag:"timefill"},
+            {name: '查看',key:"view_count",tag:"attentionfill"},
+            {name: '评论',key:"comment_count",tag:"commentfill"},
+            {name: '收藏',key:"favor_length",tag:"favorfill"},
         ],
         default_icon: 'cuIcon-triangledownfill',
         order: 'DESC',
@@ -50,7 +53,7 @@ Page({
         this.pageFilter(this.data.active_tag_id, this.data.inputVal)
     },
     PublishClick(){
-        app.AuthNavigateToCheck('/pages/publish/publish?type=activity')
+        app.AuthNavigateToCheck('/pages/publish/publish?type=activity&tag_id='+this.data.active_tag_id)
     },
     DetailClick(e){
         var detail_id = e.currentTarget.dataset.id;
@@ -58,23 +61,48 @@ Page({
           url:'/pages/detail/detail?detail_id='+detail_id
       })
     },
+    onReachBottom () {
+        if(!this.data.noMore){
+            let that = this;
+            let page = this.data.page + 1;
+            let params = {active_tag_id:this.data.active_tag_id,key:this.data.inputVal,order:this.data.order,
+                order_key:this.data.order_key,school_id:app.globalData.school['id'],page:page};
+            app.WxHttpRequestGet('activity_list',params,function (res) {
+                let data = res.data;
+                if(data.code === 200){
+                    let raw_activities = that.data.activities;
+                    let response_data = data.data.activities
+                    if(response_data.length === 0){
+                        that.setData({
+                            noMore:true
+                        });
+                    }else{
+                        raw_activities = raw_activities.concat(response_data);
+                        that.setData({
+                            activities:raw_activities,
+                            page: page
+                        })
+                    }
+                }else{
+                    app.InterError()
+                }
+            },app.InterError);
+        }
+    },
     toSearch:function(e){
         this.pageFilter(this.data.active_tag_id, this.data.inputVal)
+        qq.pageScrollTo({
+            scrollTop: 0
+        })
     },
     FilterBar(){
         this.setData({
             order_bar:!this.data.order_bar,
         })
     },
-    SearchBtnClick(){
-        this.setData({
-            inputVal:''
-        })
-        this.pageFilter(this.data.active_tag_id)
-    },
     onLoad: function (options) {
         if(options.active_id){
-            this.pageFilter(options.active_id)
+            this.pageFilter(options.active_id);
             this.setData({
                 active_tag_id:options.active_id
             })
@@ -87,39 +115,56 @@ Page({
         this.setData({
             active_tag_id:id,
         });
+        qq.pageScrollTo({
+            scrollTop: 0
+        });
         this.pageFilter(id,this.data.inputVal)
     },
+    touchStart (e) {
+        if(this.data.order_bar){
+            this.setData({
+                order_bar:false,
+            })
+        }
+    },
     pageFilter(tag_id, key=""){
-        app.qqshowloading('加载中，请稍后');
+        app.qqshowloading('');
         let that = this;
         let params = {active_tag_id:tag_id,key:key,order:this.data.order,
             order_key:this.data.order_key,school_id:app.globalData.school['id']}
         app.WxHttpRequestGet('activity_list',params,function (res) {
             let data = res.data;
-            let tags_response = data.data.tags;
-            let tags = [{name:'全部',id:'all'}].concat(tags_response);
             if(data.code === 200){
-                that.setData({
+                let params = {
                     activities:data.data.activities,
-                    school:app.globalData.school,
-                    tags: tags
-                })
+                    page: 1,
+                    noMore:false,
+                };
+                if(!that.data.tags){
+                    params['tags'] = [{name:'全部',id:'all'}].concat(data.data.tags)
+                }
+                that.setData(params);
             }else{
                 app.InterError()
             }
+            qq.hideLoading()
         },app.InterError);
-        qq.hideLoading()
     },
     onShareAppMessage(res){
         app.ShowMenue()
-    },
-    ShareClick(){
-      app.ShowMenue()
     },
     onShow: function () {
         if(app.globalData.new_publish){
             this.pageFilter('all');
             app.globalData.new_publish = false;
+        }
+        let fresh_id = app.globalData.tag_fresh_id;
+        if(fresh_id){
+            this.pageFilter(fresh_id);
+            app.globalData.tag_fresh_id = false
+            this.setData({
+                active_tag_id:fresh_id
+            })
         }
     }
 })

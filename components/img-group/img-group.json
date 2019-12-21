@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "comment-tree": "/pages/detail/more-comment"
+  }
 }

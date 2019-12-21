@@ -1,7 +1,7 @@
 <view class="template">
     <view class="header">
         <view class="flex-row">
-            <view class="outer-img">
+            <view class="outer-img" animation="{{animation}}">
                 <view class="center-avatar">
                     <open-data type="userAvatarUrl"></open-data>
                 </view>

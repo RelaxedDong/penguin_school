@@ -4,14 +4,14 @@
 <view class='case-page'>
     <view class='list-masonry'>
         <view class='item-masonry shadow' qq:for="{{photoes}}" qq:key>
-            <view style="position: relative"  bindtap="HandleImgClick" data-id="{{item.id}}">
+            <view style="position: relative" class="face-height"  bindtap="HandleImgClick" data-id="{{item.id}}">
                 <image class="image" src='{{item.imgs[0]}}'
                        mode='widthFix'></image>
                 <view class="img-count" >
                     {{item.imgs.length}} 图
                 </view>
             </view>
-            <view class="border-box">
+            <view class="border-box padding-10 border-box">
                 <view qq:if="{{item.address}}" class="text-size-25 margin-top-10 text-black column-center flex-row">
                     <text class="cuIcon-locationfill border-box"></text>
                     <text class="margin-left-5">{{item.address}}</text>
@@ -27,7 +27,7 @@
                         </view>
                         <view class="text-size-25 text-grey">{{item.create_time}}</view>
                     </view>
-                    <view class="auto-left column-center">
+                    <view class="auto-left column-center margin-right-5">
                         <view class="favor border-box" bindtap="FavorClick" data-id="{{item.id}}"
                         data-count="{{item.favor_count}}" data-index="{{index}}">
                             <text class="{{item.status=='favor'?'text-red cuIcon-likefill':'cuIcon-like'}}"></text>

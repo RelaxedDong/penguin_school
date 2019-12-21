@@ -11,17 +11,18 @@ Page({
     activekey: 'pic',
     last_active_key: 'pic',
     inputVal: 'pic',
-    can_add_friend: 1,
+    can_add_friend: 0,
     imglist: [],
     min:5,//最少字数
     max: 500, //最多字数 (根据自己需求改变)
     timer: null,
     anonymous: false,
+    onload_with_tag: false,
     is_img_upload: false,
     input: "",
     active_address: "",
     address_list: [],
-    limit_pic: 5
+    limit_pic: 9
   },
   inputs: function (e) {
     var type = e.currentTarget.dataset.type;
@@ -104,7 +105,7 @@ Page({
         }
         if (is_active_length > 2) {
             tags[key].is_active = (!tags[key].is_active);
-            app.ShowQQmodal('最多关联两个话题，请重新选择！', "");
+            app.ShowQQmodal('最多添加两个板块，请重新选择！', "");
             return
         }
         this.setData({
@@ -161,7 +162,7 @@ Page({
         const rules = {
             title: {
                 required: true,
-                maxlength: 30,
+                maxlength: 20,
                 minlength: 3
             },
             desc: {
@@ -174,7 +175,7 @@ Page({
             title: {
                 required: '标题必须要填写',
                 maxlength: '标题最多20个字符',
-                minlength: '标题至少2个字符'
+                minlength: '标题至少3个字符'
             },
             desc: {
                 required: '请简要描述内容',
@@ -187,6 +188,7 @@ Page({
     submitBtn: function (e) {
         var that = this;
         var params = this.data.form;
+        params['formId'] = e.detail.formId;
         if (!this.WxValidate.checkForm(params)) {
             const error = this.WxValidate.errorList[0];
             app.ShowQQmodal(error.msg, "");
@@ -246,12 +248,47 @@ Page({
             }
         }
     },
+    AuthFriend(){
+        let that = this;
+        qq.getSetting({
+            success(res) {
+                if (!res.authSetting['setting.addFriend']) {
+                    qq.showModal({
+                        title: '授权确认',
+                        content: '授权后开启好友添加功能',
+                        success: function (tip) {
+                            if (tip.confirm) {
+                                qq.openSetting({
+                                    success: function (data) {
+                                        let can_add_friend = 1;
+                                        if (res.authSetting['setting.addFriend']) {
+                                            app.ShowToast("授权成功")
+                                        } else {
+                                            can_add_friend=0
+                                            app.ShowToast("授权失败，请重新点击")
+                                        }
+                                        that.setData({
+                                            can_add_friend:can_add_friend
+                                        })
+                                    }
+                                })
+                            }else{app.ShowToast("授权失败，请重新点击");
+                                that.setData({
+                                    can_add_friend:0
+                                })}
+                        },
+                    })
+                }else{
+                    that.setData({
+                        can_add_friend:1
+                    })
+                }
+            }
+        })
+    },
     CanSeeMe (e) {
       if(e.detail.value){
-          this.setData({
-              can_add_friend:1
-          });
-          app.AddFriendAuth(false)
+          this.AuthFriend();
       }else{
           this.setData({
               can_add_friend:0
@@ -269,21 +306,22 @@ Page({
         if (data.code === 200) {
             app.globalData.new_publish = true;
             app.ShowQQmodal('恭喜！发布成功!', '');
-            let url = '/pages/activity/activity';
+            let delta = 1;
             if(this.data.type === 'img'){
-                url = '/pages/photo/photo'
+                delta = 2
             }
             setTimeout(function () {
-                qq.redirectTo({
-                    url: url
-                })
-            }, 1500)
+                    qq.navigateBack({
+                        delta:delta
+                    });
+                }, 1500)
         } else {
             app.ShowToast(data.message)
         }
         qq.hideLoading();
     },
     onLoad: function (options) {
+      app.qqshowloading()
       var type = options.type;
         var that = this;
         app.WxHttpRequestGet('get_upload_sign', {}, function (res) {
@@ -301,18 +339,34 @@ Page({
                         title: '校园风景'
                     })
                 }else{
-                    that.setData({
+                    let tags = data.data.tags;
+                    let setData = {
                         oss: data.data.oss,
                         type: type,
                         school:app.globalData.school,
                         access_token: data.data.access_token,
                         title: "校园动态",
-                        tags: data.data.tags
-                    })
+                    }
+                    let option_tag = options.tag_id;
+                    if ( option_tag ){
+                        for(var i=0;i<tags.length;i++){
+                            if(options.tag_id == tags[i].id){
+                                tags[i].is_active = true;
+                                tags = [tags[i]];
+                                setData['onload_with_tag'] = true;
+                                console.log('我跳出了')
+                                break
+                            }
+                        }
+                    }
+                    setData['tags'] = tags;
+                    console.log(setData)
+                    that.setData(setData)
                 }
             } else {
                 app.ShowQQmodal("网络错误，请稍后再试～", "");
             }
+            qq.hideLoading()
         });
         this.initValidate();
     },

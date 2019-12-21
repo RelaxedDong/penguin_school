@@ -74,19 +74,13 @@ Page({
     }, app.InterError);
   },
   login: function (e) {
-    if(e.detail.formId){
-      this.setData({
-        formId:e.detail.formId
-      });
-      return
-    }
     var that = this;
     var userinfo =  e.detail.userInfo;
     if (!userinfo) {
       app.ShowQQmodal('绑定失败，请重新点击','');
       return
     }
-    userinfo['formId'] = that.data.formId;
+    userinfo['formId'] = e.detail.formId;
     app.globalData.userInfo = userinfo;
     app.WxHttpRequestPOST('user_info', userinfo, function (res) {
       var data = res.data;
@@ -121,8 +115,8 @@ Page({
   onLoad: function () {
     let that = this;
     let school =  app.globalData.school;
-    let params = {school_id:school['id']};
-    let user_id = app.globalData.user_id
+    let params = {school_id:app.globalData.school_id?app.globalData.school_id:school['id']};
+    let user_id = app.globalData.user_id;
     if(user_id){
       params['user_id'] = user_id
     }
@@ -133,6 +127,8 @@ Page({
         if(raw_info){
           school['username'] = raw_info.username;
           school['school_id'] = raw_info.student_id;
+          school['name'] = data.data.name;
+          school['logo'] = data.data.logo;
           that.setData({
             user_id:user_id,
             department:raw_info.department,
@@ -164,25 +160,5 @@ Page({
   onShow: function () {
     // 1: 创建动画实例animation:
     this.slideupshow(this, 'slide_up1', 50, 1)
-    var animation = wx.createAnimation({
-      duration: 2000,
-      timingFunction: 'ease',
-    })
-    var next = true;
-    //连续动画关键步骤
-    setInterval(function () {
-      //2: 调用动画实例方法来描述动画
-      if (next) {
-        animation.rotate(15).step()
-        next = !next;
-      } else {
-        animation.rotate(-15).step()
-        next = !next;
-      }
-      //3: 将动画export导出，把动画数据传递组件animation的属性
-      this.setData({
-        animation: animation.export()
-      })
-    }.bind(this), 2000)
   },
 })

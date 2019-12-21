@@ -23,7 +23,6 @@ Page({
   go_upload: function(e){
     let self = this;
     let mode = e.currentTarget.dataset.mode;
-    console.log(mode)
     self.startAni(mode)
     let timeout = setTimeout(()=>{
       clearTimeout(timeout)

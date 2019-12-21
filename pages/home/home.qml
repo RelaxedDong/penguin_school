@@ -1,8 +1,8 @@
-<navbar  is_home="{{true}}" title="南阳理工学院"></navbar>
+<!--<navbar  is_home="{{true}}" title="南阳理工学院"></navbar>-->
 <!--<header activekey="home"></header>-->
 <view class="home-container"  animation="{{slide_up1}}">
     <view class="space-between top">
-        <view class="location">
+        <view class="location" qq:if="{{schools}}">
             <picker bindchange="bindPickerChange" range-key='name' range="{{schools}}">
                 <text class="cuIcon-locationfill"></text>
                 <text class="margin-left-10">{{choose_value}}</text>
@@ -37,4 +37,3 @@
         </view>
     </view>
 </view>
-

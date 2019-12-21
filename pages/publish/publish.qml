@@ -1,11 +1,11 @@
 <view class="page-container">
-    <view class="page-title text-black">
+    <view class="page-title text-black" qq:if="{{school}}">
         <view class="table_cell">
             <button class="text-size-30 text-black">{{title}} ({{school.name}})</button>
         </view>
         <view class="">
             <form bindsubmit='submitBtn' report-submit>
-                <button class="main-bg-cor text-size-30 text-blue" formType="submit">发表</button>
+                <button class="main-bg-cor text-size-25 text-blue" formType="submit">发表</button>
             </form>
         </view>
     </view>
@@ -28,15 +28,14 @@
                     </view>
                 </scroll-view>
             </view>
-            <view class="choosed text-size-30">
-                    <view class="choose-item flex-row"  qq:for="{{tags}}" qq:key qq:if="{{item.is_active}}">
-                        <text class="margin-right-10">#</text>
-                        <text>{{item.name}}</text>
-                    </view>
+            <view qq:if="{{active_address}}" class="location text-size-25 padding-top-bottom-10">
+                <text class="cuIcon-locationfill"></text>
+                <text class="margin-left-10">{{active_address}}</text>
             </view>
-            <view class="flex-row margin-top-20 text-size-25 text-grey" qq:if="{{active_address}}">
-                <text class="cuIcon-location margin-right-10"></text>
-                <text>{{active_address}}</text>
+            <view class="choosed text-size-30">
+                    <view class="choose-item main-bg-cor text-size-25 flex-row"  qq:for="{{tags}}" qq:key qq:if="{{item.is_active}}">
+                        <text class="tg"># {{item.name}}</text>
+                    </view>
             </view>
     </view>
 </view>
@@ -49,7 +48,7 @@
             <text>{{imglist.length}} / {{limit_pic}}</text>
         </view>
     </view>
-    <view class="space-between border-main" data-activeKey="tag" bindtap="TabChoose"  qq:if="{{!is_img_upload}}">
+    <view class="space-between border-main" data-activeKey="tag" bindtap="TabChoose"  qq:if="{{!is_img_upload && !onload_with_tag}}">
         <view>
             <text class="cuIcon-tag"></text><text class="margin-left-10">添加板块</text>
         </view>
@@ -59,7 +58,7 @@
     </view>
     <view class="item-choose"  qq:if="{{activekey == 'tag' && !is_img_upload}}">
         <view class="items-box">
-            <view  qq:for="{{tags}}" qq:key  class="items  bg-f4" bindtap="TagClick"
+            <view  qq:for="{{tags}}" qq:key  class="items  main-bg-cor" bindtap="TagClick"
                    data-key="{{index}}"
             ><text qq:if="{{item.is_active}}" class="cuIcon-tagfill  text-yellow"></text>{{item.name}}</view>
         </view>
@@ -73,12 +72,13 @@
         </view>
     </view>
     <view class="item-choose"  qq:if="{{activekey == 'location'}}">
-        <view class="search-box" >
-            <input bindinput='getsuggest' placeholder="请输发布地址" value="{{input}}" type="text"  confirm-type="search" />
-            <text class="cuIcon-close" bindtap="ClearClick"  style="margin-left: auto;margin-right:20rpx;padding: 10rpx;box-sizing: border-box"></text>
+        <view class="search-box">
+            <text class="cuIcon-search margin-left-20"></text>
+            <input type="text" placeholder="请输发布地址" value="{{input}}"
+                   bindinput='getsuggest' bindconfirm="search"/>
         </view>
-        <view class="items-box">
-            <view  qq:for="{{address_list}}" qq:key qq:key  class="items text-size-23 bg-f4" bindtap="AddressClick" data-address="{{item}}"
+        <view class="items-box main-bg-cor" qq:if="{{address_list.length > 0}}">
+            <view  qq:for="{{address_list}}" qq:key qq:key  class="items text-size-23 " bindtap="AddressClick" data-address="{{item}}"
             ><text qq:if="{{item == active_address}}" class="cuIcon-locationfill text-size-30 text-yellow"></text>{{item}}</view>
         </view>
     </view>
@@ -89,8 +89,8 @@
         </view>
     </view>
     <view class="space-between" qq:if="{{!is_img_upload}}">
-        <view>允许看见人加我好友</view>
-        <switch checked bindchange="CanSeeMe" />
+        <view>允许添加QQ好友</view>
+        <switch checked="{{can_add_friend}}" bindchange="CanSeeMe" />
     </view>
 </view>
 </view>

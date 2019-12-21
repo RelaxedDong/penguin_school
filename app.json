@@ -1,11 +1,13 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/message/message",
+    "pages/message/message-list",
     "pages/publish/publish",
     "pages/auth/auth",
     "pages/calender/calender",
+    "pages/detail/more-comment",
     "pages/weather/index",
-    "pages/message/message",
     "pages/my/my",
     "pages/activity/activity",
     "pages/photo/photo",
@@ -25,6 +27,9 @@
     "navigationBarBackgroundColor": "#16D0FF",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "企鹅校园"
+  },
+  "networkTimeout": {
+    "request": 15000
   },
   "tabBar": {
     "selectedColor": "#16D0FF",

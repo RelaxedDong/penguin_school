@@ -2,7 +2,6 @@
 const  app = getApp()
 Page({
   data: {
-      choose_value: '南阳理工学院',
       swiperOptions: {
         autoplay: true,
         circular: true,
@@ -22,7 +21,7 @@ Page({
     });
     app.globalData.school = item;
     app.ShowQQmodal('切换成功', item.name);
-    this.GetSchoolHome(item.city)
+    this.GetSchoolHome(item.id)
   },
   HandleClick: function(e){
     let url = e.currentTarget.dataset.url;
@@ -67,32 +66,43 @@ Page({
         animation: animation.export()
       })
   },
-  GetSchoolHome(city){
+  GetSchoolHome(id){
     let params = {};
-    if (city) {
-      params['city'] = city
+    if (id) {
+      params['school_id'] = id
     }
     let that = this;
     app.WxHttpRequestGet('home_config', params, function (res) {
+      console.log(res)
       let data = res.data;
       if(data.code === 200){
         that.setData({
           icons: data.data.icons,
+          choose_value: data.data.choose_name,
           banners: data.data.banners,
           temp: data.data.weather,
           schools: data.data.schools,
         });
-        if(!app.globalData.school){
-          app.globalData.school = data.data.schools[0];
-        }
+        app.globalData.school = data.data.active_school;
         app.globalData.school['weather'] = data.data.weather
       }else{
         app.InterError()
       }
-    })
+      qq.hideLoading()
+    },app.InterError)
   },
   onLoad: function () {
-    this.GetSchoolHome()
+    //判断是用户是否绑定了
+    app.qqshowloading('');
+    let that = this;
+    //判断onLaunch是否执行完毕
+    if (app.globalData.checkLogin) {
+      that.GetSchoolHome(app.globalData.school_id)
+    } else {
+      app.checkLoginReadyCallback = res => {
+        that.GetSchoolHome(res)
+      };
+    }
   }
 });
 

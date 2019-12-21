@@ -56,6 +56,7 @@ Page({
       901: "./image/900.svg",
       999: "./image/900.svg",
     },
+    is_subscribe: false,
     days: [],
     suggestion: [],
     suggestionIcon: {
@@ -90,6 +91,64 @@ Page({
     },
     hourly: []
   },
+  UserSubscribe(status){
+    app.qqshowloading('');
+    app.WxHttpRequestPOST('user_subscribe',{is_subscribe:status},function (res) {
+      let data = res.data;
+      if(data.code === 200){
+        app.ShowToast("订阅成功")
+      }else {
+        app.ShowQQmodal(data.message, "");
+      }
+      qq.hideLoading()
+    })
+  },
+  SubScribe(e){
+    let that = this;
+    if(e.detail.value) {
+      qq.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.appMsgSubscribed']) {
+            qq.showModal({
+              title: '订阅确认',
+              content: '订阅成功后开启天气推送～',
+              success: function (tip) {
+                if (tip.confirm) {
+                  qq.openSetting({
+                    success: function (data) {
+                      let is_subscribe = true;
+                      if (data.authSetting['scope.appMsgSubscribed']) {
+                        that.UserSubscribe(1)
+                      } else {
+                        is_subscribe=false;
+                        app.ShowToast("订阅失败，请重新点击")
+                      }
+                      that.setData({
+                        is_subscribe:is_subscribe
+                      })
+                    }
+                  })
+                }else{app.ShowToast("订阅失败，请重新点击");
+                  that.setData({
+                    is_subscribe:false
+                  })}
+              },
+            })
+          }else{
+            that.setData({
+              is_subscribe:true
+            })
+            that.UserSubscribe(1)
+          }
+        }
+      })
+    } else {
+      that.setData({
+        is_subscribe:false
+      })
+      that.UserSubscribe(0)
+    }
+  },
   getHourly() { // 实况天气
     wx.request({
       url: 'https://free-api.heweather.com/s6/weather/hourly',
@@ -107,7 +166,6 @@ Page({
             tmp: it.tmp
           }
         })
-        console.log(hourlyArray)
         this.setData({
           hourly: hourlyArray
         })
@@ -156,25 +214,6 @@ Page({
       }
     })
   },
-  getAir() { // 空气质量实况
-    wx.request({
-      url: 'https://free-api.heweather.com/s6/air/now',
-      data: {
-        location: this.data.location,
-        key: 'e4f463c603ec41628d4d497b5eccbe6a'
-      },
-      header: { 'content-type': 'application/json' },
-      success: (res) => {
-        let suggestion = res.data.HeWeather6[0].lifestyle
-        this.setData({
-          suggestion
-        })
-      },
-      fail: () => {
-        this.add()
-      }
-    })
-  },
   getWeather: function () { // 3-10天天气预报
     wx.request({
       url: 'https://free-api.heweather.com/s6/weather/forecast',
@@ -205,12 +244,24 @@ Page({
   },
   onLoad: function (options) { // 生命周期函数--监听页面加载
     let school = JSON.parse(options.school);
-    let weather = school['weather']
+    let weather = school['weather'];
+    let that = this;
     this.setData({
       location: school['city'],
       school: school,
       summary: weather['day_op'],
       localTemperature:weather['tem']
+    });
+    qq.getSetting({
+      success(res) {
+        let is_subscribe = false;
+        if (res.authSetting['scope.appMsgSubscribed']) {
+          is_subscribe = true;
+        }
+        that.setData({
+          is_subscribe
+        })
+      }
     })
     this.getWeather();
     this.getNowWeather();
@@ -222,4 +273,4 @@ Page({
   },
   onShow: function () { // 生命周期函数--监听页面显示
   }
-})
+});

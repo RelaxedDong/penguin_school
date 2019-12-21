@@ -13,6 +13,29 @@ Page({
             {name: '意见反馈', url:"/imgs/source/icon/setting.png",route:'',key:"sugesstion"},
         ]
     },
+    onShow: function () {
+        // 1: 创建动画实例animation:
+        var animation = wx.createAnimation({
+            duration: 2000,
+            timingFunction: 'ease',
+        })
+        var next = true;
+        //连续动画关键步骤
+        setInterval(function () {
+            //2: 调用动画实例方法来描述动画
+            if (next) {
+                animation.rotate(15).step()
+                next = !next;
+            } else {
+                animation.rotate(-15).step()
+                next = !next;
+            }
+            //3: 将动画export导出，把动画数据传递组件animation的属性
+            this.setData({
+                animation: animation.export()
+            })
+        }.bind(this), 2000)
+    },
     itemClick(e){
         let url = e.currentTarget.dataset.url;
         let key = e.currentTarget.dataset.key;
@@ -49,9 +72,6 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
-    },
 
     /**
      * 生命周期函数--监听页面隐藏

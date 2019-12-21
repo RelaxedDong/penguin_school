@@ -4,9 +4,45 @@
   justify-content: space-between;
   flex-direction: row;
   overflow: hidden;
-  border-top-right-radius: 30rpx;
-  border-bottom-left-radius: 30rpx;
-  border-bottom-right-radius:30rpx;
+  border-radius: 5rpx;
+  padding: 15rpx 0;
+}
+.grid-9 {
+  margin-top: 10rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.item{
+  width:33%;
+  float:left;
+  margin-bottom: 10rpx;
+}
+.item image{
+  width:95%;
+  height:200rpx;
+  display:block;
+  margin:0 auto;
+  border-radius: 10rpx;
+}
+.img-box{
+  margin-top: 10rpx;
+  width: 244rpx;
+  height: 180rpx;
+  margin-right: 23rpx;
+  display: inline-block;
+}
+.img-box image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.scroll_box{
+  width: 100%;
+  height: 180rpx;
+  overflow: hidden;
+  margin:30rpx 0;
+  background: #fff;
+  white-space: nowrap;
 }
 .box-1,.box-2{
   width: 50%;

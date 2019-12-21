@@ -17,7 +17,7 @@
       <image animation='{{imgAniData_1}}'  src="/imgs/source/icon/photo-two.png"></image>
       <text>发单图</text>
     </view>
-    <view bindtap='go_upload' data-mode='5' class='item'>
+    <view bindtap='go_upload' data-mode='9' class='item'>
       <image animation='{{imgAniData_2}}'src="/imgs/source/icon/photo-one.png"></image>
       <text>发组图</text>
     </view>

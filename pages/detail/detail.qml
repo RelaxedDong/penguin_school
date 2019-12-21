@@ -1,59 +1,65 @@
 <view class="aui-tour-content">
   <view class="avatar">
     <image class="img-flex" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
-    <button qq:if="{{activity.can_add_friend == '1'}}" class="add-btn main-bg-cor" bindaddfriend="bindaddfrienResult" open-type="addFriend" open-id="{{activity.openid}}">+ 好友</button>
+    <button qq:if="{{activity.can_add_friend == '1' && activity.anonymous !== '1'}}" class="add-btn main-bg-cor"
+            bindaddfriend="bindaddfrienResult"
+            open-type="addFriend"
+            open-id="{{activity.openid}}">
+      + 好友
+      </button>
   </view>
 </view>
-<view class="page-container">
+<view class="page-container" qq:if="{{activity}}">
   <view class="detail-title">
     {{activity.title}}
+  </view>
+  <button open-type="share" class="cell-center flex-row qq-zone-share">
+    <view  class=" auto-left">
+      <image src="/imgs/source/qq-zone.png" class="icon-img"></image>
+    </view>
+  </button>
+  <view class="space-between  padding-top-bottom-20 text-size-25 text-grey">
+    <view>
+      <text>{{activity.create_time}}</text>
+    </view>
+    <view qq:if="{{activity.address}}" class="location text-size-23">
+      <text class="cuIcon-locationfill"></text>
+      <text class="margin-left-10">{{activity.address}}</text>
+    </view>
   </view>
   <view class="text-desc">
       <text>
         {{activity.content}}
       </text>
   </view>
-  <view class="scroll_box margin-top-20 margin-bottom-10">
-    <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
-      <view class="img-box" qq:for="{{activity.imgs}}" qq:key bindtap="HandleImgClick" data-urls="{{activity.imgs}}" data-currenturl="{{item}}">
-        <image src="{{item}}" class="item_book_img" mode="aspectFill"></image>
-      </view>
-    </scroll-view>
+  <view class="grid-9">
+    <view class="img-box" qq:for="{{activity.imgs}}" qq:key bindtap="HandleImgClick" data-urls="{{activity.imgs}}" data-currenturl="{{item}}">
+      <image src="{{item}}" class="item_book_img" mode="aspectFill"></image>
+    </view>
   </view>
-  <view class="icon-row flex-row text-black ">
-    <view>
-      <view qq:for="{{activity.tags}}">
-        <text class="cuIcon-tag margin-right-10"></text>{{item.name}}
-      </view>
-      <button open-type="share" class="cell-center qq-zone-share">
-        <view  class="flex-row">
-          <image src="/imgs/source/qq-zone.png" class="icon-img"></image>
+  <view class="flex-row align-items margin-top-20 padding-top-bottom-10">
+        <view class="text-blue-active border-box" qq:for="{{activity.tags}}" bindtap="HandleTag" data-id="{{item.id}}">
+          <view class="text-size-23">#{{item.name}}</view>
         </view>
-      </button>
-    </view>
   </view>
-  <view class="space-between location padding-top-bottom-20">
-    <view qq:if="{{activity.address}}">
-      <text class="cuIcon-locationfill"></text>
-      <text class="margin-left-10">{{activity.address}}</text>
+  <view class="space-between text-grey padding-10 text-size-27 border-main margin-top-10">
+    <view bindtap="QQZonePublish">
+      <text class="cuIcon-upload margin-right-10 green"></text>
+      <text>生成说说</text>
     </view>
-    <view>
-      <text>{{activity.create_time}}</text>
-    </view>
-  </view>
-  <view class="space-between border-main padding-top-bottom-20">
-    <view class="flex-row">
-      <view class="talk" bindtap="bindReply">评论</view>
-      <view class="QQZone" bindtap="QQZonePublish">生成说说</view>
-    </view>
-    <view class="auto-left text-grey text-size-30">
-      <view bindtap="LickClick" data-id="{{activity.id}}">
-        <text class=" {{favor?'text-yellow cuIcon-favorfill':'cuIcon-favor'}} margin-right-10"></text>{{favor_count}}
+      <view class="margin-right-10">
+        <view class="flex-row">
+          <view class="margin-right-20">
+            <text class="margin-right-10 cuIcon-attention"></text>{{activity.view_count}}
+          </view>
+          <view bindtap="bindReply" class="margin-right-20">
+            <text class="cuIcon-comment margin-right-10"></text>{{comments.length}}
+          </view>
+          <view bindtap="LickClick" data-id="{{activity.id}}" class="margin-right-20">
+            <text class="margin-right-10 {{favor?'text-red cuIcon-likefill':'cuIcon-like'}}"></text>{{favor_count}}
+          </view>
+        </view>
       </view>
-      <view class="margin-left-10">
-        <text class="cuIcon-comment margin-right-10"></text>{{comments.length}}
-      </view>
-    </view>
   </view>
   <view class="release" hidden="{{!releaseFocus}}">
     <textarea class="text"
@@ -66,11 +72,17 @@
               cursor-spacing="15"
               auto-height="true"
               focus="{{releaseFocus}}"
-              placeholder="回复 {{releaseName}}"></textarea>
-    <view class="submit" bindtap="HandleSend">发送</view>
+              placeholder="{{releaseName}}"></textarea>
+      <form class="submit" bindsubmit='HandleSend' report-submit>
+        <button class="main-bg-cor text-size-30 text-blue" formType="submit">发表</button>
+      </form>
   </view>
-  <view class="padding-top-bottom-200">
-    <view class="border-main"  qq:for="{{comments}}" qq:key qq:for-item="comment">
+  <view class="box-comment ">
+    <view class="empty" qq:if="{{comments.length == 0}}">
+      <image src="/imgs/source/loading.gif"></image>
+      <text class="text-grey">沙发是空的，赶紧来抢！</text>
+    </view>
+    <view class="border-main padding-10 border-box"  qq:for="{{comments}}" qq:key qq:for-item="comment">
       <view class="activity-head flex-row margin-top-10">
         <image src="{{comment.avatarUrl}}"></image>
         <view class="info flex-column">
@@ -78,8 +90,8 @@
           <view class="text-size-25 text-grey">{{comment.create_time}}</view>
         </view>
         <view class="share" qq:if="{{user_id == comment.publisher_id}}" data-index="{{index}}" bindtap="DeleteComment"
-              data-id="{{comment.comment_id}}" data-act="{{activity.id}}">
-          <text class="cuIcon-deletefill text-yellow padding-10 border-box text-size-30"></text>
+              data-id="{{comment.id}}" data-act="{{activity.id}}">
+          <text class="cuIcon-deletefill text-red border-box text-size-25"></text>
         </view>
       </view>
       <view class="text-size-25 text-black comment-desc">
@@ -87,11 +99,19 @@
           {{ comment.content }}
         </text>
       </view>
+      <view class="space-between padding-top-bottom-10 text-grey" >
+        <view class="more-comment flex-row" >
+          <view qq:if="{{comment.len > 0}}" bindtap="MoreComment"
+                data-index="{{index}}" class="flex-row">
+            <text>{{comment.len}} 条回复</text>
+            <text class="cuIcon-right cell-center"></text>
+          </view>
+        </view>
+        <text catch:tap="bindReply" class="text-size-25  border-box" data-index="{{index}}"
+            data-commentId="{{comment.id}}" data-nickname="{{comment.nickname}}"
+        >回复</text>
+      </view>
     </view>
-  </view>
-  <view class="empty" qq:if="{{comments.length == 0}}">
-    <image src="/imgs/source/loading.gif"></image>
-    <text class="text-grey">沙发是空的，赶紧来抢！</text>
   </view>
 </view>
 

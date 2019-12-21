@@ -6,6 +6,9 @@
   column-count: 2;
   column-gap: 20rpx;
 }
+.shadow{
+  box-shadow: 0rpx 4rpx 20rpx 4rpx rgba(212,217,223,.5);
+}
 .publish-btn{
   background: linear-gradient(33deg, #d279ee, #f8c390);
 }
@@ -14,7 +17,12 @@
   padding: 10rpx;
   box-sizing: border-box;
 }
+.face-height{
+  overflow: hidden;
+  max-height: 400rpx;
+}
 .item-masonry{
+  border: 1px solid #f1f2f6;
   break-inside: avoid;/*避免在元素内部插入分页符*/
   box-sizing: border-box;
   background: white;
@@ -24,19 +32,24 @@
   /*overflow: hidden;*/
 }
 .activity-head{
-  padding: 20rpx 10rpx;
+  padding: 20rpx 0rpx;
   box-sizing: border-box;
   margin-bottom: 20rpx;
+  overflow: hidden;
 }
 .image {
+  overflow: hidden;
+  padding: 10rpx;
+  box-sizing: border-box;
   width: 100%;
+  border-radius: 20px;
 }
 .favor{
   padding: 10rpx 0 10rpx 10rpx;
 }
 .img-count{
   position: absolute;
-  bottom: 20rpx;
+  bottom: 30rpx;
   right: 20rpx;
   background: rgba(000,000,000,0.3);
   padding: 10rpx 15rpx;

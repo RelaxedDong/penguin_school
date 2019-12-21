@@ -5,20 +5,29 @@
 .scroll_box{
     margin: 0;
 }
+.fixed{
+    width: 100%;
+    position: fixed;
+    overflow:hidden;
+    background: white;
+    z-index: 100;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
 .tag-list{
     padding: 20rpx;
     box-sizing: border-box;
     display: inline-block;
 }
-.active-text{
-    background: linear-gradient(20deg, #6cacff, #8debff);
-    border-radius: 10rpx;
-    padding: 5rpx 10rpx;
-    color: white;
-    box-sizing: border-box;
+.tag-list view{
+    margin: 10rpx 20rpx;
+    font-size: 25rpx;
+    width: 100%;
 }
-.icon-active{
-    color: #FFF826;
+.active-text{
+    border-radius: 30rpx;
+    padding: 5rpx;
+    box-sizing: border-box;
 }
 .order-bar{
     display: flex;
@@ -26,7 +35,7 @@
     justify-content: space-between;
     font-size: 25rpx;
     padding: 20rpx 10rpx;
-    height: 50rpx;
+    height: 60rpx;
     color: #16D0FF;
 }
 .count-row{
@@ -36,12 +45,24 @@
     width: 100%;
     padding: 0 50rpx;
 }
+.filter{
+    padding:10rpx;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    color: #9B9B9B;
+}
 .filter-bar{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    padding: 10rpx;
+    justify-content: space-between;
     font-size: 25rpx;
+    background-color:white;
+    padding: 20rpx 10rpx;
+    color: #9B9B9B;
+    /*background-color:#ff9900;*/
+}
+.filter-item{
+    margin:0 15rpx;
 }
 .search-icon{
     box-sizing: border-box;
@@ -49,16 +70,5 @@
     border-radius: 50%;
     color: #16D0FF;
     display: table-cell;
-}
-.tag-list view{
-    margin: 10rpx 5rpx;
-    font-size: 25rpx;
-    width: 100%;
-}
-.user-tags{
-    margin-left: 30rpx;
-    text-align: right;
-    margin-top: 5rpx;
-    z-index: 99;
 }
 

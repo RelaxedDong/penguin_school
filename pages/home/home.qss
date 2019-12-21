@@ -13,6 +13,11 @@
 .margin-top-5{
     margin-top: 5rpx;
 }
+.empty image{
+    width: 200rpx;
+    height: 170rpx;
+}
+
 .weui-grids:before {
     content: " ";
     position: absolute;

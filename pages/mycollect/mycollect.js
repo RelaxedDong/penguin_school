@@ -15,6 +15,30 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  HandleDelete(e){
+    let that = this;
+    let dataset = e.currentTarget.dataset;
+    qq.showModal({
+      title: '确认提示',
+      content: '确认删除此发布？',
+      success(res) {
+        if (res.confirm) {
+          app.WxHttpRequestPOST('delete_publish', {id:dataset.id,operation_type:dataset.type}, function (response) {
+            let data = response.data;
+            if(data.code === 200){
+              var user_items = that.data.user_items;
+              user_items.splice(dataset.index,1);
+              that.setData({
+                user_items:user_items
+              })
+            }else{
+              app.InterError()
+            }
+          })
+        }
+        }
+      })
+    },
   BoardClick(e){
     let key = e.currentTarget.dataset.key;
     this.setData({
@@ -29,7 +53,7 @@ Page({
     if(type === 'second'){
       url = '/pages/second/second'
     }
-    if(type === 'photo'){
+    if(type === 'gallary'){
         url = '/pages/preview/preview?imgid='+id
     }
     qq.navigateTo({
