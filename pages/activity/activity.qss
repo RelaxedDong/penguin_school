@@ -5,6 +5,7 @@
 .scroll_box{
     margin: 0;
 }
+
 .fixed{
     width: 100%;
     position: fixed;

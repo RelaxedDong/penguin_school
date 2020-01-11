@@ -1,7 +1,7 @@
 <view class="page-container">
     <view class="header-choose flex-row border-main">
-        <view bindtap="BoardClick" data-key="collect" class="{{active_key=='collect'?'avtive_board':''}}">我的收藏</view>
-        <view bindtap="BoardClick" data-key="publish" class="{{active_key=='publish'?'avtive_board':''}}">我的发布</view>
+        <view bindtap="BoardClick" data-key="collect" class="{{active_key=='collect'?'avtive_board':''}}">我喜欢的</view>
+        <view bindtap="BoardClick" data-key="publish" class="{{active_key=='publish'?'avtive_board':''}}">我发布的</view>
     </view>
     <view class="filter-list flex-row">
         <view bindtap="FilterClick" data-key="activity"  class="{{filter_key=='activity'?'active-filter':'simple-filter'}}">动态</view>

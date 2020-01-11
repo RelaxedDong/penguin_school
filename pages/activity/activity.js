@@ -1,5 +1,5 @@
 //nav.js
-const app = getApp()
+const app = getApp();
 Page({
     data:{
         showModalStatus: false,
@@ -7,6 +7,7 @@ Page({
         order_bar: false,
         is_open: false,
         active_tag_id: 'all',
+        screenWidth: app.globalData.screenWidth,
         height: 0,
         page: 1,
         inputVal: '',
@@ -24,12 +25,12 @@ Page({
         console.log(e)
     },
     ScaleClickEvent(e){
-      let is_open = e.detail.is_open;
-      if(is_open){
-          this.setData({
-              is_open:is_open
-          })
-      }
+        let is_open = e.detail.is_open;
+        if(is_open){
+            this.setData({
+                is_open:is_open
+            })
+        }
     },
     bindInput(e){
         this.setData({
@@ -58,8 +59,8 @@ Page({
     DetailClick(e){
         var detail_id = e.currentTarget.dataset.id;
         qq.navigateTo({
-          url:'/pages/detail/detail?detail_id='+detail_id
-      })
+            url:'/pages/detail/detail?detail_id='+detail_id
+        })
     },
     onReachBottom () {
         if(!this.data.noMore){
@@ -101,14 +102,10 @@ Page({
         })
     },
     onLoad: function (options) {
-        if(options.active_id){
+        this.setData({
+            active_tag_id: options.active_id
+        })
             this.pageFilter(options.active_id);
-            this.setData({
-                active_tag_id:options.active_id
-            })
-        }else{
-            this.pageFilter(this.data.active_tag_id)
-        }
     },
     TagClick (e) {
         let id = e.currentTarget.dataset.id;
@@ -144,6 +141,14 @@ Page({
                     params['tags'] = [{name:'全部',id:'all'}].concat(data.data.tags)
                 }
                 that.setData(params);
+                for(let i =0;i<that.data.tags.length;i++){
+                    if(that.data.tags[i].id == tag_id){
+                        that.setData({
+                            tag_index: i
+                        })
+                        break
+                    }
+                }
             }else{
                 app.InterError()
             }

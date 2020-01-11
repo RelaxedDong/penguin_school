@@ -33,6 +33,7 @@
             </view>
         </block>
     </view>
+<!--    <ad unit-id="07455d6724a14cd74e00a52e5fe972fe" type="feeds"></ad>-->
     <view class="choose-items page-container">
         <!--    <view class="space-between choose-item">-->
         <!--        <view>-->
@@ -65,7 +66,8 @@
                 <text class="cuIcon-right margin-right-10"></text>
             </view>
         </button>
-        <button class="space-between choose-item"  open-type="addFriend" hover-class="none" open-id="{{admin_openid}}">
+        <button class="space-between choose-item"  open-type="addFriend"
+                open-id="{{admin_openid}}">
             <view>
                 <button class="item-button">
                     <text class="cuIcon-markfill icon-style"></text>
@@ -76,7 +78,8 @@
                 <text class="cuIcon-right margin-right-10"></text>
             </view>
         </button>
-        <button class="space-between choose-item"  open-type="addFriend" hover-class="none" open-id="{{admin_openid}}">
+        <button class="space-between choose-item"
+                open-type="addFriend" hover-class="none" open-id="{{admin_openid}}">
             <view>
                 <button class="item-button" hover-class="none">
                     <text class="cuIcon-group_fill icon-style"></text>
@@ -88,4 +91,5 @@
             </view>
         </button>
     </view>
+    <ad unit-id="d78afa38065c87c7805996973a589d6a"></ad>
 </view>

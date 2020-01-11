@@ -4,11 +4,12 @@
         previous-margin="{{options.previousMargin}}rpx"
         next-margin="{{options.nextMargin}}rpx">
         <swiper-item wx:for="{{swiperData}}" wx:key="index" class="swiper-item {{ index == options.currentSwiper ?
-        'swiper-slide-active' : 'swiper-slide-scaleY' }}">
-                <image src="{{ item.url }}" mode="aspectFill" binderror="errImg" class="slide-image"></image>
+        'swiper-slide-active' : 'swiper-slide-scaleY' }}"
+        bindtap="HandlerImageClick" data-url="{{item.url}}">
+                <image src="{{ item.src }}" mode="aspectFill" binderror="errImg" class="slide-image"></image>
                         <view class='item-content'>
-                                <text class='tags'>{{ item.desc }}</text>
-                                <view class='title'>{{ item.name }}</view>
+                                <text class='tags'>{{ item.name }}</text>
+                                <view class='title'>{{ item.desc }}</view>
                         </view>
         </swiper-item>
 </swiper>

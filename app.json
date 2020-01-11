@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/publish/address",
     "pages/message/message",
     "pages/message/message-list",
     "pages/publish/publish",
@@ -22,6 +23,13 @@
     "pages/food/food",
     "pages/travel/travel",
     "pages/detail/detail"
+  ],
+  "subpackages": [
+    {
+      "root": "Subpackges",
+      "pages": ["pages/signIn/signIn", "pages/products/products" ,"pages/storeDetail/detail"],
+      "independent": true
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#16D0FF",

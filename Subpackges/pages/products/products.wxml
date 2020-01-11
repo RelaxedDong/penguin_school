@@ -1,0 +1,29 @@
+<!--components/navbar/navbar.wxml-->
+  <view class='nav' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <text class="cuIcon-back back text-size-30" bindtap="navBack"></text>
+    </view>
+  </view>
+<view class="container">
+  <image mode="aspectFill" style="width: 100%" src="https://img.zcool.cn/community/01e4225df2154ba8012097b3217a4b.png@1280w_1l_2o_100sh.png"></image>
+  <view class="search-view">
+  <view class="search-content">
+      <image src="/imgs/source/icon/search-pic.png" class="search-icon" />
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索
+      </button>
+    </view>
+  </view>
+  <view class="goods-container">
+    <view class="goods-box shadow" wx:for-items="{{products}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+      <view class="img-box-detail">
+        <image src="https://donghao.club{{item.face}}" class="image" mode="aspectFill" />
+      </view>
+      <view class="goods-title">
+        <view>{{item.title}}</view>
+        <view class="goods-price">{{item.point}}积分</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -5,8 +5,6 @@
         </swiper-item>
     </block>
 </swiper>
-
-
 <view class='layout_horizontal margin-top-20'>
     <view style='flex:1' bindtap="SelectClick" data-id="1">
             <image class='img' src='/imgs/tem/phone.png'></image>

@@ -13,6 +13,13 @@ Page({
         currentSwiper: ''
       },
   },
+  ChildClick(e){
+    let url = e.detail;
+    console.log(url)
+    qq.navigateTo({
+      url: url
+    })
+  },
   bindPickerChange(e){
     let item = this.data.schools[e.detail.value];
     this.setData({

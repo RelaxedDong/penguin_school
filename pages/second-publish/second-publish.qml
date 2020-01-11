@@ -14,8 +14,11 @@
             </view>
             <view class="scroll_box padding-top-bottom-20 margin-20">
                 <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
-                    <view class="img-box" qq:for="{{imglist}}" qq:key qq:for-item="image">
-                        <image src='{{image}}' class="item_book_img" data-src="{{image}}" mode="aspectFill" bindtap="previewImage"></image>
+                    <view class="img-box" qq:for="{{imglist}}" qq:key qq:for-item="image"
+                          bindtap="previewImage"
+                          data-urls="{{imglist}}" data-currenturl="{{image}}">
+                        <image src='{{image}}' class="item_book_img"
+                               mode="aspectFill"></image>
                         <text class="cuIcon-close DeleteBtn" bindtap="DeleteBtnClick" data-index="{{index}}"></text>
                         <text class="face" qq:if="{{index === 0}}">封面</text>
                     </view>

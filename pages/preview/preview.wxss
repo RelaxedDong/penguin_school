@@ -1,15 +1,11 @@
 /* pages/preview/preview.wxss */
 /**index.wxss**/
-.swiper-box{
+.preview-swiper{
   width: 100%;
-  height: 350rpx;
 }
-.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
-  margin-bottom: 2rpx;
-}
-.swiper-box image {
-  height: 100%;
+.preview-swiper image {
   width: 100%;
+  height: auto;
 }
 page{
   background-color:#000;

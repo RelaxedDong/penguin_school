@@ -1,48 +1,60 @@
-<view class="aui-tour-content">
-  <view class="avatar">
-    <image class="img-flex" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
-    <button qq:if="{{activity.can_add_friend == '1' && activity.anonymous !== '1'}}" class="add-btn main-bg-cor"
-            bindaddfriend="bindaddfrienResult"
-            open-type="addFriend"
-            open-id="{{activity.openid}}">
-      + 好友
-      </button>
-  </view>
-</view>
 <view class="page-container" qq:if="{{activity}}">
-  <view class="detail-title">
-    {{activity.title}}
+  <view class="activity-head shadow flex-row border-main padding-top-bottom-20">
+    <image class="cell-center" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
+    <view class="info flex-column">
+      <view class="nickname">
+        <view class="text-black">
+          {{activity.anonymous == '1'?'匿名用户':activity.nickname}}
+        </view>
+      </view>
+      <view class="text-size-23 text-grey">
+        <view>{{activity.create_time}}</view>
+      </view>
+    </view>
+    <view class="auto-left margin-right-5 location align-items">
+      <button qq:if="{{activity.can_add_friend == '1' && activity.anonymous !== '1'}}" class="add-btn main-bg-cor"
+              bindaddfriend="bindaddfrienResult"
+              open-type="addFriend"
+              open-id="{{activity.openid}}">
+        + 好友
+      </button>
+    </view>
   </view>
-  <button open-type="share" class="cell-center flex-row qq-zone-share">
-    <view  class=" auto-left">
-      <image src="/imgs/source/qq-zone.png" class="icon-img"></image>
-    </view>
-  </button>
-  <view class="space-between  padding-top-bottom-20 text-size-25 text-grey">
+  <view class="detail-title space-between space-b">
     <view>
-      <text>{{activity.create_time}}</text>
+      {{activity.title}}
     </view>
+    <view>
+      <button open-type="share" class="cell-center text-yellow flex-row ">
+        <view  class=" auto-left">
+          <text class="cuIcon-share"></text>
+        </view>
+      </button>
+    </view>
+  </view>
+  <view class="text-desc">
+    <text>
+      {{activity.content}}
+    </text>
+  </view>
+  <view class="grid-9 padding-top-bottom-20">
+    <view class="img-box" qq:for="{{activity.imgs}}" qq:key bindtap="HandleImgClick"
+          data-urls="{{activity.imgs}}" data-currenturl="{{item}}">
+      <image src="{{item}}" class="item_book_img" mode="aspectFill"></image>
+    </view>
+  </view>
+  <view class="padding-top-bottom-20 text-size-25 text-grey">
     <view qq:if="{{activity.address}}" class="location text-size-23">
       <text class="cuIcon-locationfill"></text>
       <text class="margin-left-10">{{activity.address}}</text>
     </view>
   </view>
-  <view class="text-desc">
-      <text>
-        {{activity.content}}
-      </text>
-  </view>
-  <view class="grid-9">
-    <view class="img-box" qq:for="{{activity.imgs}}" qq:key bindtap="HandleImgClick" data-urls="{{activity.imgs}}" data-currenturl="{{item}}">
-      <image src="{{item}}" class="item_book_img" mode="aspectFill"></image>
-    </view>
-  </view>
-  <view class="flex-row align-items margin-top-20 padding-top-bottom-10">
+  <view class="space-between align-items margin-top-20 padding-top-bottom-10">
         <view class="text-blue-active border-box" qq:for="{{activity.tags}}" bindtap="HandleTag" data-id="{{item.id}}">
           <view class="text-size-23">#{{item.name}}</view>
         </view>
   </view>
-  <view class="space-between text-grey padding-10 text-size-27 border-main margin-top-10">
+  <view class="space-between text-grey padding-top-bottom-20 text-size-27 border-main margin-left-10">
     <view bindtap="QQZonePublish">
       <text class="cuIcon-upload margin-right-10 green"></text>
       <text>生成说说</text>
@@ -91,7 +103,7 @@
         </view>
         <view class="share" qq:if="{{user_id == comment.publisher_id}}" data-index="{{index}}" bindtap="DeleteComment"
               data-id="{{comment.id}}" data-act="{{activity.id}}">
-          <text class="cuIcon-deletefill text-red border-box text-size-25"></text>
+          <text class="cuIcon-deletefill text-red border-box text-size-20"></text>
         </view>
       </view>
       <view class="text-size-25 text-black comment-desc">

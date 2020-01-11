@@ -38,7 +38,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    swiperChange: function (e) {
+    HandlerImageClick (e) {
+      let dataset = e.currentTarget.dataset;
+      if(dataset.url){
+        this.triggerEvent('myevent',dataset.url)
+      }
+    },
+    swiperChange (e) {
       this.setData({
         'options.currentSwiper': e.detail.current
       })

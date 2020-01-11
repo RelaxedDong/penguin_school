@@ -39,6 +39,10 @@
 .button-hover{
   opacity: 0;
 }
+.advertise {
+  padding:10rpx 0;
+  box-sizing: border-box;
+}
 textarea{
   width: 100%;
   min-height: 300rpx;
@@ -74,6 +78,26 @@ textarea{
   color: white;
   background: linear-gradient(33deg, #6cacff, #8debff);
 }
+.item-choose{
+  text-align: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+}
+.items-box{
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+.items{
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin: 10rpx;
+  font-size: 23rpx;
+}
 .owner-tag{
   padding: 5rpx;
   box-sizing: border-box;
@@ -89,6 +113,12 @@ textarea{
   display: flex;
   flex: 1;
 }
+.ad-card {
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  min-height:100rpx;
+  max-height:210rpx;
+}
 .flex-row{
   display: flex;
   flex-direction: row;
@@ -100,10 +130,6 @@ textarea{
   align-self: center;
   display: table-cell;
   vertical-align: middle;
-}
-.weather-png{
-  width: 30rpx;
-  height: 30rpx;
 }
 .auto-left{
   display: flex;
@@ -267,6 +293,7 @@ textarea{
   border-radius: 100rpx;
 }
 .search-box input,.search-box text{
+  color: #9B9B9B;
   overflow: initial;
   font-size: 25rpx;
   align-self: center;
@@ -392,7 +419,7 @@ textarea{
 
 /*头像盒子*/
 .activity-list{
-  margin:10rpx 0;
+  margin:20rpx;
   padding:20rpx;
   box-sizing: border-box;
 }
@@ -405,14 +432,9 @@ textarea{
   padding-bottom: 10rpx;
   font-size: 25rpx;
 }
-.nickname {
-  font-size: 30rpx;
-  display: flex;
-  flex-direction: row;
-}
 .info{
   margin-left: 20rpx;
-  justify-content: space-between;
+  font-size: 25rpx;
 }
 .main-bg-cor{
   background: #8debff;

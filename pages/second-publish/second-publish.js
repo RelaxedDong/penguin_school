@@ -64,11 +64,7 @@ Page({
     })
   },
   previewImage(e) {
-    var current = e.target.dataset.src;
-    qq.previewImage({
-      current: current, // 当前显示图片的http链接
-      urls: this.data.imgs // 需要预览的图片http链接列表
-    })
+    app.preView(e);
   },
   initValidate() {
     const rules = {

@@ -10,9 +10,6 @@
             </picker>
         </view>
         <view class="auto-left margin-right-10 text-size-23" qq:if="{{temp}}">
-            <view>
-                <image class="weather-png" src="/imgs/source/weather/{{temp.code}}@1x.png"></image>
-            </view>
             <view class="flex-column margin-left-10">
                 <view class="auto-left flex-row">
                     <text>{{temp.province}}{{temp.name}} · {{temp.day_op}}</text>
@@ -25,7 +22,7 @@
             </view>
         </view>
     </view>
-    <swiper-slider swiper-data="{{banners}}" swiper-options="{{swiperOptions}}"></swiper-slider>
+    <swiper-slider bind:myevent="ChildClick" swiper-data="{{banners}}" swiper-options="{{swiperOptions}}"></swiper-slider>
     <view class="weui-grids">
         <view class="weui-grid  init " qq:for="{{icons}}" qq:key="{{item.id}}"  bindtap="HandleClick" data-url="{{item.url}}">
                 <view class='weui-grid__bg'>

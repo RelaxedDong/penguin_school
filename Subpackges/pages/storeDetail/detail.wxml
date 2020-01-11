@@ -1,0 +1,32 @@
+<view class='nav' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    <text class="cuIcon-back back text-size-30" bindtap="navBack"></text>
+  </view>
+</view>
+<image mode="aspectFill" style="width: 100%" src="https://donghao.club{{product.face}}"></image>
+<view class="page-container">
+  <view class="goods-info">
+      <view class="goods-title">{{product.title}}</view>
+      <view class="surplus">
+        剩余：{{product.surplus}}
+      </view>
+      <view class="goods-price">
+        <text>所需积分：</text>
+        <text class="zi margin-left-10">{{product.point}}</text>
+      </view>
+      <view class="goods-info-fx">
+        <image src='/imgs/source/icon/qd.png' />
+        <button open-type="share">分享</button>
+        <text>分享商品</text>
+      </view>
+    </view>
+    <view class="goods-des-info">
+      <view class="label-title">商品详情</view>
+      <view class="goods-text">
+        <rich-text nodes="{{product.desc}}"></rich-text>
+      </view>
+    </view>
+    <view class="footer-box">
+      <view class="now-buy" bindtap="tobuy">立即兑换</view>
+    </view>
+  </view>

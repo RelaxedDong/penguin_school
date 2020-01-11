@@ -5,11 +5,12 @@ Page({
      */
     data: {
         activekey: 'activity',
+        admin_openid: app.globalData.admin_openid,
         last_active_key: 'activity',
         grid_list: [
             {name: '学生认证',url:"/imgs/source/icon/renzheng.png",route:'auth/auth',key:"auth"},
-            {name: '我的发布',url:"/imgs/source/icon/edit.png",route:'mycollect/mycollect',key:"publish"},
-            {name: '我的收藏', url:"/imgs/source/icon/collct.png",route:'mycollect/mycollect',key:"collect"},
+            {name: '我发表的',url:"/imgs/source/icon/edit.png",route:'mycollect/mycollect',key:"publish"},
+            {name: '我喜欢的', url:"/imgs/source/icon/love.png",route:'mycollect/mycollect',key:"collect"},
             {name: '意见反馈', url:"/imgs/source/icon/setting.png",route:'',key:"sugesstion"},
         ]
     },
@@ -46,7 +47,7 @@ Page({
             }
 
             if(key === 'sugesstion'){
-                app.ShowQQmodal('研发小哥哥努力研发中，敬请期待～', '');
+                app.ShowQQmodal('我们的发展，离不开你的建议～', '');
                 return
             }
         }
@@ -58,9 +59,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            admin_openid: app.globalData.admin_openid
-        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

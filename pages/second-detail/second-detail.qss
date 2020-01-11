@@ -8,15 +8,19 @@
 .raw_price{
     text-decoration:line-through;
 }
+.activity-head{
+    padding: 20rpx;
+    box-sizing: border-box;
+}
 .add-cart-btn{background:linear-gradient(to right,#FF7A34, #EE32FF);color: #fff;
     border-radius: 50rpx;width: 400rpx}
-.item{
-    padding:10rpx 0;
-    margin-top: 20rpx;
-}
 .good-desc{
     padding: 30rpx 0;
     font-size: 25rpx;
+}
+.item{
+    padding: 20rpx 0;
+    margin: 30rpx 0 ;
 }
 .footer-bottom{
     padding-bottom: 150rpx;

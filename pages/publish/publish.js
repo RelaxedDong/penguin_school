@@ -13,15 +13,14 @@ Page({
     inputVal: 'pic',
     can_add_friend: 0,
     imglist: [],
+    active_address:false,
     min:5,//最少字数
     max: 500, //最多字数 (根据自己需求改变)
-    timer: null,
     anonymous: false,
     onload_with_tag: false,
     is_img_upload: false,
-    input: "",
-    active_address: "",
-    address_list: [],
+      timer: null,
+      input:false,
     limit_pic: 9
   },
   inputs: function (e) {
@@ -49,7 +48,7 @@ Page({
         qq.chooseImage({
             count:that.data.limit_pic, // 默认9
             sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
                 var tempFilePaths = res.tempFilePaths;
@@ -89,12 +88,6 @@ Page({
             temporary_imgs: false
         })
     },
-    ClearClick() {
-        this.setData({
-            input: "",
-            address_list: []
-        })
-    },
     TagClick(e) {
         var key = e.target.dataset.key;
         var tags = this.data.tags;
@@ -111,45 +104,6 @@ Page({
         this.setData({
             tags: tags
         });
-    },
-    AddressClick(e) {
-        let address = e.currentTarget.dataset.address;
-        this.setData({
-            active_address: this.data.active_address === address ? false : address
-        })
-    },
-    getsuggest: function (e) {
-        var _this = this;
-        var old_timer = this.data.timer;
-        if (old_timer) {
-            clearTimeout(old_timer)
-        }
-        this.setData({
-            timer: setTimeout(() => {
-                if (e.detail.value) {
-                    app.globalData.qqmapsdk.getSuggestion({
-                        //获取输入框值并设置keyword参数
-                        keyword: e.detail.value, //用户输入的关键词，可设置固定值,如keyword:'KFC'
-                        // region:"北京", //设置城市名，限制关键词所示的地域范围，非必填参数
-                        success: function (res) {//搜索成功后的回调
-                            var sug = [];
-                            for (var i = 0; i < res.data.length; i++) {
-                                sug.push(
-                                    res.data[i].title,
-                                )
-                            }
-                            _this.setData({
-                                address_list: app.uniq(sug)
-                            })
-                        },
-                    });
-                } else {
-                    _this.triggerEvent('SearchList', []);
-                }
-                // 调用关键词提示接口
-            }, 700),
-            input: e.detail.value,
-        })
     },
     previewImage(e) {
         var current = e.target.dataset.src;
@@ -294,6 +248,15 @@ Page({
               can_add_friend:0
           })
       }
+    },
+    GetAddress () {
+      let params = {
+          active_address:this.data.active_address,
+          input:this.data.input
+      }
+      qq.navigateTo({
+          url: '/pages/publish/address?data='+encodeURIComponent(JSON.stringify(params))
+      })
     },
     anonymousClick () {
       this.setData({

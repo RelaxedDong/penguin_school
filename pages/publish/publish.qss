@@ -17,12 +17,6 @@ page{
     border-radius: 10rpx;
     margin: 20rpx;
 }
-.item-choose{
-    text-align: center;
-    padding: 20rpx;
-    box-sizing: border-box;
-    margin-bottom: 40rpx;
-}
 .choosed{
     display: flex;
     flex-direction: row;
@@ -39,20 +33,6 @@ page{
     flex-direction: row;
     font-size: 25rpx;
     margin-left: 10rpx;
-}
-.items-box{
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    margin-top: 20rpx;
-    flex-wrap: wrap;
-}
-.items{
-    padding: 10rpx;
-    box-sizing: border-box;
-    border-radius: 20rpx;
-    margin: 10rpx;
-    font-size: 23rpx;
 }
 .img-box{
     margin-top: 20rpx;

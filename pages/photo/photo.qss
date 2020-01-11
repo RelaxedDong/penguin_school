@@ -2,10 +2,13 @@
   padding:20rpx;
   /*background:#f1f2f6;*/
 }
-.list-masonry{
-  column-count: 2;
-  column-gap: 20rpx;
-}
+/*.list-masonry{*/
+/*  display: grid;*/
+/*  grid-template-columns: repeat(2, 1fr);*/
+/*  grid-auto-rows: 10px;*/
+/*  grid-column-gap: 4px;*/
+/*  overflow-y: scroll;*/
+/*}*/
 .shadow{
   box-shadow: 0rpx 4rpx 20rpx 4rpx rgba(212,217,223,.5);
 }
@@ -21,20 +24,19 @@
   overflow: hidden;
   max-height: 400rpx;
 }
-.item-masonry{
-  border: 1px solid #f1f2f6;
-  break-inside: avoid;/*避免在元素内部插入分页符*/
-  box-sizing: border-box;
-  background: white;
-  margin-bottom:20rpx;
-  font-size: 25rpx;
-  border-radius: 20rpx;
-  /*overflow: hidden;*/
-}
+/*.item-masonry{*/
+/*  border: 1px solid #f1f2f6;*/
+/*  break-inside: avoid;!*避免在元素内部插入分页符*!*/
+/*  box-sizing: border-box;*/
+/*  background: white;*/
+/*  margin-bottom:20rpx;*/
+/*  font-size: 25rpx;*/
+/*  border-radius: 20rpx;*/
+/*  !*overflow: hidden;*!*/
+/*}*/
 .activity-head{
   padding: 20rpx 0rpx;
   box-sizing: border-box;
-  margin-bottom: 20rpx;
   overflow: hidden;
 }
 .image {
@@ -42,10 +44,6 @@
   padding: 10rpx;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 20px;
-}
-.favor{
-  padding: 10rpx 0 10rpx 10rpx;
 }
 .img-count{
   position: absolute;
@@ -64,3 +62,30 @@
   height: 60rpx;
   border-radius: 50%;
 }
+/* waterfall.wxss */
+page{height: 100%}
+
+/*瀑布流*/
+scroll-view{
+  width: 100%;
+  /*height: 1200px*/
+}
+.waterfall{
+  margin: 10rpx 10rpx 0 10rpx;
+  box-sizing: border-box;
+}
+.waterfall .view {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+.imgbox{
+  border: 1px solid #f1f2f6;
+    break-inside: avoid;/*避免在元素内部插入分页符*/
+    box-sizing: border-box;
+    background: white;
+    margin-bottom:20rpx;
+    font-size: 25rpx;
+  /*overflow: hidden;*/
+}
+
