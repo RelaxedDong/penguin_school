@@ -323,7 +323,6 @@ Page({
                         }
                     }
                     setData['tags'] = tags;
-                    console.log(setData)
                     that.setData(setData)
                 }
             } else {

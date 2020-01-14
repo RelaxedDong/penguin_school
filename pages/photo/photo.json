@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "校园美景",
-  "enablePullDownRefresh": true,
   "usingComponents": {
   }
 }

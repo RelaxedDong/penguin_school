@@ -19,7 +19,6 @@ Page({
     app.ShowMenue()
   },
   SecondDetail(e){
-    console.log(e)
     let second_id = e.currentTarget.dataset.id;
     qq.navigateTo({
       url:"/pages/second-detail/second-detail?detail_id="+second_id

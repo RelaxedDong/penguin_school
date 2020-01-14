@@ -127,3 +127,10 @@
         </view>
     </view>
 </scroll-view>
+<view class="empty" qq:if="{{Arr1.length == 0}}">
+    <image src="/imgs/source/loading.gif"></image>
+    <text class="text-grey">此处空空，快来发布吧</text>
+</view>
+<view bindtap="PublishClick" class="publish-btn">
+    <text class="cuIcon-picfill"></text>
+</view>

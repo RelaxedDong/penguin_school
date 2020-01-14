@@ -1,6 +1,10 @@
 {
   "pages":[
+    "Subpackges/pages/vote/vote",
+    "Subpackges/pages/vote_add/vote_add",
     "pages/home/home",
+    "pages/about/about",
+    "pages/my/my",
     "pages/publish/address",
     "pages/message/message",
     "pages/message/message-list",
@@ -9,7 +13,6 @@
     "pages/calender/calender",
     "pages/detail/more-comment",
     "pages/weather/index",
-    "pages/my/my",
     "pages/activity/activity",
     "pages/photo/photo",
     "pages/preview/preview",
@@ -19,7 +22,6 @@
     "pages/mycollect/mycollect",
     "pages/category/category",
     "pages/second-publish/second-publish",
-    "pages/book/book",
     "pages/food/food",
     "pages/travel/travel",
     "pages/detail/detail"

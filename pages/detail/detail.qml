@@ -50,7 +50,7 @@
     </view>
   </view>
   <view class="space-between align-items margin-top-20 padding-top-bottom-10">
-        <view class="text-blue-active border-box" qq:for="{{activity.tags}}" bindtap="HandleTag" data-id="{{item.id}}">
+        <view class="text-blue-active border-box" qq:for="{{activity.tags}}">
           <view class="text-size-23">#{{item.name}}</view>
         </view>
   </view>

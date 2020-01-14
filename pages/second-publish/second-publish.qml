@@ -3,7 +3,7 @@
     <form bindsubmit="formSubmit">
         <view class='top-card'>
             <view class='title'>
-                <input class="border-main padding-top-bottom-20" data-type="title" bindinput="inputs" placeholder="标题品牌型号买方搜索内容"></input>
+                <input class="border-main padding-top-bottom-20" data-type="title" bindinput="inputs" placeholder="请输入商品标题（{{school.name}}）"></input>
             </view>
             <view class="input-box">
                 <view class="input-item border-main">
@@ -31,9 +31,11 @@
                 <input class="border-main" data-type="price" placeholder='请输入商品价格 /元' type='digit' bindinput="inputs" />
             </view>
             <view class="span space-between">
-                <switch class="switch-price"  bindchange="OldSwitchClick"></switch><text qq:if="{{!show_old_price}}">原价不展示</text>
+                <switch class="switch-price"  bindchange="OldSwitchClick"></switch>
+                <text qq:if="{{!show_old_price}}" class="padding-10">原价不展示</text>
                 <view class="title" qq:if="{{show_old_price}}">
                     <view class="search-box">
+                        <text class="cuIcon-search margin-left-20"></text>
                         <input type="text" placeholder="请输入原价 /元" value="{{inputVal}}"  bindinput='bindInput' />
                     </view>
                 </view>

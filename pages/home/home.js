@@ -15,7 +15,6 @@ Page({
   },
   ChildClick(e){
     let url = e.detail;
-    console.log(url)
     qq.navigateTo({
       url: url
     })
@@ -80,7 +79,6 @@ Page({
     }
     let that = this;
     app.WxHttpRequestGet('home_config', params, function (res) {
-      console.log(res)
       let data = res.data;
       if(data.code === 200){
         that.setData({

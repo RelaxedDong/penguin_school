@@ -1,14 +1,6 @@
 .case-page{
   padding:20rpx;
-  /*background:#f1f2f6;*/
 }
-/*.list-masonry{*/
-/*  display: grid;*/
-/*  grid-template-columns: repeat(2, 1fr);*/
-/*  grid-auto-rows: 10px;*/
-/*  grid-column-gap: 4px;*/
-/*  overflow-y: scroll;*/
-/*}*/
 .shadow{
   box-shadow: 0rpx 4rpx 20rpx 4rpx rgba(212,217,223,.5);
 }
@@ -24,16 +16,6 @@
   overflow: hidden;
   max-height: 400rpx;
 }
-/*.item-masonry{*/
-/*  border: 1px solid #f1f2f6;*/
-/*  break-inside: avoid;!*避免在元素内部插入分页符*!*/
-/*  box-sizing: border-box;*/
-/*  background: white;*/
-/*  margin-bottom:20rpx;*/
-/*  font-size: 25rpx;*/
-/*  border-radius: 20rpx;*/
-/*  !*overflow: hidden;*!*/
-/*}*/
 .activity-head{
   padding: 20rpx 0rpx;
   box-sizing: border-box;
@@ -86,6 +68,5 @@ scroll-view{
     background: white;
     margin-bottom:20rpx;
     font-size: 25rpx;
-  /*overflow: hidden;*/
 }
 

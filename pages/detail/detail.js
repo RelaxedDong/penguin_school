@@ -62,7 +62,7 @@ Page({
             'super_id':comment.id
         }
         qq.navigateTo({
-          url: '/pages/detail/more-comment?data='+encodeURIComponent(JSON.stringify(data))
+          url: '/pages/detail/more-vote_add?data='+encodeURIComponent(JSON.stringify(data))
       })
     },
     HandleSend (e){
@@ -146,10 +146,6 @@ Page({
             app.ShowQQmodal(data.message, "");
         }
         qq.hideLoading();
-    },
-    HandleTag(e){
-        app.globalData.tag_fresh_id = e.currentTarget.dataset.id;
-        qq.navigateBack()
     },
     GetImageInfo(share_row, result_func){
         let result = [];

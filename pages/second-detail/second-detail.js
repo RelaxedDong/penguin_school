@@ -54,7 +54,6 @@ Page({
   onLoad: function (options) {
     let that = this;
     const detail_id = options.detail_id;
-    console.log(detail_id)
     app.WxHttpRequestGet('get_second_detail',{second_id:detail_id},function (res) {
       let data =res.data;
       if(data.code === 200){

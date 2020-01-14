@@ -163,14 +163,6 @@ Page({
             this.pageFilter('all');
             app.globalData.new_publish = false;
         }
-        let fresh_id = app.globalData.tag_fresh_id;
-        if(fresh_id){
-            this.pageFilter(fresh_id);
-            app.globalData.tag_fresh_id = false
-            this.setData({
-                active_tag_id:fresh_id
-            })
-        }
     }
 })
 
