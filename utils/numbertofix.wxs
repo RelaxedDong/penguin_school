@@ -1,9 +1,0 @@
-var filter = {
-  numberToFix: function (value) {
-    return value.toFixed(1)
-  }
-}
-module.exports = {
-  numberToFix: filter.numberToFix,
-  delWithPath:filter.delWithPath
-}

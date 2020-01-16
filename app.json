@@ -1,7 +1,5 @@
 {
   "pages":[
-    "Subpackges/pages/vote/vote",
-    "Subpackges/pages/vote_add/vote_add",
     "pages/home/home",
     "pages/about/about",
     "pages/my/my",
@@ -28,8 +26,15 @@
   ],
   "subpackages": [
     {
-      "root": "Subpackges",
+      "name": "product",
+      "root": "products_package",
       "pages": ["pages/signIn/signIn", "pages/products/products" ,"pages/storeDetail/detail"],
+      "independent": true
+    },
+    {
+      "name": "vote",
+      "root": "vote_package",
+      "pages": ["pages/vote/vote","pages/vote_add/vote_add"],
       "independent": true
     }
   ],

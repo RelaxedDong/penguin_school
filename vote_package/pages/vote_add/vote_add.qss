@@ -125,7 +125,7 @@
     display: inline-block;
     margin: 12rpx;
     font-size: 32rpx;
-    color: #7087f4;
+    color: #16D0FF;
 }
 
 .vote-item-add .fa-image {
@@ -138,7 +138,7 @@
     width: 80%;
     margin-top: 30rpx;
 }
-.btn{ background-color: #7087f4; color: #FFFFFF;}
+.btn{ background-color: #16D0FF; color: #FFFFFF;}
 
 .vote-item-add .fa-times-circle {
     position: absolute;
@@ -202,14 +202,14 @@
 
 .vote-add-item
 .confirm-add-btn {
-    background-color: #7087f4 !important;
+    background-color: #16D0FF !important;
 }
 .publish-vote-btn{
     z-index: 100;
     position: fixed;
     bottom: 40rpx;
     right: 40rpx;
-    background-color: #7087f4;
+    background-color: #16D0FF;
     color: white;
     border-radius: 50%;
     width: 100rpx;
@@ -271,6 +271,6 @@
 }
 .des-textarea-tip {
     margin-top: 16rpx;
-    color: #7087f4;
+    color: #16D0FF;
 }
-@import "../../static/package_icon.qss";
+@import "../../static/common.qss";

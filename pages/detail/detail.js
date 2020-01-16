@@ -168,19 +168,27 @@ Page({
     },
     QQZonePublish(){
         let that = this;
-        let share_row = app.globalData.share_urls;
+        // let share_row = app.globalData.share_urls;
+        let share_row = [];
         let activity = that.data.activity;
         if(activity.imgs){
-            share_row = share_row.concat(activity.imgs);
+            share_row = activity.imgs
         }
         app.qqshowloading('拼命生成中...');
-        that.GetImageInfo(share_row, function (res) {
-            qq.hideLoading()
-            qq.openQzonePublish({
+        if(share_row.length > 0){
+            that.GetImageInfo(share_row, function (res) {
+                qq.hideLoading();
+                qq.openQzonePublish({
                     text: '#企鹅校园 ' + activity.content,
                     media: res
                 })
-        })
+            })
+        } else {
+            qq.hideLoading();
+            qq.openQzonePublish({
+                text: '#企鹅校园 ' + activity.content,
+            })
+        }
     },
     FavorDone (res){
         const data =res.data;

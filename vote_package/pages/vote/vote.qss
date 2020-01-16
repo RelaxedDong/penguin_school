@@ -1,6 +1,6 @@
-page {
-  background-color: #e1e8f6;
-}
+/*page {*/
+/*  background-color: #e1e8f6;*/
+/*}*/
 
 .vote-item {
   margin-bottom: 16rpx;
@@ -20,13 +20,13 @@ page {
 .vote-item-hd .nickname {
   font-size: 24rpx;
   font-weight: 500;
-  color: #7087f4;
+  color: #2c2c2c;
 }
 
 .vote-item-hd image {
   width: 64rpx;
   height: 64rpx;
-  margin: 0 16rpx 0 28rpx;
+  margin: 0 16rpx 0 10rpx;
   border-radius: 64rpx;
 }
 
@@ -151,7 +151,7 @@ page {
 
 .vote-item-ft .fa-align-left {
   font-size: 36rpx;
-  color: #707070;
+  color: #16D0FF;
 }
 
 .fa-align-left text {
@@ -163,7 +163,7 @@ page {
 .view-container {
   position: relative;
   padding-bottom: 86rpx;
-  background: #e1e8f6;
+  background: #F7F7F7;
 }
 
 .view-container-active {
@@ -201,12 +201,14 @@ page {
   font-size: 28rpx;
   text-align: center;
   background-color: #ffffff;
-  color: #7087f4;
+  color: #16D0FF;
   box-sizing: border-box;
 }
-
+.count-num {
+  margin-right: 10rpx;
+}
 .votes-list-tab .tab.active {
-  border-bottom: 4rpx solid #7087f4;
+  border-bottom: 4rpx solid #16D0FF;
 }
 
 .vote-add-btn,
@@ -219,7 +221,7 @@ page {
   font-size: 32rpx;
   line-height: 96rpx;
   text-align: center;
-  color: #7087f4;
+  color: #16D0FF;
   background-color: #ffffff;
   box-shadow: 0 -2rpx 2rpx rgba(0, 0, 0, 0.1);
 }
@@ -248,7 +250,7 @@ page {
   border-radius: 0;
 }
 
-.vote-add-btn .fa-plus-circle,
+.fa-plus-circle,
 .feedback-btn button .fa-question-circle {
   margin-right: 10rpx;
   font-size: 30rpx;
@@ -270,7 +272,7 @@ page {
   width: 412rpx;
   height: 84rpx;
   line-height: 84rpx;
-  background-color: #7087f4;
+  background-color: #16D0FF;
 }
 
 .vote-imgs {
@@ -292,4 +294,4 @@ page {
 .vote-imgs-more {
   display: block;
 }
-@import "../../static/package_icon.qss";
+@import "../../static/common.qss";

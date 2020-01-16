@@ -56,7 +56,16 @@
 .cuIcon-rankfill:before {
     content: "\e721";
 }
+.cuIcon-roundaddfill:before {
+    content: "\e6d8";
+}
+.cuIcon-questionfill:before {
+    content: "\e690";
+}
 
+.cuIcon-question:before {
+    content: "\e691";
+}
 .cuIcon-rank:before {
     content: "\e722";
 }

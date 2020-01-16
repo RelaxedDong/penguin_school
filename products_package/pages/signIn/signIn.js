@@ -16,7 +16,7 @@ Page({
   },
   GoPointCenter () {
     qq.navigateTo({
-      url: '/Subpackges/pages/products/products'
+      url: '/products_package/pages/products/products'
     })
   },
   //签到

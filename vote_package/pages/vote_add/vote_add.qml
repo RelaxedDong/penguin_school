@@ -8,7 +8,7 @@
         <label class="label-for-input">投票类型</label>
         <radio-group class="vote-radio-group vote-add-item-data" bindchange="radioChange">
             <label qq:for="{{voteTypes}}" qq:key="{{index}}">
-                <radio class="vote-radio" value="{{item.name}}" checked="{{item.checked}}" 	color="#7087f4"/>{{item.value}}
+                <radio class="vote-radio" value="{{item.name}}" checked="{{item.checked}}" 	color="#16D0FF"/>{{item.value}}
             </label>
         </radio-group>
     </view>

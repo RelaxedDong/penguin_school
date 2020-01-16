@@ -9,7 +9,7 @@ Page({
   toDetailsTap: function (e) {
     //跳转商品详情页
     qq.navigateTo({
-      url: "/Subpackges/pages/storeDetail/detail?id="+e.currentTarget.dataset.id
+      url: "/products_package/pages/storeDetail/detail?id="+e.currentTarget.dataset.id
     })
   },
   tapBanner: function (e) {

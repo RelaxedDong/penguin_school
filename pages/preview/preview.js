@@ -59,6 +59,22 @@ Page({
       delta: 1
     })
   },
+  onShareAppMessage(res){
+    qq.ShowMenue()
+    // let gallary = this.data.gallary;
+    // qq.shareAppMessage({
+    //   title: gallary.title,
+    //   imageUrl: gallary.imgs[0], // 图片 URL
+    //   query:'gallary_id='+gallary.id,
+    //   shareAppType:'qzone',
+    //   success: function () {
+    //     app.ShowToast('恭喜，转发成功！')
+    //   },
+    //   fail() {
+    //     app.ShowToast('网络错误，转发失败！')
+    //   }
+    // })
+  },
   onLoad: function(options){
     let Id = options.imgid;
     let that = this;
@@ -183,6 +199,9 @@ Page({
         }
       }
     })
+  },
+  onShow (e) {
+    console.log(e)
   },
   action_sheet(e) {
     this.setData({

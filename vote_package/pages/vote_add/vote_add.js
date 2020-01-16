@@ -226,7 +226,11 @@ Page({
                 icon: 'success',
                 duration: 1500,
                 mask: true
-            })
+            });
+            setTimeout(function () {
+                app.globalData.new_vote = true;
+                qq.navigateBack();
+            }, 1500)
         }else {
             app.ShowToast(data.message)
         }

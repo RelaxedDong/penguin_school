@@ -24,7 +24,7 @@
                     <view class="img-box" qq:for="{{imglist}}" qq:key qq:for-item="image">
                         <image src='{{image}}' class="item_book_img" data-src="{{image}}" mode="aspectFill" bindtap="previewImage"></image>
                         <text class="cuIcon-close DeleteBtn" bindtap="DeleteBtnClick" data-index="{{index}}"></text>
-                        <text class="face" qq:if="{{index === 0}}">封面</text>
+<!--                        <text class="face" qq:if="{{index === 0}}">封面</text>-->
                     </view>
                 </scroll-view>
             </view>
