@@ -138,6 +138,7 @@
   padding: 20rpx 28rpx;
   box-sizing: border-box;
   overflow: hidden;
+  font-size: 30rpx;
 }
 
 .vote-item-ft button {
@@ -147,6 +148,9 @@
   line-height: 0;
   font-size: 36rpx;
   color: #707070;
+}
+.end-time {
+  font-size: 25rpx;
 }
 
 .vote-item-ft .fa-align-left {
@@ -229,7 +233,9 @@
 .feedback-btn {
   left: 0;
   width: 24%;
-  color: #707070;
+  color: #16D0FF;
+
+  /*color: #707070;*/
   background-color: #f1f1f1;
 }
 
@@ -243,7 +249,7 @@
   color: #707070;
   border: 0 !important;
   border-radius: 0;
-  background-color: #f4f4f4;
+  background-color: #FAFAFA;
 }
 
 .feedback-btn button::after {

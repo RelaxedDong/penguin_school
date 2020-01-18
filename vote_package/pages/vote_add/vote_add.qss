@@ -25,7 +25,14 @@
     float: left;
     color: #515151;
 }
-
+.picker-label{
+    color: #515151;
+}
+.other-text{
+    display: inline-block;
+    font-size: 22rpx;
+    color: #707070;
+}
 .vote-add-item input,
 .vote-add-item radio-group {
     height: 60rpx;
@@ -237,12 +244,6 @@
 }
 
 .vote-add-item-data .fa-plus {
-    color: #707070;
-}
-
-.vote-add-item-imgs label text {
-    display: inline-block;
-    font-size: 22rpx;
     color: #707070;
 }
 

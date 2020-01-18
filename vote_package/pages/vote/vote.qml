@@ -1,4 +1,4 @@
-<view class="view-container">
+<view class="view-container" qq:if="{{votes.length > 0}}">
     <view class="votes-list">
         <!--list begin-->
         <view class="vote-item" qq:for="{{votes}}" qq:for-item="vote" qq:for-index="vote_index">
@@ -9,7 +9,9 @@
                         <text qq:if="{{vote.is_private==1}}">匿名发布</text>
                         <text qq:else>{{vote.nickname}}</text>
                     </view>
-                    <view>{{vote.create_time}}</view>
+                    <view>
+                        {{vote.create_time}}
+                    </view>
                 </view>
                 <view class="vote-item-hd-op {{delOpState?'vote-item-hd-op-hover':''}}"  data-index="{{vote_index}}" data-voteid="{{vote.data.id}}" bindtap="voteOP">
                     <i class="fa fa-circle"></i>
@@ -63,14 +65,17 @@
                     <text style="margin-left: 20rpx;font-size: 25rpx">{{vote.total}}</text>
                 </view>
 <!--                <i class="fa fa-align-left" bindtap="targetToVoteDetail" data-nickname="{{vote.nickname}}" data-index="{{voteIndex}}" data-src="{{vote.data.id}}"><text>20</text></i>-->
-                <button open-type="share" plain="true" data-voteid="{{vote.data.id}}" data-cover="{{vote.images[0]}}" data-title="{{vote.data.title}}" data-nickname="{{vote.nickname}}" bindtap="onShareAppMessage"><i
-                        class="fa fa-share-square-o"></i></button>
+<!--                <button open-type="share" plain="true" data-voteid="{{vote.data.id}}" data-cover="{{vote.images[0]}}" data-title="{{vote.data.title}}" data-nickname="{{vote.nickname}}" bindtap="onShareAppMessage"><i-->
+<!--                        class="fa fa-share-square-o"></i></button>-->
+                <view class="color-warn end-time" qq:if="{{vote.end_time}}">
+                    {{vote.end_time}} 截止
+                </view>
             </view>
         </view>
         <!--list end-->
         <view class="no-more-tip" wx:if="{{bottomLineState}}">这是底部，已无更多内容</view>
     </view>
-    <view wx:if="{{votes.length>0}}" class="feedback-btn">
+    <view class="feedback-btn">
         <button open-type="feedback">
             <text class="cuIcon-questionfill fa-plus-circle"></text>反馈
         </button>
@@ -80,4 +85,9 @@
 <!--        <text>创建投票</text>-->
 <!--        <i class="fa fa-plus-circle"></i>创建投票-->
     </view>
+</view>
+
+<view class="empty" qq:else>
+    <image src="/imgs/source/loading.gif"></image>
+    <text class="text-grey">{{school.name}}展示无投票，快来发布吧</text>
 </view>

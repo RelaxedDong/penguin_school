@@ -284,7 +284,7 @@ Page({
         qq.hideLoading();
     },
     onLoad: function (options) {
-      app.qqshowloading()
+      app.qqshowloading('')
       var type = options.type;
         var that = this;
         app.WxHttpRequestGet('get_upload_sign', {}, function (res) {

@@ -16,13 +16,43 @@
         <label>投票描述</label>
         <textarea qq:if="{{!desTextareaState}}" class="fl vote-add-item-data" bindinput="bindDesTextAreaInput" maxlength="120" auto-height placeholder="补充描述（选填，不超过120字）" value="{{desTextareaData}}" />
         <view class="fl peso-des-textarea" qq:elif="{{desTextareaState}}">
-            <text qq:if="desTextareaDataLen>0">{{desTextareaData}}</text>
-            <text qq:if="desTextareaDataLen===0">补充描述（选填，不超过120字）</text>
+            <text qq:if="desTextareaData.length>0">{{desTextareaData}}</text>
+            <text qq:if="desTextareaData.length===0">补充描述（选填，不超过120字）</text>
         </view>
-        <view qq:if="{{desTextareaDataLen>0}}" class="fr vote-add-item-data des-textarea-tip"><text class="{{desTextareaDataLen===120?'color-warn':''}}">{{desTextareaDataLen}}/120</text></view>
+        <view class="fr vote-add-item-data des-textarea-tip"><text class="{{desTextareaData.length===120?'color-warn':''}}">
+            {{desTextareaData.length}}/120
+        </text></view>
+    </view>
+    <view class="vote-add-item clearfix">
+        <label>投票截止<text class="other-text">(终止时间)</text></label>
+        <radio-group class="vote-radio-group vote-add-item-data" bindchange="timeLimitChange">
+            <label qq:for="{{limitTime}}" qq:key="{{index}}">
+                <radio class="vote-radio" value="{{item.name}}" checked="{{item.checked}}" 	color="#16D0FF"/>{{item.value}}
+            </label>
+        </radio-group>
+    </view>
+    <view qq:if="{{showlimitTime}}" class="vote-add-item">
+        <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindvaliDateChange">
+            <view class="picker">
+                <text class="picker-label">截止日期：</text>{{date}}
+            </view>
+        </picker>
+    </view>
+    <view qq:if="{{showlimitTime}}" class="vote-add-item">
+        <picker
+                mode="time"
+                value="{{time}}"
+                start="{{start_time}}"
+                end="23:59"
+                bindchange="bindTimeChange"
+        >
+            <view class="picker">
+                <text class="picker-label">截止时间：</text>{{time}}
+            </view>
+        </picker>
     </view>
     <view class="vote-add-item vote-add-item-imgs clearfix">
-        <label>投票配图<text>(最多4张)</text></label>
+        <label>投票配图<text class="other-text">(最多4张)</text></label>
         <view class="vote-add-item-imgs-box">
             <view qq:for="{{voteImgs}}" qq:key="{{index}}">
                 <image qq:if="{{item}}" data-src="{{item}}" src="{{item}}" mode="aspectFill" bindtap="bindPreviewImage"></image>
@@ -67,7 +97,8 @@
                 <text class="{{newVoteWordsState?'color-warn':''}}">{{newVoteWords}}/40</text>
             </view>
             <button class="confirm-add-btn" type="primary" bindtap="confirmAddNewVote">确认添加</button>
-            <i class="fa fa-times-circle" bindtap="closeMask"></i>
+            <text class="cuIcon-roundclose fa-times-circle" bindtap="closeMask"></text>
+<!--            <i class="fa fa-times-circle" bindtap="closeMask"></i>-->
         </view>
     </view>
     <!--弹窗 end-->

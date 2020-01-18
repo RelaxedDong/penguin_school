@@ -20,6 +20,7 @@ Page({
     })
   },
   bindPickerChange(e){
+    app.qqshowloading('');
     let item = this.data.schools[e.detail.value];
     this.setData({
       schoolId:item.id,

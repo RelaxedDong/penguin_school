@@ -12,35 +12,35 @@ Page({
       url: '/pages/photo-publish/publish'
     })
   },
-  FavorClick(e){
-    let is_auth = app.AUthCheck();
-    if (!is_auth){
-      return
-    }
-    let that = this;
-    let dataset = e.currentTarget.dataset;
-    const gallary_id = dataset.id;
-    const count = dataset.count;
-    const index = dataset.index;
-    const colum = dataset.colum;
-    app.WxHttpRequestPOST('gallary_favor',{gallary_id:gallary_id},function (res) {
-      const data =res.data;
-      if(data.code == 200){
-        let key = 'Arr1['+index+'].favor_count';
-        let status = 'Arr1['+index+'].status';
-        if(colum === 'arr2'){
-          key = 'Arr2['+index+'].favor_count';
-          status = 'Arr2['+index+'].status';
-        }
-        that.setData({
-            [key]:data.data === 'normal'?count+1:count-1,
-            [status]:data.data === 'normal'?'favor':false
-          })
-      }else{
-        app.ShowQQmodal(data.message, "");
-      }
-    },app.InterError)
-  },
+  // FavorClick(e){
+  //   let is_auth = app.AUthCheck();
+  //   if (!is_auth){
+  //     return
+  //   }
+  //   let that = this;
+  //   let dataset = e.currentTarget.dataset;
+  //   const gallary_id = dataset.id;
+  //   const count = dataset.count;
+  //   const index = dataset.index;
+  //   const colum = dataset.colum;
+  //   app.WxHttpRequestPOST('gallary_favor',{gallary_id:gallary_id},function (res) {
+  //     const data =res.data;
+  //     if(data.code == 200){
+  //       let key = 'Arr1['+index+'].favor_count';
+  //       let status = 'Arr1['+index+'].status';
+  //       if(colum === 'arr2'){
+  //         key = 'Arr2['+index+'].favor_count';
+  //         status = 'Arr2['+index+'].status';
+  //       }
+  //       that.setData({
+  //           [key]:data.data === 'normal'?count+1:count-1,
+  //           [status]:data.data === 'normal'?'favor':false
+  //         })
+  //     }else{
+  //       app.ShowQQmodal(data.message, "");
+  //     }
+  //   },app.InterError)
+  // },
   HandleImgClick (e) {
     let Id = e.currentTarget.dataset.id;
     qq.navigateTo({

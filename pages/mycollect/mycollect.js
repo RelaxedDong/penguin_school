@@ -7,6 +7,7 @@ Page({
    */
   data: {
     active_key: 'collect',
+    has_auth: true,
     filter_key: 'activity'
   },
   /**
@@ -90,9 +91,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      active_key:options.key
-    })
+    if(!app.globalData.user_id){
+      this.setData({
+        has_auth:false
+      })
+      return
+    }else{
+      this.setData({
+        active_key:options.key
+      })
+    }
     this.ItemFilter(options.key,this.data.filter_key)
   },
 

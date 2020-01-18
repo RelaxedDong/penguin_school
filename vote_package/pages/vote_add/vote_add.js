@@ -12,14 +12,32 @@ Page({
         newVotes: [],
         desTextareaData: '',
         voteTypeChoosed: 0,
+        time: '00:00',
         voteTitleLen: 0,
         voteDesLen: 0,
-        desTextareaDataLen: 0,
         voteImgs: [],
+        unique_answer: [],
         voteTypes: [
             { name: 'F', value: '公开', checked: true },
             { name: 'T', value: '私密' }
-        ]
+        ],
+        limitTime: [
+            { name: 'N', value: '无限制', checked: true },
+            { name: 'T', value: '限制'}
+        ],
+        showlimitTime:false,
+        limitTimeChoose:'N'
+    },
+    timeLimitChange(e){
+        let value = e.detail.value;
+        this.setData({
+            limitTimeChoose:value,
+            limitTime: [
+                { name: 'N', value: '无限制', checked: value === 'N' },
+                { name: 'T', value: '限制', checked: value==='T'}
+            ],
+            showlimitTime: value === 'T'
+        })
     },
     radioChange: function(e) {
         let self = this;
@@ -58,10 +76,8 @@ Page({
     },
     bindDesTextAreaInput: function(e) {
         let self = this;
-        let desTextLen = e.detail.cursor;
         self.setData({
-            desTextareaData: e.detail.value,
-            desTextareaDataLen: e.detail.cursor
+            desTextareaData: e.detail.value
         })
     },
     bindTextAreaInput: function(e) {
@@ -80,17 +96,89 @@ Page({
             })
         }
     },
+    bindTimeChange(e) {
+        let self = this;
+        let now = new Date();
+        let date =app.getyyyyMMdd(now);
+        if(date === this.data.date){
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let split_date = e.detail.value.split(':');
+            let hour = split_date[0];
+            let min = split_date[1];
+            if(parseInt(hour) < hours){
+                app.ShowQQmodal('时间选择错误', "请重新选择");
+                return
+            }else if(parseInt(hour) === hours ){
+                if(min<=minutes){
+                    now.setMinutes(now.getMinutes() + 30);
+                    app.ShowQQmodal('时间选择错误', "投票时间至少30分钟");
+                    let set_min = now.getMinutes();
+                    if(set_min < 10){
+                        set_min = '0'+set_min
+                    }
+                    let params = {
+                        time:now.getHours()+':'+ set_min
+                    }
+                    let date = app.getyyyyMMdd(now); // 如果是23：30后操作
+                    if(date !== app.getyyyyMMdd(new Date())){
+                        params['date'] = date
+                    }
+                    setTimeout(function () {
+                        self.setData(params)
+                    },1500)
+                }else {
+                    this.setData({
+                        time: e.detail.value,
+                    })
+                }
+            } else {
+                this.setData({
+                    time: e.detail.value,
+                })
+            }
+        } else {
+            this.setData({
+                time: e.detail.value,
+            })
+        }
+    },
+    bindvaliDateChange (e) {
+        let now = new Date();
+        let date =app.getyyyyMMdd(now);
+        let params = {
+            date: e.detail.value
+        };
+        if(e.detail.value !== date){
+            params['start_time'] = '00:00'
+        } else {
+            params['start_time'] = now.getHours()+':'+now.getMinutes();
+            params['time'] = '23:59';
+        }
+        this.setData(params)
+    },
     onLoad: function() {
         let self = this;
-        // const startDate = new Date().toLocaleDateString().replace(/\//g, '-');
-        // self.setData({
-        //     startDate: startDate
-        // })
+        let now = new Date();
+        let date =app.getyyyyMMdd(now);
+        const startDate =app.getyyyyMMdd(now);
+        let minites = now.getMinutes();
+        let hours = now.getHours();
+        let start_time = hours+':'+minites;
+
+        now.setDate(now.getDate() + 1);
+        now.setFullYear(now.getFullYear() + 1); //最长限制一年
+        const endDate = app.getyyyyMMdd(now);
         app.WxHttpRequestGet('get_upload_sign', {}, function (res) {
             let data = res.data;
             if (data.code === 200) {
                 self.setData({
                     limit_pic:3,
+                    startDate:startDate,
+                    date:date,
+                    time:"23:59",
+                    start_time:start_time,
+                    endDate:endDate,
                     oss: data.data.oss,
                     access_token: data.data.access_token,
                 })
@@ -111,23 +199,21 @@ Page({
         let voteContent = this.data.newVoteContent;
         let voteItem = {};
         var self = this;
+        if(self.data.unique_answer.indexOf(voteContent)!==-1){
+            app.ShowToast('已存在投票选项');
+            return
+        }
         if (voteContent) {
             voteItem.title = voteContent;
         } else {
-            qq.showToast({
-                title: '请填写选项内容',
-                icon: 'none',
-                duration: 1500
-            })
-            setTimeout(function() {
-                qq.hideLoading()
-            }, 2000)
+            app.ShowToast('请填写选项内容');
             return;
         }
         self.data.newVotes.push(voteItem);
+        self.data.unique_answer.push(voteContent);
         self.setData({
             desTextareaState: !self.data.desTextareaState,
-            addNewVoteState: !self.data.addNewVoteState,
+            unique_answer: self.data.unique_answer,
             newVoteContent: '',
             newVotes: self.data.newVotes,
             addNewVoteState: false,
@@ -205,14 +291,17 @@ Page({
         let self = this;
         let index = e.currentTarget.dataset.index;
         let delData = self.data.newVotes;
+        let unique_answer = self.data.unique_answer;
         qq.showModal({
             title: '温馨提示',
             content: '确认删除该投票选项？',
             success: function(res) {
                 if (res.confirm) {
-                    delData.splice(index, 1)
+                    delData.splice(index, 1);
+                    unique_answer.splice(index, 1);
                     self.setData({
-                        newVotes: delData
+                        newVotes: delData,
+                        unique_answer: unique_answer,
                     })
                 }
             }
@@ -249,26 +338,14 @@ Page({
         let desTextareaData = self.data.desTextareaData;
         let newVotes = self.data.newVotes;
         if (newVoteTitle === "") {
-            qq.showToast({
-                title: '请输入【投票标题】后再提交',
-                icon: 'none',
-                duration: 1500
-            })
+            app.ShowToast('请输入【投票标题】后再提交');
             return;
         } else if (self.data.voteTitleLen < 3) {
-            qq.showToast({
-                title: '【投票标题】至少三个字',
-                icon: 'none',
-                duration: 1500
-            })
+            app.ShowToast('【投票标题】至少三个字');
             return;
         }
         if (newVotes.length < 2) {
-            qq.showToast({
-                title: '【投票选项】至少两项！',
-                icon: 'none',
-                duration: 1500
-            })
+            app.ShowToast('【投票选项】至少两项！');
             return;
         }
         let params = {
@@ -277,8 +354,11 @@ Page({
             content: desTextareaData,
             options: newVotes
         };
+        if(this.data.limitTimeChoose==='T'){
+            params['end_time'] = this.data.date + ' ' + this.data.time
+        }
         var temprory = self.data.temporary_imgs;
-        let img_list = self.data.voteImgs
+        let img_list = self.data.voteImgs;
         app.qqshowloading('发布中，请稍后');
         if (temprory) {
             params['images'] = temprory;

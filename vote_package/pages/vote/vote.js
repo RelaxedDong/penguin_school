@@ -75,14 +75,16 @@ Page({
     })
   },
   onLoad: function(options){
+    let school = JSON.parse(options.school);
     let self = this;
-    app.qqshowloading();
-    app.WxHttpRequestGet('vote_list', {}, function (res) {
+    app.qqshowloading('');
+    app.WxHttpRequestGet('vote_list', {school_id:school['id']}, function (res) {
       let data = res.data;
       if (data.code === 200) {
         let result = self.format_votes(data.data);
         self.setData({
-          votes: result
+          votes: result,
+          school: school,
         })
       } else {
         app.ShowQQmodal(res.message, "");

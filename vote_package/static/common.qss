@@ -41,6 +41,17 @@
     /* iOS 4.1- */
 }
 
+.cuIcon-roundclosefill:before {
+    content: "\e658";
+}
+
+.cuIcon-roundclose:before {
+    content: "\e659";
+}
+
+.cuIcon-close:before {
+    content: "\e646";
+}
 .cuIcon-move:before {
     content: "\e768";
 }
@@ -141,4 +152,20 @@
 
 .color-bfbfbf {
     color: #bfbfbf;
+}
+/** empty **/
+.empty{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 150rpx 0;
+}
+.empty image{
+    align-self: center;
+    width: 150rpx;
+    height: 150rpx;
+}
+.empty text{
+    margin-top: 20rpx;
+    font-size: 25rpx;
 }

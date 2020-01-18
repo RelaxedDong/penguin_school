@@ -51,7 +51,7 @@ Page({
     let check = app.AUthCheck();
     let that = this;
     if(check){
-      app.qqshowloading()
+      app.qqshowloading('')
       let user_id = app.globalData.user_id;
       app.WxHttpRequestGet('user_sign', {user_id:user_id}, function (res) {
         let data = res.data;
