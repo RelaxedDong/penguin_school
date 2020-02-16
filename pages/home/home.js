@@ -30,6 +30,19 @@ Page({
     app.ShowQQmodal('切换成功', item.name);
     this.GetSchoolHome(item.id)
   },
+  onShareAppMessage(res){
+    return {
+      title: app.globalData.school.name,
+      path: "pages/home/home",
+      imageUrl: "", // 图片 URL
+      success:function (res) {
+        console.log(res, 'success')
+      },
+      fail:function (res) {
+        console.log(res, 'fail')
+      }
+    }
+  },
   HandleClick: function(e){
     let url = e.currentTarget.dataset.url;
     let school = JSON.stringify(app.globalData.school);

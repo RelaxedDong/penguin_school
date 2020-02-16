@@ -9,6 +9,7 @@
 .weui-grids {
     position: relative;
     overflow: hidden;
+    margin-bottom: 40rpx;
 }
 .margin-top-5{
     margin-top: 5rpx;

@@ -75,19 +75,18 @@
         <!--list end-->
         <view class="no-more-tip" wx:if="{{bottomLineState}}">这是底部，已无更多内容</view>
     </view>
-    <view class="feedback-btn">
-        <button open-type="feedback">
-            <text class="cuIcon-questionfill fa-plus-circle"></text>反馈
-        </button>
-    </view>
-    <view  class="vote-add-btn" hover-class="vote-item-data-active" bindtap="targetToAdd">
-        <text class="cuIcon-roundaddfill fa-plus-circle"></text>创建投票
-<!--        <text>创建投票</text>-->
-<!--        <i class="fa fa-plus-circle"></i>创建投票-->
-    </view>
 </view>
-
 <view class="empty" qq:else>
     <image src="/imgs/source/loading.gif"></image>
-    <text class="text-grey">{{school.name}}展示无投票，快来发布吧</text>
+    <text class="text-grey">{{school.name}}暂无投票，快来发布吧</text>
+</view>
+<view class="feedback-btn">
+    <button open-type="feedback">
+        <text class="cuIcon-questionfill fa-plus-circle"></text>反馈
+    </button>
+</view>
+<view  class="vote-add-btn" hover-class="vote-item-data-active" bindtap="targetToAdd">
+    <text class="cuIcon-roundaddfill fa-plus-circle"></text>创建投票
+    <!--        <text>创建投票</text>-->
+    <!--        <i class="fa fa-plus-circle"></i>创建投票-->
 </view>

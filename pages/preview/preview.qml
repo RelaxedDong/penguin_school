@@ -1,7 +1,7 @@
 <!--pages/preview/preview.wxml-->
 <view class='show-img' style='height:{{system.screenHeight}}px'>
   <view bindtap='back_page' style='height:{{height*2 -48}}px;top:0;left:1em;' class='bar'>
-    <text class="cuIcon-close"></text>
+    <text class="{{detail_load?'cuIcon-homefill':'cuIcon-close'}}"></text>
   </view>
   <view class='preview-swiper'>
     <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;">
@@ -12,7 +12,7 @@
       </block>
     </swiper>
   </view>
-  <view animation="{{animationData}}" class='fix'>
+  <view animation="{{animationData}}" class='fix' bindtap='show_all' >
     <view class='interact'>
       <view class='witget'>
         <view>
@@ -31,7 +31,7 @@
         <text class="cuIcon-more font-size-50 border-box padding-10"  bindtap='action_sheet' style='margin-left: 1em;' ></text>
       </view>
 
-      <view bindtap='show_all' class='totop border-box padding-10'>
+      <view class='totop border-box padding-10'>
         <text qq:if="{{!info_show}}" animation="{{topAniData}}" class="font-size-50 cuIcon-fold"></text>
         <text qq:else="{{info_show}}" animation="{{topAniData}}" class="font-size-50 cuIcon-unfold"></text>
       </view>
@@ -63,7 +63,7 @@
 
 <!-- action sheet -->
 <action-sheet hidden="{{actionSheetHidden}}" bindchange="action_sheet">
-    <action-sheet-item style='margin-top: 0.3em;'  bindtap='save' data-url='{{gallary.imgs}}'>下载</action-sheet-item>
+    <action-sheet-item style='margin-top: 0.3em;'  catchtap='save' data-url='{{gallary.imgs}}'>下载</action-sheet-item>
     <action-sheet-item><button style='background-color: #fff; border: none; margin:0' open-type='share'>分享</button></action-sheet-item>
     <action-sheet-cancel >取消</action-sheet-cancel>
 </action-sheet>

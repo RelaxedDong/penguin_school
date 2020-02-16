@@ -14,9 +14,9 @@
                     </view>
                 </view>
                 <view class="border-box padding-10 border-box">
-                    <view qq:if="{{item.address}}" class="text-size-25 margin-top-10 text-black column-center flex-row">
-                        <text class="cuIcon-locationfill border-box"></text>
-                        <text class="margin-left-5">{{item.address}}</text>
+                    <view qq:if="{{item.address}}" class="text-size-25 margin-top-10 column-center flex-row">
+                        <text class="cuIcon-locationfill border-box text-blue"></text>
+                        <text class="margin-left-10 text-black">{{item.address}}</text>
                     </view>
                     <view class="text-grey photo-desc">
                         {{item.content}}
@@ -48,9 +48,9 @@
                     </view>
                 </view>
                 <view class="border-box padding-10 border-box">
-                    <view qq:if="{{item.address}}" class="text-size-25 margin-top-10 text-black column-center flex-row">
-                        <text class="cuIcon-locationfill border-box"></text>
-                        <text class="margin-left-5">{{item.address}}</text>
+                    <view qq:if="{{item.address}}" class="text-size-25 margin-top-10  column-center flex-row">
+                        <text class="cuIcon-locationfill border-box text-blue"></text>
+                        <text class="margin-left-10 text-black">{{item.address}}</text>
                     </view>
                     <view class="text-grey photo-desc">
                         {{item.content}}

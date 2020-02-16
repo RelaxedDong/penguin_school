@@ -4,6 +4,7 @@ Page({
     data:{
         releaseFocus:false,
         favor:false,
+        detail_load:false,
         reply_commentid:false,
         releaseName:"发表新评论",
         commentValue:"",
@@ -62,7 +63,7 @@ Page({
             'super_id':comment.id
         }
         qq.navigateTo({
-          url: '/pages/detail/more-vote_add?data='+encodeURIComponent(JSON.stringify(data))
+          url: '/pages/detail/more-comment?data='+encodeURIComponent(JSON.stringify(data))
       })
     },
     HandleSend (e){
@@ -116,6 +117,11 @@ Page({
                 qq.hideLoading()
             },app.InterError)
     },
+    Toindex(e){
+        qq.switchTab({
+            url:'/pages/home/home'
+        })
+    },
     bindReply: function(e){
         let dataset = e.currentTarget.dataset;
         let update_data = {
@@ -168,7 +174,6 @@ Page({
     },
     QQZonePublish(){
         let that = this;
-        // let share_row = app.globalData.share_urls;
         let share_row = [];
         let activity = that.data.activity;
         if(activity.imgs){
@@ -210,15 +215,31 @@ Page({
         const activity_id = e.currentTarget.dataset.id;
         app.WxHttpRequestPOST('activity_favor',{activity_id:activity_id},this.FavorDone,app.InterError)
     },
-    share(){
-      this.onShareAppMessage()
-    },
     onShareAppMessage(res){
-        app.ShowMenue()
+        let activity = this.data.activity;
+        return {
+              title: activity.title,
+              query: "activity_id="+activity.id,
+              path: "pages/detail/detail?activity_id="+activity.id,
+              imageUrl: "", // 图片 URL
+              success:function (res) {
+                console.log(res, 'success')
+            },
+            fail:function (res) {
+                console.log(res, 'fail')
+            }
+        }
     },
     onLoad: function (options) {
+        let detail_id = options.detail_id;
+        if(!detail_id){
+            var obj = qq.getLaunchOptionsSync();
+            detail_id = obj.query.activity_id;
+            this.setData({
+                detail_load:true
+            })
+        }
         app.qqshowloading('');
-        const detail_id = options.detail_id;
         app.WxHttpRequestGet('activity_detail',{detail_id:detail_id},this.HandleGetDone,app.InterError)
     },
     onShow: function () {

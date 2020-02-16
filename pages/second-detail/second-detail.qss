@@ -20,7 +20,13 @@
 }
 .item{
     padding: 20rpx 0;
-    margin: 30rpx 0 ;
+    margin: 10rpx 0 ;
+}
+.footer{
+    background: white;
+}
+.back-index{
+    bottom: 30%;
 }
 .footer-bottom{
     padding-bottom: 150rpx;

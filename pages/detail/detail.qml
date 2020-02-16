@@ -89,6 +89,9 @@
         <button class="main-bg-cor text-size-30 text-blue" formType="submit">发表</button>
       </form>
   </view>
+  <view class="text-center back-index" bindtap="Toindex" qq:if="{{detail_load}}">
+    <text class="cuIcon-home"></text>
+  </view>
   <view class="box-comment ">
     <view class="empty" qq:if="{{comments.length == 0}}">
       <image src="/imgs/source/loading.gif"></image>
@@ -103,7 +106,7 @@
         </view>
         <view class="share" qq:if="{{user_id == comment.publisher_id}}" data-index="{{index}}" bindtap="DeleteComment"
               data-id="{{comment.id}}" data-act="{{activity.id}}">
-          <text class="cuIcon-deletefill text-red border-box text-size-20"></text>
+          <text class="cuIcon-deletefill text-red border-box text-size-18"></text>
         </view>
       </view>
       <view class="text-size-25 text-black comment-desc">

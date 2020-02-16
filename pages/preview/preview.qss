@@ -69,7 +69,7 @@ page{
   font-size: 0.8em;
 }
 .totop{
-  margin: 0.5em 1.3em;
+  margin: 0.5em 1em;
 }
 .totop text{
   font-size: 40rpx;

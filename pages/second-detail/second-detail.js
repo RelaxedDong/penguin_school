@@ -7,9 +7,15 @@ Page({
    */
   data: {
     indicatorDots: true,
+    detail_load: false,
     autoplay: true,
     interval: 5000,
     duration: 1000,
+  },
+  Toindex(e){
+    qq.switchTab({
+      url:'/pages/home/home'
+    })
   },
   bindaddfrienResult(res){
     let detail = res.detail;
@@ -20,11 +26,20 @@ Page({
   previewImage: function (e) {
     app.preView(e);
   },
-  ShareClick(){
-    app.ShowMenue()
-  },
   onShareAppMessage(res){
-    app.ShowMenue()
+    let second = this.data.second
+    return {
+      title: second.title,
+      imageUrl:"", // 图片 URL
+      path:"pages/second-detail/second-detail?second_id="+second.id, // 图片 URL
+      query:'second_id='+second.id,
+      success: function () {
+        app.ShowToast('恭喜，转发成功！')
+      },
+      fail() {
+        app.ShowToast('网络错误，转发失败！')
+      }
+    }
   },
   onShow: function(){
     var animation = wx.createAnimation({
@@ -53,7 +68,14 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    const detail_id = options.detail_id;
+    let detail_id = options.detail_id;
+    if(!detail_id){
+      var obj = qq.getLaunchOptionsSync();
+      detail_id = obj.query.second_id;
+      this.setData({
+        detail_load:true
+      })
+    }
     app.WxHttpRequestGet('get_second_detail',{second_id:detail_id},function (res) {
       let data =res.data;
       if(data.code === 200){

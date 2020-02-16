@@ -52,7 +52,7 @@ Page({
     let type = this.data.filter_key;
     let url ='/pages/detail/detail?detail_id='+id;
     if(type === 'second'){
-      url = '/pages/second/second'
+      url = '/pages/second-detail/second-detail?detail_id='+id
     }
     if(type === 'gallary'){
         url = '/pages/preview/preview?imgid='+id
@@ -60,7 +60,6 @@ Page({
     qq.navigateTo({
       url:url
     })
-
   },
   FilterClick(e){
     let key = e.currentTarget.dataset.key;

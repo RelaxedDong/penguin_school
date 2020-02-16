@@ -42,7 +42,10 @@
         </view>
     </view>
 </view>
-<ad unit-id="b9c4e3249e88c54ec2a0ea53a8d0bec4" type="card" class="footer-bottom"></ad>
+<view class="text-center back-index" bindtap="Toindex" qq:if="{{detail_load}}">
+    <text class="cuIcon-home"></text>
+</view>
+<ad unit-id="d78afa38065c87c7805996973a589d6a" class="footer-bottom"></ad>
 
 <view class="footer text-grey">
     <view  class="text-center margin-left-20">

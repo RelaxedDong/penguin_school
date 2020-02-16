@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    detail_load: false,
     item: {},
     height: app.globalData.nav_bar_height,
     system: app.globalData.system,
@@ -55,28 +56,40 @@ Page({
     this.setData({ current: e.detail.current })
   },
   back_page: function(){
-    wx.navigateBack({
-      delta: 1
-    })
+    if(this.data.detail_load){
+      qq.switchTab({
+        url:'/pages/home/home'
+      })
+    } else {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
   onShareAppMessage(res){
-    qq.ShowMenue()
-    // let gallary = this.data.gallary;
-    // qq.shareAppMessage({
-    //   title: gallary.title,
-    //   imageUrl: gallary.imgs[0], // 图片 URL
-    //   query:'gallary_id='+gallary.id,
-    //   shareAppType:'qzone',
-    //   success: function () {
-    //     app.ShowToast('恭喜，转发成功！')
-    //   },
-    //   fail() {
-    //     app.ShowToast('网络错误，转发失败！')
-    //   }
-    // })
+    let gallary = this.data.gallary;
+    return {
+      title: gallary.title,
+      imageUrl:gallary.imgs[0], // 图片 URL
+      path:"pages/preview/preview?gallary_id="+gallary.id, // 图片 URL
+      query:'gallary_id='+gallary.id,
+      success: function () {
+        app.ShowToast('恭喜，转发成功！')
+      },
+      fail() {
+        app.ShowToast('网络错误，转发失败！')
+      }
+    }
   },
   onLoad: function(options){
     let Id = options.imgid;
+    if(!Id){
+      var obj = qq.getLaunchOptionsSync();
+      Id = obj.query.gallary_id;
+      this.setData({
+        detail_load:true
+      })
+    }
     let that = this;
     app.WxHttpRequestGet('gallary_detail',{gallaryId:Id},function (res) {
         let data = res.data;
@@ -165,6 +178,32 @@ Page({
       })
     }
   },
+  download_img () {
+    let gallary = this.data.gallary;
+    let imgs = gallary.imgs;
+    for(let i=0;i<imgs.length;i++){
+      app.qqshowloading('图片下载中...');
+      qq.downloadFile({
+        url:imgs[i],
+        success: function(res) {
+          qq.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,
+            success: function(data) {
+              qq.showToast({
+                title: "相册图片保存成功！",
+                icon: "success",
+                duration: 2000
+              });
+              qq.hideLoading()
+            },
+            fail: function(err) {
+              app.ShowToast('保存错误！');
+            }
+          });
+        }
+      });
+    }
+  },
   save: function (e) {
     var that = this;
     //获取相册授权
@@ -174,7 +213,7 @@ Page({
           wx.authorize({
             scope: 'scope.writePhotosAlbum',
             success() {//这里是用户同意授权后的回调
-              app.ShowQQmodal('即将开放～', "");
+              that.download_img()
             },
             fail() {//这里是用户拒绝授权后的回调
               wx.showModal({
@@ -185,7 +224,7 @@ Page({
                     wx.openSetting({
                       success(res){
                         if (res.authSetting["scope.writePhotosAlbum"]) {
-                          app.ShowQQmodal('即将开放～', "");
+                          that.download_img()
                         }
                       }
                     })
@@ -195,7 +234,7 @@ Page({
             }
           })
         } else {//用户已经授权过了
-          app.ShowQQmodal('即将开放～', "");
+          that.download_img()
         }
       }
     })

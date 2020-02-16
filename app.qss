@@ -41,6 +41,17 @@
 /*.button-hover{*/
 /*  opacity: 0;*/
 /*}*/
+.back-index{
+  position: fixed;
+  right: 30rpx;
+  bottom:3%;
+  border-radius: 50%;
+  padding: 15rpx 20rpx;
+  color: white;
+  box-sizing: border-box;
+  z-index: 1024;
+  background: #16D0FF;
+}
 .advertise {
   padding:10rpx 0;
   box-sizing: border-box;

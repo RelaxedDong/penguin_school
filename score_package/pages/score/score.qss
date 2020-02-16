@@ -1,0 +1,107 @@
+.vote-add {
+ padding-top: 28rpx;
+ font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+ box-sizing: border-box;
+}
+
+.vote-add p {
+ display: block;
+ margin-bottom: 40rpx;
+}
+
+.vote-add p label {
+ width: 20%;
+ padding-right: 4%;
+ text-align: right;
+}
+
+.right {
+  width: 80%;
+  height: 80rpx;
+    float: right;
+  text-align: left;
+  line-height: 80rpx;
+}
+.right-left input {
+  float: left;
+  text-align: left;
+  height: 80rpx;
+}
+.right-right {
+  width: 30%;
+  float: right;
+  height: 80rpx;
+}
+.right-right image{
+    width:100%;
+    height:100%;
+}
+
+.vote-add-item {
+ padding: 22rpx 28rpx;
+ font-size: 28rpx;
+}
+.vote-add-item radio-group label {
+ width: 180rpx;
+ color: #333333;
+}
+
+.vote-add-item .vote-add-item-data {
+ width: 80%;
+ box-sizing: border-box;
+}
+.vote-add-item label {
+ width: 20%;
+ float: left;
+ color: #515151;
+}
+.btn{ background-color: #16D0FF; color: #FFFFFF;}
+.picker-label{
+ color: #515151;
+}
+.other-text{
+ display: inline-block;
+ font-size: 22rpx;
+ color: #707070;
+}
+.picker-label{
+ color: #515151;
+}
+.captcha {
+ height: 60rpx;
+ width: 100rpx;
+}
+.vote-add-item input,
+.vote-add-item radio-group {
+ height: 60rpx;
+ line-height: 60rpx;
+}
+
+.vote-add-item .label-for-input {
+ display: inline-block;
+ height: 60rpx;
+ line-height: 60rpx;
+}
+
+.bottom-line,
+.top-line {
+ position: relative;
+}
+
+.bottom-line:after,
+.top-line:before {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ content: '';
+ width: 100%;
+ height: 2rpx;
+ background-color: #f1f8f6;
+}
+.clearfix:after {
+ content: '';
+ display: block;
+ height: 0;
+ visibility: hidden;
+ clear: both;
+}

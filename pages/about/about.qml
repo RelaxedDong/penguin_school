@@ -1,3 +1,3 @@
 <view class='bg'>
-    　　<image src='/imgs/source/about.png' class='full'></image>
+    　　<image src='/imgs/source/about.jpg' class='full'></image>
 </view>

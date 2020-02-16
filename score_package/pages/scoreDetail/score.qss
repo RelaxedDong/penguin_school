@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    padding:20rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+.info {
+    margin: 30rpx;
+    -moz-column-count:3; /* Firefox */
+    -webkit-column-count:3; /* Safari and Chrome */
+    column-count:1;
+}
+.info view{
+    padding-top: 5rpx;
+    box-sizing: border-box;
+}
+.score-img {
+    margin-top: 50rpx;
+}
+.score-img image{
+    width: 100%;
+}

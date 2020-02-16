@@ -60,7 +60,8 @@ Page({
    */
   onShow() {
     if (app.globalData.new_vote){
-      this.onLoad();
+      let school = JSON.stringify(app.globalData.school);
+      this.onLoad({school:school});
       app.globalData.new_vote = false
     }
   },

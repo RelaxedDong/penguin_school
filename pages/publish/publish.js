@@ -15,7 +15,7 @@ Page({
     imglist: [],
     active_address:false,
     min:5,//最少字数
-    max: 500, //最多字数 (根据自己需求改变)
+    max: 2000, //最多字数 (根据自己需求改变)
     anonymous: false,
     onload_with_tag: false,
     is_img_upload: false,
@@ -47,8 +47,8 @@ Page({
         const that = this;
         qq.chooseImage({
             count:that.data.limit_pic, // 默认9
-            sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-            sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
+            sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album',"camera"], // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
                 var tempFilePaths = res.tempFilePaths;
@@ -116,19 +116,19 @@ Page({
         const rules = {
             title: {
                 required: true,
-                maxlength: 20,
+                maxlength: 30,
                 minlength: 3
             },
             desc: {
                 required: true,
-                maxlength: 500,
+                maxlength: 2000,
                 minlength: 5
             },
         }
         const messages = {
             title: {
                 required: '标题必须要填写',
-                maxlength: '标题最多20个字符',
+                maxlength: '标题最多30个字符',
                 minlength: '标题至少3个字符'
             },
             desc: {
