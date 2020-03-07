@@ -69,6 +69,7 @@ Page({
     this.ItemFilter(this.data.active_key,key)
   },
   ItemFilter(active_key,filter_key){
+    app.qqshowloading('')
     let that = this;
     let url = 'get_my_favors';
     if(active_key === 'publish'){
@@ -84,6 +85,7 @@ Page({
       }else{
         app.ShowQQmodal(data.message, "");
       }
+      qq.hideLoading();
     }, app.InterError);
   },
   /**

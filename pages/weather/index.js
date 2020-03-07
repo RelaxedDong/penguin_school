@@ -96,7 +96,7 @@ Page({
     app.WxHttpRequestPOST('user_subscribe',{is_subscribe:status},function (res) {
       let data = res.data;
       if(data.code === 200){
-        app.ShowToast("订阅成功")
+        app.ShowToast("操作成功")
       }else {
         app.ShowQQmodal(data.message, "");
       }
@@ -104,6 +104,10 @@ Page({
     })
   },
   SubScribe(e){
+    if(!app.globalData.user_id){
+      app.ShowQQmodal('请先完成校园认证', '');
+      return
+    }
     let that = this;
     if(e.detail.value) {
       qq.getSetting({
@@ -252,17 +256,21 @@ Page({
       summary: weather['day_op'],
       localTemperature:weather['tem']
     });
-    qq.getSetting({
-      success(res) {
-        let is_subscribe = false;
-        if (res.authSetting['scope.appMsgSubscribed']) {
-          is_subscribe = true;
+
+    if(app.globalData.user_id){
+      app.WxHttpRequestGet('user_subscribe',{user_id:app.globalData.user_id},function (res) {
+        let result = res.data;
+        if(result.code === 200){
+          that.setData({
+            is_subscribe:result.data
+          })
         }
-        that.setData({
-          is_subscribe
-        })
-      }
-    })
+      })
+    }else{
+      that.setData({
+        is_subscribe:false
+      })
+    }
     this.getWeather();
     this.getNowWeather();
     this.getLifestyle();

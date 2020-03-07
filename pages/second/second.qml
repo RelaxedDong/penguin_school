@@ -83,7 +83,7 @@
         </view>
     </view>
     <view class="empty" qq:if="{{second_goods.length == 0}}">
-        <image src="/imgs/source/loading.gif"></image>
+        <image src="/imgs/source/none.png"></image>
         <text class="text-grey">二手闲置快速赚钱，快来发布吧</text>
     </view>
 </view>

@@ -9,6 +9,7 @@ Page({
         releaseName:"发表新评论",
         commentValue:"",
         comments:[],
+        favors:[],
         favor_count:0,
     },
     inputBind (e){
@@ -144,6 +145,7 @@ Page({
         if(data.code === 200){
             this.setData({
                 activity:data.data.activity,
+                favors:data.data.favors,
                 comments:data.data.comments,
                 user_id:app.globalData.user_id,
                 favor_count:data.data.favor_count,
@@ -229,6 +231,12 @@ Page({
                 console.log(res, 'fail')
             }
         }
+    },
+    ToUserPage (e){
+        var i = e.currentTarget.dataset.id;
+        qq.navigateTo({
+            url:"/pages/my/profile/profile?i="+i
+        })
     },
     onLoad: function (options) {
         let detail_id = options.detail_id;

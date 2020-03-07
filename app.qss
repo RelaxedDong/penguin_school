@@ -190,6 +190,9 @@ textarea{
 .text-bold{
   font-weight: bold;
 }
+.text-bolder{
+  font-weight: bolder;
+}
 .border-radius{
   border-radius: 50%;
 }
@@ -527,4 +530,52 @@ textarea{
 }
 /*底部回复*/
 /** detail footer **/
+.cu-avatar {
+  font-variant: small-caps;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  color: var(--white);
+  white-space: nowrap;
+  position: relative;
+  width: 64rpx;
+  height: 64rpx;
+  background-size: cover;
+  background-position: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+  border-radius: 50%;
+}
+
+.cu-avatar.sm {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 1em;
+}
+
+.cu-avatar-group {
+  direction: rtl;
+  box-sizing: border-box;
+  unicode-bidi: bidi-override;
+  padding: 0 10rpx 0 40rpx;
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+}
+
+.cu-avatar-group .cu-avatar {
+  margin-left: -30rpx;
+  margin-top: 5rpx;
+  border: 4rpx solid var(--ghostWhite);
+  vertical-align: middle;
+}
+
+.cu-avatar-group .cu-avatar.sm {
+  margin-left: -20rpx;
+  border: 1rpx solid var(--ghostWhite);
+}
 @import "main-qss/icon.qss";

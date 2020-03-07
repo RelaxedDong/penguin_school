@@ -1,7 +1,9 @@
 <view class="page-container" qq:if="{{activity}}">
   <view class="activity-head shadow flex-row border-main padding-top-bottom-20">
-    <image class="cell-center" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
-    <view class="info flex-column">
+    <image
+            catch:tap="ToUserPage" data-id="{{activity.i}}"
+            class="cell-center" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
+    <view class="info flex-column cell-center">
       <view class="nickname">
         <view class="text-black">
           {{activity.anonymous == '1'?'匿名用户':activity.nickname}}
@@ -24,11 +26,17 @@
     <view>
       {{activity.title}}
     </view>
-    <view>
-      <button open-type="share" class="cell-center text-yellow flex-row ">
-        <view  class=" auto-left">
-          <text class="cuIcon-share"></text>
-        </view>
+    <view class="flex-row">
+<!--      <button open-type="share" class="cell-center text-yellow flex-row ">-->
+<!--        <view  class=" auto-left">-->
+<!--          <text class="cuIcon-share"></text>-->
+<!--        </view>-->
+<!--      </button>-->
+      <button open-type="share" style="padding: 0">
+        <image src="/imgs/source/QQ.png" mode="aspectFill" style="width: 50rpx;height: 50rpx"></image>
+      </button>
+      <button open-type="share"  style="padding: 0">
+        <image src="/imgs/source/qqzone.png" mode="aspectFill" style="width: 50rpx;height: 50rpx;margin-left: 15rpx"></image>
       </button>
     </view>
   </view>
@@ -54,13 +62,13 @@
           <view class="text-size-23">#{{item.name}}</view>
         </view>
   </view>
-  <view class="space-between text-grey padding-top-bottom-20 text-size-27 border-main margin-left-10">
+  <view class="space-between text-grey padding-top-bottom-20 text-size-27 margin-left-10">
     <view bindtap="QQZonePublish">
-      <text class="cuIcon-upload margin-right-10 green"></text>
-      <text>生成说说</text>
+            <image src="/imgs/source/icon/qzone.png"  mode="aspectFill" style="width: 30rpx;height: 30rpx"></image>
+            <text class="margin-left-10">同步到说说</text>
     </view>
-      <view class="margin-right-10">
-        <view class="flex-row">
+    <view class="margin-right-10">
+        <view class="flex-row text-size-27">
           <view class="margin-right-20">
             <text class="margin-right-10 cuIcon-attention"></text>{{activity.view_count}}
           </view>
@@ -73,6 +81,18 @@
         </view>
       </view>
   </view>
+    <view class="padding-top-bottom-20 border-main" wx:if="{{favors.length > 0}}">
+        <view class="cu-avatar-group">
+            <view class="cu-avatar sm"
+                  wx:key
+                  qq:for="{{favors}}"
+                  style="background-image: url('{{item.avatarUrl}}')"
+                  bindtap="ToUserPage" data-id="{{item.account_id}}"
+            >
+            </view>
+        </view>
+        <view class="margin-20 text-size-25 text-grey">等{{favors.length}}人觉得很赞</view>
+    </view>
   <view class="release" hidden="{{!releaseFocus}}">
     <textarea class="text"
               placeholder-class="input_null"

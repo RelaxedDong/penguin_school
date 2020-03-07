@@ -1,0 +1,68 @@
+<view class='nav' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    <text class="cuIcon-back back text-size-30" bindtap="navBack"></text>
+  </view>
+</view>
+<image class="profile-face" mode="aspectFill"
+       src="{{user_info.face_url}}"></image>
+<view class="profile-box">
+        <view class="profile">
+            <image class="profile-avatar" src="{{user_info.avatarUrl}}"></image>
+            <view class="flex-column cell-center margin-top-10 text-size-25 margin-left-10">
+                <view class="profile-nickname">
+                        {{user_info.nickname}}
+                    <view class="text-size-23 {{user_info.gender === 'female'?'cuIcon-female text-red':'cuIcon-male text-blue'}}"></view>
+                </view>
+            </view>
+            <view class="auto-left margin-right-5 location align-items">
+                <button class="subscribe"
+                        bindaddfriend="bindaddfrienResult"
+                        open-type="addFriend"
+                        open-id="{{user_info.openid}}">
+                    + 好友
+                </button>
+            </view>
+        </view>
+        <view class="profile-count flex-row text-white">
+            <view>
+                {{user_info.department}}
+            </view>
+            <view class="margin-left-20 margin-right-20">|</view>
+            <view class="flex-row">
+                <view class="cuIcon-locationfill cell-center text-blue margin-right-10"></view>
+                <view qq:if="{{user_info.city}}">{{user_info.city}}</view>
+                <view qq:else>未知</view>
+            </view>
+        </view>
+<!--        <view class="profile-count flex-row">-->
+<!--            <view class="count-info">0 粉丝</view>-->
+<!--            <view class="count-info margin-left-20">0 获赞</view>-->
+<!--            <view class="count-info margin-left-20">19 关注</view>-->
+<!--        </view>-->
+    <view class="profile-publish">
+        <view class="flex-row board-box">
+            <view qq:for="{{boards}}" qq:key class="board-item {{item.type==active_board?'active-board':''}}"
+                  data-type="{{item.type}}" bindtap="boardClick">{{item.name}}</view>
+        </view>
+        <view class="data-box">
+            <view class="data-item" qq:for="{{user_items}}" qq:key bindtap="Todetail" data-id="{{item.id}}">
+                <image mode="aspectFill" qq:if="{{item.imgs.length>0}}"
+                       src="{{item.imgs[0]}}"
+                ></image>
+                <view class="data-info flex-column">
+                    <view class="text-size-27 text-black">
+                        {{item.title}}
+                    </view>
+                    <view class="flex-row  flex1 margin-top-10 space-between text-size-23">
+                        <view class="text-grey cell-center">发布于：{{item.create_time}}</view>
+                        <view class="margin-left-10 cell-center text-bolder text-black">{{item.view_count}} 浏览</view>
+                    </view>
+                </view>
+            </view>
+            <view class="empty" qq:if="{{user_items.length == 0}}">
+                <image src="/imgs/source/none.png"></image>
+                <text class="text-grey">还没有发布内容哦～</text>
+            </view>
+        </view>
+    </view>
+</view>

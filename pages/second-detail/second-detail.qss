@@ -8,10 +8,6 @@
 .raw_price{
     text-decoration:line-through;
 }
-.activity-head{
-    padding: 20rpx;
-    box-sizing: border-box;
-}
 .add-cart-btn{background:linear-gradient(to right,#FF7A34, #EE32FF);color: #fff;
     border-radius: 50rpx;width: 400rpx}
 .good-desc{

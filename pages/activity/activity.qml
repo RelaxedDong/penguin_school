@@ -38,12 +38,12 @@
     <text class="cuIcon-add"></text>
   </view>
   <view bindtouchstart="touchStart" class="margin-top-10" bindtap="DetailClick" data-id="{{activity.id}}" qq:for="{{activities}}" qq:key qq:for-item="activity">
-      <view qq:if="{{index%5 == 2}}"  class="advertise">
-          <ad unit-id="d78afa38065c87c7805996973a589d6a"></ad>
-      </view>
+<!--      <view qq:if="{{index%5 == 2}}"  class="advertise">-->
+<!--          <ad unit-id="d78afa38065c87c7805996973a589d6a"></ad>-->
+<!--      </view>-->
       <view class="activity-list padding-10 shadow">
           <view class="activity-head flex-row">
-              <image src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
+              <image catch:tap="ToUserPage" data-id="{{activity.i}}" src="{{activity.anonymous == '1'?'/imgs/source/users/avatar/anonymous1.png':activity.avatarUrl}}"></image>
               <view class="info flex-column">
                   <view class="nickname">
                       <view class="text-black">
@@ -88,7 +88,7 @@
     <text>没有更多了</text>
   </view>
   <view class="empty" qq:if="{{activities.length == 0}}">
-    <image src="/imgs/source/loading.gif"></image>
-    <text class="text-grey">此处什么都没有，快来发布吧～</text>
+    <image src="/imgs/source/none.png"></image>
+    <text class="text-grey">空空如也，快来发布吧～</text>
   </view>
 </view>

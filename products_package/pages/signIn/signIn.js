@@ -1,4 +1,4 @@
-// pages/signIn/score.js
+// pages/signIn/login.js
 //获取应用实例
 const app = getApp();
 Page({

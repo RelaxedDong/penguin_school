@@ -7,7 +7,7 @@
     </block>
 </swiper>
 <view class="page-container">
-    <view class="activity-head shadow flex-row">
+    <view class="activity-head shadow flex-row" style="padding: 20rpx">
         <image class='user-img' src='{{second.avatarUrl}}'></image>
         <view class="info flex-column">
             <view class="nickname">
@@ -18,14 +18,14 @@
             <view class="text-size-25 text-grey">{{second.create_time}}</view>
         </view>
     </view>
-    <view class="margin-top-20 padding-top-bottom-20 space-between border-main">
+    <view class="margin-top-50 padding-top-bottom-20 space-between border-main">
         <view class="price">¥ {{second.price}}</view>
         <view class="text-grey text-size-25 auto-left" qq:if="{{second.old_price}}">
             <text>原价： </text>
             <text class="raw_price">¥ {{second.old_price}}</text>
         </view>
     </view>
-    <view class="text-size-30 item">
+    <view class="text-size-30 item margin-top-50">
         {{second.title}}
     </view>
     <view class="text-grey item good-desc">
@@ -45,7 +45,6 @@
 <view class="text-center back-index" bindtap="Toindex" qq:if="{{detail_load}}">
     <text class="cuIcon-home"></text>
 </view>
-<ad unit-id="d78afa38065c87c7805996973a589d6a" class="footer-bottom"></ad>
 
 <view class="footer text-grey">
     <view  class="text-center margin-left-20">

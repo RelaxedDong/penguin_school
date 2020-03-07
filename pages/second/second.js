@@ -74,7 +74,7 @@ Page({
   onLoad:function(){
     this.setData({
       imgUrls: app.globalData.second_banner,
-    })
+    });
     this.pageFilter()
   },
   onReachBottom:function(){

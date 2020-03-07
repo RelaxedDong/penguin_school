@@ -1,7 +1,7 @@
 <view class="page-container">
-    <ad unit-id="d78afa38065c87c7805996973a589d6a"></ad>
+<!--    <ad unit-id="d78afa38065c87c7805996973a589d6a"></ad>-->
     <view class="item-choose margin-top-20">
-        <view class="search-box">
+        <view class="search-box padding-20">
             <text class="cuIcon-search margin-left-20"></text>
             <input type="text" placeholder="请输发布地址" value="{{input}}"
                    bindinput='getsuggest' bindconfirm="search"/>

@@ -62,4 +62,4 @@
   </view>
   <view qq:if="{{sign_time}}" class='margin-top-10'>上次签到： {{sign_time}}</view>
 </view>
-<ad unit-id="b9c4e3249e88c54ec2a0ea53a8d0bec4" type="card"></ad>
+<!--<ad unit-id="b9c4e3249e88c54ec2a0ea53a8d0bec4" type="card"></ad>-->

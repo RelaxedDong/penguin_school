@@ -15,7 +15,7 @@ Page({
             {name: '时间',key:"create_time",tag:"timefill"},
             {name: '查看',key:"view_count",tag:"attentionfill"},
             {name: '评论',key:"comment_count",tag:"commentfill"},
-            {name: '收藏',key:"favor_length",tag:"favorfill"},
+            {name: '收藏',key:"collect_count",tag:"favorfill"},
         ],
         default_icon: 'cuIcon-triangledownfill',
         order: 'DESC',
@@ -123,6 +123,12 @@ Page({
                 order_bar:false,
             })
         }
+    },
+    ToUserPage (e){
+        var i = e.currentTarget.dataset.id;
+        qq.navigateTo({
+            url:"/pages/my/profile/profile?i="+i
+        })
     },
     pageFilter(tag_id, key=""){
         app.qqshowloading('');

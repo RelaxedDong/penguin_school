@@ -75,17 +75,6 @@
             <text class="cuIcon-right"></text>
         </view>
     </view>
-<!--    <view class="item-choose"  qq:if="{{activekey == 'location'}}">-->
-<!--        <view class="search-box">-->
-<!--            <text class="cuIcon-search margin-left-20"></text>-->
-<!--            <input type="text" placeholder="请输发布地址" value="{{input}}"-->
-<!--                   bindinput='getsuggest' bindconfirm="search"/>-->
-<!--        </view>-->
-<!--        <view class="items-box main-bg-cor" qq:if="{{address_list.length > 0}}">-->
-<!--            <view  qq:for="{{address_list}}" qq:key qq:key  class="items text-size-23 " bindtap="AddressClick" data-address="{{item}}"-->
-<!--            ><text qq:if="{{item == active_address}}" class="cuIcon-locationfill text-size-30 text-yellow"></text>{{item}}</view>-->
-<!--        </view>-->
-<!--    </view>-->
     <view class="space-between border-main" bindtap="anonymousClick" qq:if="{{!is_img_upload}}">
         <view>
             <text class=" {{anonymous?'cuIcon-radiobox':'cuIcon-round'}}"></text><text class="margin-left-10">匿名发布</text>

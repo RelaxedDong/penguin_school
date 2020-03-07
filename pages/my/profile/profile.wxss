@@ -1,0 +1,140 @@
+page{
+  overflow-x:hidden;
+}
+.nav {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.nav-title {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  font-family: PingFang-SC-Medium;
+  font-size: 34rpx;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.nav .back {
+  padding: 0px 15px;
+}
+.profile-face{
+  position: relative;
+  width: 100%;
+  height: 600rpx;
+}
+.profile-box{
+  left: 0rpx;
+  right: 0rpx;
+  position: absolute;
+  top: 200rpx;
+  overflow-x:hidden;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+.profile .profile-avatar{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+}
+.profile-nickname{
+  font-size: 30rpx;
+  font-weight: bolder;
+  color: white;
+}
+.subscribe{
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  margin:20rpx auto;
+  line-height: 1;
+  display: flex;
+  font-size: 25rpx;
+  flex-direction: row;
+  border: 0;
+  background: #16D0FF;
+  color: #ffffff;
+  padding: 10rpx 30rpx;
+}
+.profile-count {
+  font-size: 25rpx;
+  width: 100%;
+  margin: 30rpx 20rpx;
+}
+.count-info {
+  background: rgba(0,0,0,0.4);
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+  color: #ffffff;
+}
+.board-box {
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  border-bottom: 1px solid #f1f2f6;
+}
+.board-item{
+  padding: 30rpx 50rpx;
+  position: relative;
+}
+.active-board:before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 35%;
+  height: 4px;
+  background: #16D0FF;
+}
+.profile-publish{
+  margin-top: 50rpx;
+  overflow: hidden;
+  background: #ffffff;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+}
+
+.data-box{
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  width: 100%;
+}
+.data-item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  border-bottom: 1px solid #f1f2f6;
+  box-sizing: border-box;
+}
+.data-item image{
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+}
+.data-info{
+  flex: 1;
+  margin-left: 20rpx;
+  width: 100%;
+}
+.empty image{
+    align-self: center;
+    width: 200rpx;
+    height: 150rpx;
+}

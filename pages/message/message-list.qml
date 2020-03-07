@@ -1,4 +1,4 @@
-<ad unit-id="07455d6724a14cd74e00a52e5fe972fe" class="margin-top-20" type="feeds"></ad>
+<!--<ad unit-id="07455d6724a14cd74e00a52e5fe972fe" class="margin-top-20" type="feeds"></ad>-->
 <view class="card-container margin-top-20">
     <view class="flex-column padding-top-bottom-20 border-main"
           qq:for="{{messages}}" qq:key qq:for-item="message"
@@ -29,7 +29,7 @@
         </view>
     </view>
     <view class="empty" qq:if="{{messages.length == 0}}">
-        <image src="/imgs/source/loading.gif"></image>
+        <image src="/imgs/source/none.png"></image>
         <text class="text-grey">此处空空...</text>
     </view>
 </view>

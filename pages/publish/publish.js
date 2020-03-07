@@ -317,7 +317,6 @@ Page({
                                 tags[i].is_active = true;
                                 tags = [tags[i]];
                                 setData['onload_with_tag'] = true;
-                                console.log('我跳出了')
                                 break
                             }
                         }
